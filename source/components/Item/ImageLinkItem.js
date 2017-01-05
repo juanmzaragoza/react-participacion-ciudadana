@@ -1,0 +1,24 @@
+import React, { PropTypes } from "react";
+import { Link } from 'react-router';
+
+class ImageLinkItem extends React.Component {
+
+	constructor(props) {
+		super(props)
+	}
+
+	render() {
+
+		const linkHref = this.props.linkHref? this.props.linkHref:"/";
+		const imageSrc = this.props.imageSrc? this.props.imageSrc:require("../../public/content/images/Encuentros_con_Horacio.png");
+		const description = this.props.description? this.props.description:"Encuentros con Horacio";
+
+		return (
+			<Link to={linkHref}>
+				<img src={imageSrc} alt={description} className="img-thumbnail" />
+			</Link>
+		)
+	}
+}
+
+export default ImageLinkItem

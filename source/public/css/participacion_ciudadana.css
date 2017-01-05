@@ -1,0 +1,60 @@
+.navbar-default .navbar-nav > li > a.active, 
+.navbar-default .navbar-nav > li > a:focus.active, 
+.navbar-default .navbar-nav > li > a:hover.active  {
+	background-color: #c5c3c2;
+    color: #fff;
+}
+
+/* Delimitacion de texto para campos descriptivos de items que se listan en pantallas principales */
+.text-limit-five-lines {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+}
+
+.text-limit-two-lines {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* Spin de carga */
+.spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Correccion de posicion del buscador de la pagina principal */
+.box-btn-miBA {
+  top: 20%;
+}
