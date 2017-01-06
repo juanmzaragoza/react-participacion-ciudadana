@@ -13,7 +13,10 @@ import * as type from '../constants/ApiResultType'
 const Results = (props) => {
 
 	var sizeCols = [9,3]; //primera columna de la pagina de 9/12 y la segunda de 3/12
-	var filter = {categoria: props.params.id_category};
+	var filter = {
+		categoria: props.params.id_category,
+		publicado: 1
+	};
 
 	return(
 		<div className="container">

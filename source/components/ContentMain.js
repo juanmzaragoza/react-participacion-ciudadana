@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from "react";
+import ContentMainEtapas from "./ContentMainEtapas";
 
 class ContentMain extends React.Component {
 
@@ -33,17 +34,6 @@ class ContentMain extends React.Component {
 		const imgSocialFb = require("../public/content/images/social-fb.png");
 		const imgSocialTw = require("../public/content/images/social-tw.png");
 
-		const etapa1_on = require("../public/content/images/etapa_001.png");
-		const etapa2_on = require("../public/content/images/etapa_002.png");
-		const etapa3_on = require("../public/content/images/etapa_003.png");
-		const etapa4_off = require("../public/content/images/etapa_off_004.png");
-		const etapa5_off = require("../public/content/images/etapa_off_005.png");
-
-		const uneAc = require("../public/content/images/une-Ac.png");
-		const uneDac = require("../public/content/images/une-Dac.png");
-		const liAct = require("../public/content/images/li-act.png");
-		const liDact = require("../public/content/images/li-dact.png");
-
 		return (
 			this.props.error?
 				(<div>
@@ -56,39 +46,9 @@ class ContentMain extends React.Component {
 			  			<h1>{content.nombre}</h1>
 				  		<p className="lead" ref="shortdescription"></p>
 	              	</header>
-				
+					
 					{(content.obra_etapas !== undefined)?
-					 	(<div>
-					 		<header>
-			              		<h2>Etapas de Obra</h2>
-			              		<p>Aquí podes ver en que etapa se encuentra la obra en la que estas participando.</p>
-				            </header>
-		            
-						 	<div className="clear"></div>
-						 
-						 	<div className="row">
-						     	<div className="col-xs-12 col-sm-4 col-md-4 "><a href="#"><img className="etp-1" src={etapa1_on} /></a></div>
-							 	<div className="col-xs-12 col-sm-4 col-md-4 "><a href="#"><img className="etp-3" src={etapa3_on} /></a></div>
-							 	<div className="col-xs-12 col-sm-4 col-md-4 "><a href="#"><img className="etp-5" src={etapa5_off} /></a></div>
-						 	</div>	 
-						  	<div className="row">
-					         	<ul className="linea-etapa">
-							     	<li><img src={uneAc} /></li>
-							     	<li><img src={liAct} /></li>
-									<li><img src={uneAc} /></li>
-							     	<li><img src={liAct} /></li>
-							     	<li><img src={uneAc} /></li>
-									<li><img src={liDact} /></li>
-							     	<li><img src={uneDac} /></li>
-							     	<li><img src={liDact} /></li>
-									<li><img src={uneDac} /></li>
-						     	</ul>
-						 	</div>	 
-					  		<div className="row">
-						     	<div className="col-xs-12 col-sm-6 col-md-6 "><a href="#"><img className="etp-2" src={etapa2_on}  /></a></div>
-							 	<div className="col-xs-12 col-sm-6 col-md-6 "><a href="#"><img className="etp-4" src={etapa4_off}  /></a></div>
-						 	</div>
-						 </div>)
+						<ContentMainEtapas etapas={content.obra_etapas} />
 						: 
 						null
 					}

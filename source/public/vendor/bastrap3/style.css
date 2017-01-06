@@ -303,107 +303,78 @@ background-color:#fcd4a9;
 	 color:#000;
  }
 
-/*========================================================================*/
+/*==================Etapas-divs====================*/
 
-
-/* .etapas li.uno-on::before{
-    background:url(../image/etapa_1_on.png);
-} */
-
-/* li h2::before {
-     content: url(../image/etapa_1_on.png);
-     width: 50px;
-     height: 60px;
-     position:absolute;
-	 left:0;
-	 top: -38px;
-}
- */
-
-.etapas li{
-	 list-style:none;
-	 text-decoration:none;
-	 float:left;
-	 display:inline;
-	 padding-right:5px;
-}
-
-.etapas li a{
-	 text-decoration:none;
-}
-
-.etapas li h2{
-	 color:#333;
-	 font-size:16px;
-     line-height: 15px;
-	 margin-left:3px;
-}
-
-.descrip{
-	 position:relative;
-     width:170px;
-	 height:auto;
-	 border:1px solid #ddd;
-     margin-left:48px;
-}
-
-.num-etapa{
-	 position:relative;
-     width:50px;
-	 height:60px;
-	 float:left;
-	 border:1px solid #ddd;
-}
-
-.Ag-logo{
-	 width:40px;
-	 height:33px;
-	 position:relative;
-	 margin:2px;
-	/* border:1px solid #ddd;  */
-}
-
-
-.etp-1{
-	 padding-left:0;
-	
-}
-
-.etp-2{
-	 margin-left:145px;
-	
-}
-.etp-3{
-	 margin-left:28px;
-	
-}
-.etp-4{
-	 margin-left:38px;
-	
-}
-.etp-5{
-     margin-left:45px;
-}
-
-
-.list-etapa li{
+.etapas-proceso li{
 	list-style:none;
 	float:left;
 	display:inline;
-	padding-right:5px;
+/* 	padding-right:5px; */
 	/* border:1px solid #ddd; */
 }
 
-
-.linea-etapa{margin-left:3px;}
-
-
-.linea-etapa li{
-	list-style:none;
-	float:left;
-	display:inline;
-	padding: 0 2px;
+.box-etapa{
+	 position:relative;
+     width:140px;
+	 height:130px;
+	 padding-top:1px;
+	 margin-bottom:2px;
+	/*  border:1px solid #ddd; */
 }
+
+.box-title{
+	 position:relative;
+     width:140px;
+	 height:90px;
+	 margin-bottom:2px;
+	 background:url(../../content/images/bg-descr.png) no-repeat;
+	 padding-right: 22px;
+	 /* border-bottom:1px solid #ddd; */
+}
+
+a, .box-title {
+    text-decoration:none;
+}
+
+.box-title p{
+	 color:#333;
+	 font-size:16px;
+     line-height: 15px;
+	 margin-left:12px;
+	 padding-top:15px; 
+	 font-family:"CHANEWEI", Helvetica, Arial, sans-serif;
+	 font-weight: 500;
+	 text-decoration:none;
+}
+
+.box-title p:hover{
+	 color:#888;
+	 text-decoration:none;
+}
+
+.box-title a:hover{
+	 text-decoration:none;
+}
+
+.box-num{
+	 position:relative;
+     width:35px;
+	 height:35px;
+	 float:left;
+	/*  margin-left:1px; */
+}
+
+.box-linea{
+	 position:relative;
+     width:98px;
+	 height:35px;
+	 float:left;
+	 margin-left:3px;
+	/*  border:1px solid #ddd; */
+}
+
+
+/*==================Fin-etapas-divs====================*/
 
 .share-redes li{
 	list-style:none;

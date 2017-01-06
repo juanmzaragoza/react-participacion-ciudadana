@@ -64,16 +64,16 @@ const getFullUrl = (page = 1,limit = 25,filters = {}, request_type) => {
 
     for(var filterName in filters) {
         if(filters[filterName] !== undefined){
-            url += filterName+'='+filters[filterName];
+            url += filterName+'='+filters[filterName]+'&';
         }
     }
 
     if(page){
-        url += '&page='+page;
+        url += 'page='+page+'&';
     }
 
     if(limit){
-        url += '&limit='+limit;
+        url += 'limit='+limit+'&';
     }
 
     return url;
