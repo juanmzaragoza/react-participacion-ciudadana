@@ -33,6 +33,7 @@ class ContentMain extends React.Component {
 
 		const imgSocialFb = require("../public/content/images/social-fb.png");
 		const imgSocialTw = require("../public/content/images/social-tw.png");
+		const imgSocialInst = require("../public/content/images/social-Inst.png");
 
 		return (
 			this.props.error?
@@ -68,7 +69,7 @@ class ContentMain extends React.Component {
 		         	<ul className="share-redes">
 			     		<li><a href="#"> <img src={imgSocialFb}  /> </a></li>
 				     	<li><a href="#"> <img src={imgSocialTw}  /> </a></li>
-						<li><a href="#"> <img src={imgSocialFb}  /> </a></li>
+						<li><a href="#"> <img src={imgSocialInst}  /> </a></li>
 			     	</ul>
 
 			      	<div className="clear"></div>
