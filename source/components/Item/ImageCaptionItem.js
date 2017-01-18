@@ -6,6 +6,21 @@ class ImageCaptionItem extends React.Component {
 		super(props);
 	}
 
+	componentDidMount(){
+		this.refs.title.innerHTML = this.props.title;
+		this.refs.description.innerHTML = this.props.description;
+	}
+
+	componentDidUpdate(){
+		this.refs.title.innerHTML = this.props.title;
+		this.refs.description.innerHTML = this.props.description;
+	}
+
+	componentWillUnmount(){
+		this.refs.title.innerHTML = "";
+		this.refs.description.innerHTML = "";
+	}
+
 	render(){
 
 		const classItem = this.props.isFirst? "item active":"item";
@@ -15,8 +30,8 @@ class ImageCaptionItem extends React.Component {
 			<div className={classItem} >
 				<img src={imageSrc} alt={this.props.description}/>
 				<div className="carousel-caption">
-				 	<h3>{this.props.title}</h3>
-				 	<p>{this.props.description}</p>
+				 	<h3 ref="title"></h3>
+				 	<p ref="description"></p>
 			  	</div>
 			</div>
 		)
