@@ -11,6 +11,10 @@ class ThumbnailDescriptionItem extends React.Component {
 		this.refs.description.innerHTML = this.props.description;
 	}
 
+	componentDidUpdate(){
+		this.refs.description.innerHTML = this.props.description;
+	}
+
 	componentWillUnmount(){
 		this.refs.description.innerHTML = "";
 	}
