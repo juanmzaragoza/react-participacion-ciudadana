@@ -30,7 +30,7 @@ class ImageCaptionItem extends React.Component {
 			<div className={classItem} >
 				<img src={imageSrc} alt={this.props.description}/>
 				<div className="carousel-caption">
-				 	<h3 ref="title"></h3>
+				 	<h2 ref="title"></h2>
 				 	<p ref="description"></p>
 			  	</div>
 			</div>
