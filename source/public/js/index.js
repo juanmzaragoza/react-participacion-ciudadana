@@ -1,13 +1,18 @@
 $(document).ready(function(){
 
-    $('.box-btn-miBA').fadeOut();
+    //Funcionamiento: despues de determinado % de scroll, aparece el buscador
+    /*$('.box-btn-miBA').fadeOut();
     $(window).scroll(function(){
         if ($(this).scrollTop() > 80) {
             $('.box-btn-miBA').fadeIn();
         } else {
             $('.box-btn-miBA').fadeOut();
         }
-    });
+    });*/
+    
+    setInterval(function(){
+        $('.box-btn-miBA').fadeIn();
+    },2000);
     
     $.datepicker.regional['es'] = {
         closeText: 'Cerrar',

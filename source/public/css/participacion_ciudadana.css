@@ -53,8 +53,3 @@
     transform: rotate(360deg);
   }
 }
-
-/* Correccion de posicion del buscador de la pagina principal */
-.box-btn-miBA {
-  top: 20%;
-}
