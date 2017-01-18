@@ -4,7 +4,7 @@ import {  fetchImagesFromGallery } from '../actions/MediaAction';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        items: getItemsFromAction(state.sectionProyectos.header.images)
+        items: getItemsFromAction(state.headerSection.images)
     }
 }
 

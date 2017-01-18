@@ -6,16 +6,16 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
         items: getItemsFromAction(state.sectionHDYV.body.items),
-        itemsPerRow: 4,
+        itemsPerRow: 2,
         colSm: 6,
-        colMd: 3
+        colMd: 6
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     componentWillMount: () => {
-        dispatch(fetchCategoriesFromSection('horaciodiegovos'));
+        dispatch(fetchCategoriesFromSection('reunionesdevecinos'));
     }
   }
 }
@@ -28,17 +28,12 @@ const ObrasListThumbnailDescriptionContainer = connect(
 function getItemsFromAction(itemsArray){
   let items = [];
   itemsArray.forEach(function(element,index){
-
-    let linkHref = 'resultados/proyectos/'+element.id;
-    if(element.nombre == "Reuniones de Vecinos"){
-      linkHref = 'reuniones_de_vecinos';
-    }
-
     let item = {
       description: element.descripcion,
       imageSrc: element.image.url,
       hrefText: '',
-      linkHref: linkHref
+      linkHref: 'resultados/proyectos/'+element.id,
+      isCategory: true
     }
     items.push(item);
   });

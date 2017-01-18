@@ -19,6 +19,33 @@ class ThumbnailDescriptionItem extends React.Component {
 		this.refs.description.innerHTML = "";
 	}
 
+	renderCaption(){
+		return (
+			(this.props.isCategory === true)?
+				(<div className="caption">
+					<div className="text-category">
+						<h3>{this.props.label}</h3>
+						<p className={this.props.descriptionTextClass} ref="description"></p>
+						<p>
+							<Link to={this.props.linkHref} className="btn btn-primary" role="button">
+								{this.props.linkText? this.props.linkText:'Leer más'}
+							</Link>
+						</p>
+					</div>
+				</div>)
+				:					
+				(<div className="caption">
+					<h3>{this.props.label}</h3>
+					<p className={this.props.descriptionTextClass} ref="description"></p>
+					<p>
+						<Link to={this.props.linkHref} className="btn btn-primary" role="button">
+							{this.props.linkText? this.props.linkText:'Leer más'}
+						</Link>
+					</p>
+				</div>)
+		)
+	}
+
 	render(){
 
 		let classRoot = "col-xs-12 col-sm-"+this.props.colSm+" col-md-"+this.props.colMd;
@@ -29,15 +56,7 @@ class ThumbnailDescriptionItem extends React.Component {
 					<Link to={this.props.linkHref} >
 				  		<img src={this.props.thumbnail_src} className={"img-rounded"} alt={this.props.label}/>
 				  	</Link>
-			  		<div className="caption">
-						<h3>{this.props.label}</h3>
-						<p className={this.props.descriptionTextClass} ref="description"></p>
-						<p>
-							<Link to={this.props.linkHref} className="btn btn-primary" role="button">
-								{this.props.linkText? this.props.linkText:'Leer más'}
-							</Link>
-						</p>
-					</div>
+				  	{this.renderCaption.bind(this)()}
 				</div>
 		  	</div>
 		)
@@ -49,7 +68,8 @@ ThumbnailDescriptionItem.defaultProps = {
     linkText: '',
     descriptionTextClass: '',
     colSm: 6,
-    colMd: 3
+    colMd: 3,
+    isCategory: false
 }
 
 ThumbnailDescriptionItem.propTypes = {
@@ -62,7 +82,8 @@ ThumbnailDescriptionItem.propTypes = {
   colSm: PropTypes.number,
   colMd: PropTypes.number,
   descriptionTextClass: PropTypes.string,
-  isFirst: PropTypes.bool
+  isFirst: PropTypes.bool,
+  isCategory: PropTypes.bool,
 }
 
 export default ThumbnailDescriptionItem

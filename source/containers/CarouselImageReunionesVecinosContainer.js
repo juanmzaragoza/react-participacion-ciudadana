@@ -11,12 +11,12 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     componentWillMount: () => {
-        dispatch(fetchImagesFromGallery('horaciodiegovos'));
+        dispatch(fetchImagesFromGallery('reunionesdevecinos'));
     }
   }
 }
 
-const CarouselImageHDYVContainer = connect(
+const CarouselImageReunionesVecinosContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(CarouselImageItems)
@@ -34,4 +34,4 @@ function getItemsFromAction(itemsArray){
     return items;
 }
 
-export default CarouselImageHDYVContainer
+export default CarouselImageReunionesVecinosContainer

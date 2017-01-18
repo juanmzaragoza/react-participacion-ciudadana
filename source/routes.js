@@ -5,6 +5,7 @@ import Index from './pages/Index'
 import Obras from './pages/Obras'
 import Proyectos from './pages/Proyectos'
 import HoracioDiegoVos from './pages/HoracioDiegoVos'
+import ReunionesVecinos from './pages/ReunionesVecinos'
 import Results from './pages/Results'
 import ProyectosResults from './pages/ProyectosResults'
 import ObrasResults from './pages/ObrasResults'
@@ -18,6 +19,7 @@ export default (
   		<Route path="/obras" component={Obras}/>
   		<Route path="/proyectos" component={Proyectos}/>
       <Route path="/horacio_diego_y_vos" component={HoracioDiegoVos}/>
+      <Route path="/reuniones_de_vecinos" component={ReunionesVecinos}/>
 
   		<Route path="/resultados" component={Results} />
   		<Route path="/resultados/obras/:id_state" component={ObrasResults} />

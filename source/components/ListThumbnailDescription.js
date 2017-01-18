@@ -30,7 +30,8 @@ class ListThumbnailDescription extends React.Component {
 						linkHref={item.linkHref}
 						linkText={item.hrefText? item.hrefText:"Leer más"} 
 						colSm={colSm}
-						colMd={colMd} />
+						colMd={colMd}
+						isCategory={item.isCategory? true:false} />
 				))}
 			</div>
 		)
@@ -40,8 +41,7 @@ class ListThumbnailDescription extends React.Component {
 ListThumbnailDescription.propTypes = {
   items: PropTypes.array.isRequired,
   itemsPerRow: PropTypes.number.isRequired,
-  colSm: PropTypes.number,
-  colMd: PropTypes.number
+  colSm: PropTypes.number
 }
 
 export default ListThumbnailDescription

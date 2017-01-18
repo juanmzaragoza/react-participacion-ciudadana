@@ -1,11 +1,6 @@
 import * as types from '../constants/RequestActionTypes'
 
 const initialState = {
-  header: {
-    isFetching: false,
-    errorRequest: false,
-    images: []
-  },
   body: {
     isFetching: false,
     errorRequest: false,
@@ -15,11 +10,7 @@ const initialState = {
 
 export default function sectionObras(state = initialState, action) {
   let new_state;
-  if(new_state = processHeaderAction(state, action)){
-
-    return new_state;
-
-  } else if(new_state = processBodyAction(state, action)){
+  if(new_state = processBodyAction(state, action)){
 
     return new_state;
 
@@ -27,39 +18,6 @@ export default function sectionObras(state = initialState, action) {
 
     return state;
 
-  }
-}
-
-function processHeaderAction(state, action){
-  switch (action.type) {
-    case types.REQUEST_IMAGES_GALLERY:
-      return Object.assign({}, state, {
-        header: Object.assign({}, state.header, {
-          isFetching: true,
-          errorRequest: false
-        })
-      })
-    case types.REQUEST_IMAGES_GALLERY_SUCCESS:
-      let images = [];
-      action.images.forEach(function(image){
-        images.push(image.image);
-      })
-      return Object.assign({}, state, {
-        header: Object.assign({}, state.header, {
-          isFetching: false,
-          errorRequest: false,
-          images: images
-        })
-      })
-    case types.REQUEST_IMAGES_GALLERY_FAILURE:
-      return Object.assign({}, state, {
-        header: Object.assign({}, state.header, {
-          isFetching: false,
-          errorRequest: true
-        })
-      })
-    default:
-      return false;
   }
 }
 
