@@ -32,6 +32,8 @@ function getItemsFromAction(itemsArray){
     let linkHref = 'resultados/proyectos/'+element.id;
     if(element.nombre == "Reuniones de Vecinos"){
       linkHref = 'reuniones_de_vecinos';
+    } else if(element.nombre == "Reuniones con Ministros"){
+      linkHref = 'reuniones_con_ministros';
     }
 
     let item = {

@@ -5,7 +5,7 @@ import {  fetchCategoriesFromSection } from '../actions/EventoAction';
 const mapStateToProps = (state, ownProps) => {
 
     return {
-        items: getItemsFromAction(state.sectionReunionesVecinos.body.items),
+        items: getItemsFromAction(state.sectionReunionesMinistros.body.items),
         itemsPerRow: 2,
         colSm: 6,
         colMd: 6
@@ -15,12 +15,12 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     componentWillMount: () => {
-        dispatch(fetchCategoriesFromSection('reunionesdevecinos'));
+        dispatch(fetchCategoriesFromSection('reunionesconministro'));
     }
   }
 }
 
-const ReunionesVecinosListThumbnailDescriptionContainer = connect(
+const ReunionesMinistrosListThumbnailDescriptionContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ListThumbnailDescription)
@@ -40,4 +40,4 @@ function getItemsFromAction(itemsArray){
   return items;
 }
 
-export default ReunionesVecinosListThumbnailDescriptionContainer
+export default ReunionesMinistrosListThumbnailDescriptionContainer

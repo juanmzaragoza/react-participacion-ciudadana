@@ -6,6 +6,7 @@ import Obras from './pages/Obras'
 import Proyectos from './pages/Proyectos'
 import HoracioDiegoVos from './pages/HoracioDiegoVos'
 import ReunionesVecinos from './pages/ReunionesVecinos'
+import ReunionesMinistros from './pages/ReunionesMinistros'
 import Results from './pages/Results'
 import ProyectosResults from './pages/ProyectosResults'
 import ObrasResults from './pages/ObrasResults'
@@ -20,6 +21,7 @@ export default (
   		<Route path="/proyectos" component={Proyectos}/>
       <Route path="/horacio_diego_y_vos" component={HoracioDiegoVos}/>
       <Route path="/reuniones_de_vecinos" component={ReunionesVecinos}/>
+      <Route path="/reuniones_con_ministros" component={ReunionesMinistros}/>
 
   		<Route path="/resultados" component={Results} />
   		<Route path="/resultados/obras/:id_state" component={ObrasResults} />

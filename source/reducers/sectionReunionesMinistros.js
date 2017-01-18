@@ -8,7 +8,7 @@ const initialState = {
   }  
 }
 
-export default function sectionReunionesVecinos(state = initialState, action) {
+export default function sectionReunionesMinistros(state = initialState, action) {
   let new_state;
   if(new_state = processBodyAction(state, action)){
 

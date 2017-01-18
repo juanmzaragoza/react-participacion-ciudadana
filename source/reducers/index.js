@@ -9,6 +9,7 @@ import sectionObras from './sectionObras'
 import sectionProyectos from './sectionProyectos'
 import sectionHDYV from './sectionHDYV'
 import sectionReunionesVecinos from './sectionReunionesVecinos'
+import sectionReunionesMinistros from './sectionReunionesMinistros'
 import communeFilter from './communeFilter'
 import categoryFilter from './categoryFilter'
 import result from './result'
@@ -27,6 +28,7 @@ const app = combineReducers({
 	sectionProyectos,
 	sectionHDYV,
 	sectionReunionesVecinos,
+	sectionReunionesMinistros,
 	communeFilter,
 	categoryFilter,
 	result
