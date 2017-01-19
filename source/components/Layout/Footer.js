@@ -29,16 +29,16 @@ class Footer extends React.Component {
       <div className="col-md-4 col-sm-4">
         <h4>Información de contacto</h4>
         <ul>
-          <li><a href="#"><i className="fa fa-phone" ariaHidden="true"></i> (011) 4909-2402</a></li>
-          <li><a href="#"><i className="fa fa-envelope" ariaHidden="true"></i> baparticipacionciudadana@buenosaires.gob.ar</a></li>
+          <li><a href="#"><i className="fa fa-phone"></i> (011) 4909-2402</a></li>
+          <li><a href="#"><i className="fa fa-envelope"></i> baparticipacionciudadana@buenosaires.gob.ar</a></li>
           <li>
             <a href="#">Seguinos en:</a>
             <ul className="follow-redes">
-              <li><a href="#"><i className="fa fa-facebook-square fa-lg" ariaHidden="true"></i></a></li>
-              <li><a href="#"><i className="fa fa-twitter fa-lg" ariaHidden="true"></i></a></li>
-              <li><a href="#"><i className="fa fa-instagram fa-lg" ariaHidden="true"></i></a></li>
-              <li><a href="#"><i className="fa fa-youtube-play fa-lg" ariaHidden="true"></i></a></li>
-              <li><a href="#"><i className="fa fa-rss fa-lg" ariaHidden="true"></i></a></li>
+              <li><a href="#"><i className="fa fa-facebook-square fa-lg"></i></a></li>
+              <li><a href="#"><i className="fa fa-twitter fa-lg"></i></a></li>
+              <li><a href="#"><i className="fa fa-instagram fa-lg"></i></a></li>
+              <li><a href="#"><i className="fa fa-youtube-play fa-lg"></i></a></li>
+              <li><a href="#"><i className="fa fa-rss fa-lg"></i></a></li>
             </ul>
           </li>
         </ul>
