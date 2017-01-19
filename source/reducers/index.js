@@ -5,11 +5,7 @@ import pagination from './pagination'
 import mainSearch from './mainSearch'
 import results from './results'
 import headerSection from './headerSection'
-import sectionObras from './sectionObras'
-import sectionProyectos from './sectionProyectos'
-import sectionHDYV from './sectionHDYV'
-import sectionReunionesVecinos from './sectionReunionesVecinos'
-import sectionReunionesMinistros from './sectionReunionesMinistros'
+import bodySection from './bodySection'
 import communeFilter from './communeFilter'
 import categoryFilter from './categoryFilter'
 import result from './result'
@@ -24,11 +20,7 @@ const app = combineReducers({
 	mainSearch,
 	results,
 	headerSection,
-	sectionObras,
-	sectionProyectos,
-	sectionHDYV,
-	sectionReunionesVecinos,
-	sectionReunionesMinistros,
+	bodySection,
 	communeFilter,
 	categoryFilter,
 	result

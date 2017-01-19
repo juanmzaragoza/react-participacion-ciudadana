@@ -8,9 +8,21 @@ class ListThumbnailDescription extends React.Component {
 		super(props);
 	}
 
+	componentDidMount() {
+		if(this.props.componentDidMount !== undefined){
+			this.props.componentDidMount();
+		}
+	}
+
 	componentWillMount() {
 		if(this.props.componentWillMount !== undefined){
 			this.props.componentWillMount();
+		}
+	}
+
+	componentWillUnmount() {
+		if(this.props.componentWillUnmount !== undefined){
+			this.props.componentWillUnmount();
 		}
 	}
 

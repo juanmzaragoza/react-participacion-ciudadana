@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import ListThumbnailDescription from '../components/ListThumbnailDescription';
 import {  fetchCategoriesFromSection } from '../actions/EventoAction';
+import {  clearBodySection } from '../actions/SectionAction';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    items: getItemsFromAction(state.sectionProyectos.body.items),
+    items: getItemsFromAction(state.bodySection.items),
     itemsPerRow: 3,
     colSm: 6,
     colMd: 4
@@ -13,8 +14,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    componentWillMount: () => {
+    componentDidMount: () => {
         dispatch(fetchCategoriesFromSection('proyectos'));
+    },
+    componentWillUnmount: () => {
+      dispatch(clearBodySection());
     }
   }
 }

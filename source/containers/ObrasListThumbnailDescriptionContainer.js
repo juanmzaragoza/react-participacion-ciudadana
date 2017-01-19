@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import ListThumbnailDescription from '../components/ListThumbnailDescription';
 import {  fetchItemsFromGallery } from '../actions/MediaAction';
+import {  clearBodySection } from '../actions/SectionAction';
 
 const mapStateToProps = (state, ownProps) => {
 
     return {
-      items: getItemsFromAction(state.sectionObras.body.items),
+      items: getItemsFromAction(state.bodySection.items),
       itemsPerRow: 3,
       colSm: 6,
       colMd: 4
@@ -14,8 +15,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    componentWillMount: () => {
-        dispatch(fetchItemsFromGallery('obra_etapas'));
+    componentDidMount: () => {
+      dispatch(fetchItemsFromGallery('obra_etapas'));
+    },
+    componentWillUnmount: () => {
+      dispatch(clearBodySection());
     }
   }
 }
