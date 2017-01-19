@@ -3,7 +3,7 @@ import React from "react";
 import Main from "../components/Layout/Main";
 import Row from "../components/Layout/Row";
 import Separator from "../components/Layout/Separator";
-import CarouselImageObrasContainer from "../containers/CarouselImageObrasContainer"
+import CarouselImagesContainer from "../containers/CarouselImagesContainer"
 import ObrasListThumbnailDescriptionContainer from "../containers/ObrasListThumbnailDescriptionContainer"
 
 const Obras = () => (
@@ -12,7 +12,7 @@ const Obras = () => (
 	    <Main >
 
 	        <Row>
-	            <CarouselImageObrasContainer />
+	            <CarouselImagesContainer gallery={'obras'} />
 	        </Row>
 
 	        <Separator />

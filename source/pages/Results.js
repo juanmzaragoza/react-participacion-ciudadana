@@ -2,7 +2,7 @@ import React from "react";
 
 import Row from "../components/Layout/Row";
 import ResultsListGroupThumbnailContainer from "../containers/ResultsListGroupThumbnailContainer"
-import CarouselImageObrasContainer from "../containers/CarouselImageObrasContainer"
+import CarouselImagesContainer from "../containers/CarouselImagesContainer"
 
 import Article from "../components/Layout/Article";
 import Aside from "../components/Layout/Aside";
@@ -21,7 +21,7 @@ const Results = (props) => {
 		<div className="container">
 
 			<Row>
-	    		<CarouselImageObrasContainer />   
+	    		<CarouselImagesContainer gallery={'obras'} />
 	    	</Row>
 
 	        <div className="row">

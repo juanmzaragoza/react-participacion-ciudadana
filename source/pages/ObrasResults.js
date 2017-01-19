@@ -4,7 +4,7 @@ import Row from "../components/Layout/Row";
 import Section from "../components/Layout/Section";
 import Article from "../components/Layout/Article";
 import Aside from "../components/Layout/Aside";
-import CarouselImageObrasContainer from "../containers/CarouselImageObrasContainer"
+import CarouselImagesContainer from "../containers/CarouselImagesContainer"
 import ResultsListGroupThumbnailContainer from "../containers/ResultsListGroupThumbnailContainer"
 
 import CommuneFilterContainer from "../containers/CommuneFilterContainer"
@@ -23,7 +23,7 @@ const ObrasResults = (props) => {
 	    <div className="container">
 
 	    	<Row>
-	    		<CarouselImageObrasContainer />   
+	    		<CarouselImagesContainer gallery={'obras'} />
 	    	</Row>
 
 	        <div className="row">

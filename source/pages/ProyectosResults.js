@@ -1,7 +1,7 @@
 import React from "react";
 
 import Row from "../components/Layout/Row";
-import CarouselImageProyectosContainer from "../containers/CarouselImageProyectosContainer"
+import CarouselImagesContainer from "../containers/CarouselImagesContainer"
 import ResultsListGroupThumbnailContainer from "../containers/ResultsListGroupThumbnailContainer"
 
 import Article from "../components/Layout/Article";
@@ -22,7 +22,7 @@ const Results = (props) => {
 		<div className="container">
 
 			<Row>
-	    		<CarouselImageProyectosContainer />   
+	    		<CarouselImagesContainer gallery={'eventos'} />
 	    	</Row>
 
 		    <div className="row">
