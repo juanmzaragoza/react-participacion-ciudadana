@@ -8,14 +8,7 @@ export const requestResults = () => {
     }
 }
 
-export const receiveResults = (json, append) => { //accion que se dispara al terminar de recibir la consulta
-    
-    /*let items = [];
-    json.rows.forEach(function(item, index){
-        items[index] = Object.assign({}, item, {
-            show: true
-        })
-    });*/
+export const receiveResults = (json, append, filters) => { //accion que se dispara al terminar de recibir la consulta
 
     return {
         limit: json.limit,
@@ -26,7 +19,8 @@ export const receiveResults = (json, append) => { //accion que se dispara al ter
         apiPageTotal: json.pageTotal,
         apipageRowTotal: json.pageRowTotal,
         items: json.rows,
-        append: append
+        append: append,
+        filters: filters
     }
 }
 
@@ -49,7 +43,7 @@ export const fetchResults = (page = 1,limit = 25,filters = {}, request_type, app
                 return response.json()
             })
             .then(json => {
-                dispatch(receiveResults(json, append))
+                dispatch(receiveResults(json, append, filters))
             })
             .catch(err => {
                 console.log(err)
@@ -64,7 +58,13 @@ const getFullUrl = (page = 1,limit = 25,filters = {}, request_type) => {
 
     for(var filterName in filters) {
         if(filters[filterName] !== undefined){
-            url += filterName+'='+filters[filterName]+'&';
+            if(Array.isArray(filters[filterName])){
+                for(var index in filters[filterName]) {
+                    url += filterName+'='+filters[filterName][index]+'&';
+                }
+            } else{
+                url += filterName+'='+filters[filterName]+'&';
+            }            
         }
     }
 

@@ -8,11 +8,7 @@ const initialState = {
   isFetching: false,
   errorRequest: false,
   items: [],
-  selectedFilters: {
-    comunas: {},
-    categorias: {},
-    tags: {}
-  }
+  selectedFilters: {}
 }
 
 export default function results(state = initialState, action) { 
@@ -30,7 +26,8 @@ export default function results(state = initialState, action) {
         errorRequest: false,
         page: action.apiPage,
         pageCount: action.apiPageTotal,
-        items: action.append? utils.arrayUnion(state.items, action.items, utils.areEntitiesEqual):action.items//Object.assign({}, state.events, {})//action.events
+        items: action.append? utils.arrayUnion(state.items, action.items, utils.areEntitiesEqual):action.items,//Object.assign({}, state.events, {})//action.events
+        selectedFilters: action.filters
       })
 
     case REQUEST_RESULT_FAILURE:

@@ -48,7 +48,7 @@ class ListGroupThumbnails extends React.Component {
 		return (
 			items.map((item,index) => {
 				return(
-					<div className="row">
+					<div key={index} className="row">
 						{item}
 					</div>
 				)

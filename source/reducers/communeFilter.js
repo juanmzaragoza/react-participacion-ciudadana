@@ -38,7 +38,7 @@ export default function communeFilter(state = initialState, action) {
         errorRequest: true
       })
 
-    case types.FILTER_BY_COMUNA:
+    case types.FILTER_BY_COMMUNE:
       let items = state.items.slice();
       items.forEach(function(commune, index){
         if(commune.id == action.commune.id){

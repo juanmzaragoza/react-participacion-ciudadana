@@ -13,6 +13,12 @@ class SelectFilter extends React.Component {
         }
     }
 
+    componentDidUpdate(nextProps, nextState) { 
+        if(this.props.componentDidUpdate !== undefined){
+            this.props.componentDidUpdate();
+        }
+    }
+
     render() {
         return(
             <div className="list-group">
