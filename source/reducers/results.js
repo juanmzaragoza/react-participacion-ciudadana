@@ -4,6 +4,7 @@ import * as utils from '../lib/utils'
 const initialState = {
   limit: 25,
   page: 1,
+  pageCount: 1,
   isFetching: false,
   errorRequest: false,
   items: [],
@@ -28,6 +29,7 @@ export default function results(state = initialState, action) {
         isFetching: false,
         errorRequest: false,
         page: action.apiPage,
+        pageCount: action.apiPageTotal,
         items: action.append? utils.arrayUnion(state.items, action.items, utils.areEntitiesEqual):action.items//Object.assign({}, state.events, {})//action.events
       })
 

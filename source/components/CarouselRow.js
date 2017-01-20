@@ -7,7 +7,7 @@ const CarouselRow = ({id,children, title = '', itemsPerRow,
 	let itemFirst = true;
 
 	let items = []
-	var i,j,temparray,chunk = itemsPerRow > 0? itemsPerRow:4
+	var i,j,chunk = itemsPerRow > 0? itemsPerRow:4
 	for (i=0,j=children.length; i<j; i+=chunk) {
 	    items.push(children.slice(i,i+chunk))
 	}

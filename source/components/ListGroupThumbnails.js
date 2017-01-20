@@ -2,61 +2,78 @@ import React, { PropTypes } from "react"
 import CarouselRowContainer from "../containers/CarouselRowContainer"
 import ThumbnailDescriptionItem from "../components/Item/ThumbnailDescriptionItem"
 import ReactDOM from 'react-dom';
+import ReactPaginate from 'react-paginate';
 
 class ListGroupThumbnails extends React.Component {
 
 	constructor(props) {
   		super(props);
-  		this.handleScroll = this.handleScroll.bind(this);
  	}
 
- 	componentWillMount() {  
- 		this.props.componentWillMount();
- 		window.addEventListener("scroll", this.handleScroll, false);
+ 	componentWillMount() {
+ 		if(this.props.componentWillMount !== undefined){
+ 			this.props.componentWillMount();
+ 		}
  	}
-
-  	handleScroll(e){
-  		//this function will be triggered if user scrolls
-	    const windowHeight = $(window).height();
-	    const inHeight = window.innerHeight;
-	    const scrollT = $(window).scrollTop();
-	    const totalScrolled = scrollT+inHeight;
-
-	    if(totalScrolled> this.props.page*windowHeight){  //user reached at bottom
-		    if(this.props.getMoreResults){
-		    	this.props.getMoreResults(this.props.page+1);
-		    }
-	    }
-  	}
-
-  	componentWillUnmount(){
-  		window.removeEventListener("scroll", this.handleScroll, false);
-  	}
 
   	renderList(){
+
+  		let tempitems = this.props.items.map((item,index) => {
+			let thumbnailSrc;
+			if(item.images !== undefined && item.images.length>0){
+				thumbnailSrc = item.images[0].image.url;
+			} else if(item.image_url){
+				thumbnailSrc = item.image_url;
+			} else {
+				thumbnailSrc = require("../public/content/images/jumbo4.jpg");
+			}
+			return(
+				<ThumbnailDescriptionItem 
+					key={index}
+					thumbnail_src={thumbnailSrc} 
+					label={item.nombre}
+					description={item.descripcion_breve} 
+					linkHref={'/'+item.tipo+'/'+item.id}
+					colSm={6}
+					colMd={4} 
+					descriptionTextClass='text-limit-two-lines' />
+			)
+		});
+
+		let i,j,chunk = 3, items = [];
+		for (i=0,j=tempitems.length; i<j; i+=chunk) {
+		    items.push(tempitems.slice(i,i+chunk))
+		}
+
 		return (
-			this.props.items.map((item,index) => {
-				let thumbnailSrc;
-				if(item.images !== undefined && item.images.length>0){
-					thumbnailSrc = item.images[0].image.url;
-				} else if(item.image_url){
-					thumbnailSrc = item.image_url;
-				} else {
-					thumbnailSrc = require("../public/content/images/jumbo4.jpg");
-				}
+			items.map((item,index) => {
 				return(
-					<ThumbnailDescriptionItem 
-						key={index}
-						thumbnail_src={thumbnailSrc} 
-						label={item.nombre}
-						description={item.descripcion_breve} 
-						linkHref={'/'+item.tipo+'/'+item.id}
-						colSm={6}
-						colMd={4} 
-						descriptionTextClass='text-limit-two-lines' />
+					<div className="row">
+						{item}
+					</div>
 				)
 			})
 		)
+  	}
+
+  	renderPagination() {
+  		return (
+  			<div className="row">
+				<ReactPaginate 
+				   previousLabel={""}
+				   previousLinkClassName={"glyphicon glyphicon-chevron-left"}
+                   nextLabel={""}
+                   nextLinkClassName={"glyphicon glyphicon-chevron-right"}
+                   breakLabel={<a href="">...</a>}
+                   breakClassName={"break-me"}
+                   pageCount={this.props.pageCount}
+                   marginPagesDisplayed={2}
+                   pageRangeDisplayed={5}
+                   onPageChange={this.props.handlePageClick}
+                   containerClassName={"pagination"}
+                   activeClassName={"active"} />
+            </div>
+  		)
   	}
 
  	render(){
@@ -68,6 +85,7 @@ class ListGroupThumbnails extends React.Component {
 			<div>
 				{this.renderList()}
 				{spinFirstLoading}
+				{this.renderPagination()}
 		    </div>
 		)
 	}
@@ -78,8 +96,9 @@ ListGroupThumbnails.propTypes = {
   page: PropTypes.number.isRequired,
   colSm: PropTypes.number.isRequired,
   colMd: PropTypes.number.isRequired,
-  componentDidMount: PropTypes.func,
-  getMoreResults: PropTypes.func
+  pageCount: PropTypes.number,
+  componentWillMount: PropTypes.func,
+  handlePageClick: PropTypes.func
 }
 
 export default ListGroupThumbnails
