@@ -14,7 +14,7 @@ class CarouselThumbnailItems extends React.Component {
 
  	render() {
 
- 		const spin = <h1 style={{textAlign: 'center'}}><span className="glyphicon glyphicon-refresh spin"></span></h1>
+ 		const spin = <h1 style={{textAlign: 'center'}}><span className="glyphicon glyphicon-refresh spin"></span></h1>;
 
 		return(
 			this.props.isLoading?
@@ -28,7 +28,7 @@ class CarouselThumbnailItems extends React.Component {
 									item.image_url:
 									require("../public/content/images/agenda01.png")}
 								label={item.nombre}
-								description={item.descripcion_breve} 
+								description={this.props.withDescription? item.descripcion_breve:""} 
 								linkHref={item.href}
 								linkText={"Leer más"}
 								descriptionTextClass={this.props.descriptionTextClass} />
@@ -39,9 +39,14 @@ class CarouselThumbnailItems extends React.Component {
 	}
 }
 
+CarouselThumbnailItems.defaultProps = {
+    withDescription: true
+}
+
 CarouselThumbnailItems.propTypes = {
   items: PropTypes.array.isRequired,
   visibleItems: PropTypes.number.isRequired,
+  withDescription: PropTypes.bool,
   descriptionTextClass: PropTypes.string,
   componentDidMount: PropTypes.func
 }

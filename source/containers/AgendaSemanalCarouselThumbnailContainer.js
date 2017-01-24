@@ -17,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 			      })	
         	}): [],
         visibleItems: visibleItems,
+        withDescription: false,
         descriptionTextClass: 'text-limit-five-lines'
     }
 }
