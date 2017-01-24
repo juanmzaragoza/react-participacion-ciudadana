@@ -48,7 +48,7 @@ class ContentMain extends React.Component {
 				  		<p className="lead" ref="shortdescription"></p>
 	              	</header>
 					
-					{(content.obra_etapas !== undefined)?
+					{(content.obra_etapas !== undefined && content.obra_etapas.length > 0)?
 						<ContentMainEtapas etapas={content.obra_etapas} />
 						: 
 						null

@@ -70,8 +70,8 @@ class ContentSecondary extends React.Component {
 					spin
 		            :
 		            <div>
-		            	{this.renderImagesSection()}
-		            	{this.renderFilesSection()}
+		            	{this.props.content.images.length > 0? this.renderImagesSection():null}
+		            	{this.props.content.archivos.length > 0? this.renderFilesSection():null}
 		            </div>
 		        )
 		)
