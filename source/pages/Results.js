@@ -14,7 +14,8 @@ const Results = (props) => {
 	let sizeCols = [9,3] //primera columna de la pagina de 9/12 y la segunda de 3/12
 	var filter = {
 		nombre: props.location.query.nombre,
-		fecha: props.location.query.fecha
+		fecha: props.location.query.fecha,
+		seccion: props.location.query.seccion
 	};
 
 	return(

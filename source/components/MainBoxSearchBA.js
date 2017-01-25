@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBarContainer from '../containers/SearchBarContainer'
 import ProjectsDayPickerContainer from '../containers/ProjectsDayPickerContainer'
+import { Link } from 'react-router';
 
 const MainBoxSearchBA = () => {
 
@@ -9,7 +10,9 @@ const MainBoxSearchBA = () => {
             <div className="container ">
                 <div className="row bg-content">
                     <div className="col-md-9">
-                        <button className="btn btn-primary btn-block btn-xl">AGENDA SEMANAL</button>
+                        <Link className="btn btn-primary btn-block btn-xl" to="/resultados?seccion=AGENDASEMANAL">
+                            AGENDA SEMANAL
+                        </Link>
                         <div className="clear"></div>
                 
                         <SearchBarContainer />
