@@ -61,7 +61,7 @@ class Index extends React.Component {
 		    			description="..." />
 		    		<BioItem 
 		    			className={"bio-items"}
-		    			linkHref={"#"}
+		    			linkHref={"/horacio_diego_y_vos"}
 		    			imageSrc={imgBioItemA}
 		    			description="..." />
 		    		<BioItem 
