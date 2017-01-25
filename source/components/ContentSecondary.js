@@ -13,20 +13,17 @@ class ContentSecondary extends React.Component {
  	}
 
  	renderImagesSection() {
- 		let isFirst = true;
  		return(
 			<section>
             	<h2>Imágenes</h2>
             	<div className="row row-modalcarousel">
         	  		{this.props.content.images.map((image,index) => {
-        	  			if(!isFirst && image.image){
+        	  			if(image.image && image.position > 1){
         	  				return(
 		              			<a className="col-xs-6" href={image.image.url} title={image.image.name} key={index}>
 				                	<img className="img-responsive thumbnail" src={image.image.url} />
 				              	</a>
 		              		)
-        	  			} else{
-        	  				isFirst = false;
         	  			}
 	              	})}
 	            </div>
