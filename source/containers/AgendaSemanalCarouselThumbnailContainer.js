@@ -25,7 +25,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     componentDidMount: () => {
-        dispatch(fetchItemsBySeccion(1,25,{seccion_clave: 'AGENDASEMANAL'}))
+        dispatch(fetchItemsBySeccion(1,25,{seccion_clave: 'DESTACADOS'}))
     }
   }
 }
