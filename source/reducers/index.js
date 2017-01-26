@@ -8,6 +8,7 @@ import headerSection from './headerSection'
 import bodySection from './bodySection'
 import communeFilter from './communeFilter'
 import categoryFilter from './categoryFilter'
+import tagFilter from './tagFilter'
 import result from './result'
 
 import { routerReducer as routing } from 'react-router-redux'
@@ -23,6 +24,7 @@ const app = combineReducers({
 	bodySection,
 	communeFilter,
 	categoryFilter,
+	tagFilter,
 	result
 })
 

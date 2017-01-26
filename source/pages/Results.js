@@ -6,6 +6,7 @@ import CarouselImagesContainer from "../containers/CarouselImagesContainer"
 
 import Article from "../components/Layout/Article";
 import Aside from "../components/Layout/Aside";
+import TagFilterContainer from "../containers/TagFilterContainer"
 
 import * as type from '../constants/ApiResultType'
 
@@ -35,7 +36,7 @@ const Results = (props) => {
 		        </Article >
 
 	        	<Aside colSm={12} colMd={3}>
-					
+					<TagFilterContainer type={type.RESULTS_OBRA_EVENTO}/>
 	          	</Aside>
 
 	        </div>

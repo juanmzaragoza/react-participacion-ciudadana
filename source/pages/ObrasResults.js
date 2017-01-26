@@ -8,6 +8,7 @@ import CarouselImagesContainer from "../containers/CarouselImagesContainer"
 import ResultsListGroupThumbnailContainer from "../containers/ResultsListGroupThumbnailContainer"
 
 import CommuneFilterContainer from "../containers/CommuneFilterContainer"
+import TagFilterContainer from "../containers/TagFilterContainer"
 
 import * as type from '../constants/ApiResultType'
 
@@ -37,6 +38,7 @@ const ObrasResults = (props) => {
 
 	        	<Aside colSm={12} colMd={3}>
 					<CommuneFilterContainer />
+					<TagFilterContainer type={type.RESULTS_OBRA}/>
 	          	</Aside>
 
 	        </div>	

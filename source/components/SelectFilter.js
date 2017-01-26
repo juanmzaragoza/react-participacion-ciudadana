@@ -1,5 +1,4 @@
 import React, { PropTypes } from "react";
-import MainBoxSearchBAContainer from "../containers/MainBoxSearchBAContainer"
 
 class SelectFilter extends React.Component {
 

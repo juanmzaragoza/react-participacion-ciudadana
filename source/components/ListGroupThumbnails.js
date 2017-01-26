@@ -21,7 +21,7 @@ class ListGroupThumbnails extends React.Component {
   		let tempitems = this.props.items.map((item,index) => {
 			let thumbnailSrc;
 			if(item.images !== undefined && item.images.length>0){
-				for(let index in item.images){console.log(item.images[index])
+				for(let index in item.images){
 					if(item.images[index].position == 1){
 						thumbnailSrc = item.images[index].image.url;
 					}

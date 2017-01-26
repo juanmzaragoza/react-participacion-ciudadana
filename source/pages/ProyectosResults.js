@@ -7,6 +7,7 @@ import ResultsListGroupThumbnailContainer from "../containers/ResultsListGroupTh
 import Article from "../components/Layout/Article";
 import Aside from "../components/Layout/Aside";
 import CategoryFilterContainer from "../containers/CategoryFilterContainer"
+import TagFilterContainer from "../containers/TagFilterContainer"
 
 import * as type from '../constants/ApiResultType'
 
@@ -36,6 +37,7 @@ const Results = (props) => {
 
 	        	<Aside colSm={12} colMd={3}>
 					<CategoryFilterContainer />
+					<TagFilterContainer type={type.RESULTS_EVENTO}/>
 	          	</Aside>
 
 		    </div>

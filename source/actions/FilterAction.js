@@ -108,3 +108,56 @@ export const fetchCategorias = (page = 1,limit = 50,filters = {}) => {
             })   
     }
 }
+
+export const requestTags = () => { //accion que dispara el pedido de datos de obras
+    return{
+        type: requestTypes.REQUEST_TAGS
+    }
+}
+
+export const receiveTags = (json) => { //accion que se dispara al terminar de recibir la consulta
+    return {
+        type: requestTypes.REQUEST_TAGS_SUCCESS,
+        tags: json.rows
+    }
+}
+
+export const requestTagsError = () => { //se dispara esta accion para informar de un error
+    return{
+        type: requestTypes.REQUEST_TAGS_FAILURE,
+    }
+}
+
+export const fetchTags = (page = 1,limit = 50,filters = {}) => {
+
+    return (dispatch) => {
+
+        //1- dispatch: actualizo el estado informando que la api call comenzó
+        dispatch(requestTags())
+
+        //2- devolvemos una promise a esperar
+        let queryParams = ''
+        for(var filterName in filters) {
+            queryParams += '&'+filterName+'='+filters[filterName]
+        }
+
+        return fetch(config.api_url+'tags/estadisticas?limit='+limit+'&page='+page+queryParams)
+            .then(response => {
+                return response.json()
+            })
+            .then(json => {
+                dispatch(receiveTags(json))
+            })
+            .catch(err => {
+                console.log(err)
+                dispatch(requestTagsError())
+            })   
+    }
+}
+
+export const filterByTag = (tag) => {
+    return{
+        type: types.FILTER_BY_TAG,
+        tag: tag
+    }
+}
