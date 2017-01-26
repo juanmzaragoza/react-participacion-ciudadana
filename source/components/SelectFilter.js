@@ -4,6 +4,7 @@ class SelectFilter extends React.Component {
 
     constructor(props) {
         super(props);
+        this.shouldUpdate = false;
     }
 
     componentDidMount() { 
@@ -12,10 +13,23 @@ class SelectFilter extends React.Component {
         }
     }
 
+    componentWillMount() { 
+        if(this.props.componentWillMount !== undefined){
+            this.props.componentWillMount();
+        }
+    }
+
     componentDidUpdate(nextProps, nextState) { 
         if(this.props.componentDidUpdate !== undefined){
-            this.props.componentDidUpdate();
+            if(this.shouldUpdate){
+                this.props.componentDidUpdate();
+            }
         }
+        this.shouldUpdate = true;
+    }
+
+    shouldComponentUpdate(nextProps, nextState){
+        return this.props.filters !== nextProps.filters;
     }
 
     render() {

@@ -26,7 +26,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    componentDidMount: () => {
+    componentWillMount: () => {
       dispatch(fetchComunas())
     },
     onFilterSelect: (commune) => {
@@ -40,7 +40,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { dispatch } = dispatchProps;
     return {
       filters: stateProps.filters,
-      componentDidMount: dispatchProps.componentDidMount,
+      componentWillMount: dispatchProps.componentWillMount,
       onFilterSelect: dispatchProps.onFilterSelect,
       componentDidUpdate: () => {
         dispatch(fetchResults(stateProps.resultPage,stateProps.resultLimit,stateProps.resultFilters,type.RESULTS_OBRA,false));

@@ -8,11 +8,11 @@ import * as type from '../constants/ApiResultType'
 const mapStateToProps = (state, ownProps) => {
 
   let resultFilters = {
-    'categoria': []
+    'categorias': []
   };
   for(var filter in state.categoryFilter.items) {
     if(state.categoryFilter.items[filter].active){
-      resultFilters.categoria.push(state.categoryFilter.items[filter].id);      
+      resultFilters.categorias.push(state.categoryFilter.items[filter].id);      
     }
   }
 
