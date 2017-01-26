@@ -36,7 +36,7 @@ const Results = (props) => {
 		        </Article >
 
 	        	<Aside colSm={12} colMd={3}>
-					<CategoryFilterContainer />
+					{/*<CategoryFilterContainer />*/}
 					<TagFilterContainer type={type.RESULTS_EVENTO}/>
 	          	</Aside>
 
