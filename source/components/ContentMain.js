@@ -1,5 +1,7 @@
 import React, { PropTypes } from "react";
 import ContentMainEtapas from "./ContentMainEtapas";
+import FacebookShareButton from "./FacebookShareButton";
+import TwitterShareButton from "./TwitterShareButton";
 
 class ContentMain extends React.Component {
 
@@ -30,9 +32,6 @@ class ContentMain extends React.Component {
 	render(){
 
 		const content = this.props.content;
-
-		const imgSocialFb = require("../public/content/images/social-fb.png");
-		const imgSocialTw = require("../public/content/images/social-tw.png");
 		const imgSocialInst = require("../public/content/images/social-Inst.png");
 
 		return (
@@ -67,8 +66,8 @@ class ContentMain extends React.Component {
 				  
 			     	<p>Compartí esta información con tus amigos y vecinos del barrio.</p>
 		         	<ul className="share-redes">
-			     		<li><a href="#"> <img src={imgSocialFb}  /> </a></li>
-				     	<li><a href="#"> <img src={imgSocialTw}  /> </a></li>
+		         		<li><FacebookShareButton /></li>
+		         		<li><TwitterShareButton /></li>
 						<li><a href="#"> <img src={imgSocialInst}  /> </a></li>
 			     	</ul>
 
