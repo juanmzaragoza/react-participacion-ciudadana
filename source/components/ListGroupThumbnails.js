@@ -19,16 +19,16 @@ class ListGroupThumbnails extends React.Component {
   	renderList(){
 
   		let tempitems = this.props.items.map((item,index) => {
-			let thumbnailSrc;
+			let thumbnailSrc = undefined;
 			if(item.images !== undefined && item.images.length>0){
 				for(let index in item.images){
-					if(item.images[index].position == 1){
+					if(item.images[index].position == 1 && item.images[index].image !== null){
 						thumbnailSrc = item.images[index].image.url;
 					}
 				}				
 			} else if(item.image_url){
 				thumbnailSrc = item.image_url;
-			} else {
+			} else if(thumbnailSrc === undefined) {
 				thumbnailSrc = require("../public/content/images/jumbo4.jpg");
 			}
 			return(
