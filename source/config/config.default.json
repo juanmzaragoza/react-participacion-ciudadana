@@ -1,4 +1,13 @@
 {
 	"port": 8080,
-	"api_url": "http://localhost:3001/api/"
+	"api_url": "http://localhost:3001/api/",
+	"share": {
+		"facebook": {
+			"url": "https://www.facebook.com/dialog/share",
+			"app_id": 145634995501895
+		},
+		"twitter": {
+			"url": "https://twitter.com/intent/tweet"
+		}
+	}
 }
