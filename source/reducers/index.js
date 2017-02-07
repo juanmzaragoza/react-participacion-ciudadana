@@ -10,6 +10,7 @@ import communeFilter from './communeFilter'
 import categoryFilter from './categoryFilter'
 import tagFilter from './tagFilter'
 import result from './result'
+import user from './user'
 
 import { routerReducer as routing } from 'react-router-redux'
 
@@ -25,7 +26,8 @@ const app = combineReducers({
 	communeFilter,
 	categoryFilter,
 	tagFilter,
-	result
+	result,
+	user
 })
 
 export default app

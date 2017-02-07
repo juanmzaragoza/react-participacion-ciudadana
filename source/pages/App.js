@@ -1,21 +1,32 @@
 import React from "react";
 
 import Header from "../components/Layout/Header";
-import MainNavigation from "../components/Layout/MainNavigation";
+import MainNavigation from "../containers/MainNavigationContainer";
 import Footer from "../components/Layout/Footer";
 import Separator from "../components/Layout/Separator";
+import { AuthStore } from '../store/AuthStore';
 
-const App = (props) => (
-    <div>
-        <Header />
-        <MainNavigation />
-        
-        <Separator />
-        
-        {props.children || <Index/>}
+class App extends React.Component {
 
-        <Footer />
-    </div>
-)
+	constructor(props) {
+		super(props);
+		console.log(AuthStore.isAuthenticated());
+	}
+
+	render() {
+		return(
+			<div>
+		        <Header />
+		        <MainNavigation />
+		        
+		        <Separator />
+		        
+		        {this.props.children || <Index/>}
+
+		        <Footer />
+		    </div>
+		)
+	}
+}
 
 export default App
