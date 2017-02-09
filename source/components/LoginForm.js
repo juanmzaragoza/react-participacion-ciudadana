@@ -22,6 +22,10 @@ class LoginForm extends React.Component {
     this.props.loginUsernamePassword(this.refs.username.value,this.refs.password.value);
   }
 
+  onChange(e) {
+    console.log(e.target.value)
+  }
+
   render(){
 
     const imgBtnDefault = require("../public/vendor/bastrap3/ba-btn-default.png");
@@ -56,7 +60,7 @@ class LoginForm extends React.Component {
               null
           }
 
-          <input className="btn btn-primary btn-xl btn-block" value="Entrar" onClick={this.handleFormSubmit.bind(this)} />
+          <input className="btn btn-primary btn-xl btn-block" value="Entrar" readOnly onClick={this.handleFormSubmit.bind(this)} />
 
         </form>
 
