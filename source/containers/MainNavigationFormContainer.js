@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-//import {  toggleState } from '../actions'
 import LoginForm from '../components/LoginForm'
 import { login } from '../actions/UserAction'
 
@@ -7,8 +6,8 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
         classPrincipal: ownProps.classPrincipal,
-        loginError: state.user.loginFailed
-        //subscriptions: state.requestStatics.subscriptions
+        loginError: state.user.loginFailed,
+        loginSuccess: state.user.isAuthenticated
     }
 }
 

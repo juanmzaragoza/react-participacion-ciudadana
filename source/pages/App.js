@@ -6,11 +6,16 @@ import Footer from "../components/Layout/Footer";
 import Separator from "../components/Layout/Separator";
 import { AuthStore } from '../store/AuthStore';
 
-class App extends React.Component {
+import { connect } from 'react-redux';
+import { refreshLogin } from '../actions/UserAction';
+
+class Application extends React.Component {
 
 	constructor(props) {
 		super(props);
-		console.log(AuthStore.isAuthenticated());
+		if(AuthStore.isAuthenticated()){
+			this.props.authenticate();
+		}
 	}
 
 	render() {
@@ -28,5 +33,18 @@ class App extends React.Component {
 		)
 	}
 }
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    authenticate: () => {
+        dispatch(refreshLogin());
+    }
+  }
+}
+
+const App = connect(
+  null,
+  mapDispatchToProps
+)(Application)
 
 export default App

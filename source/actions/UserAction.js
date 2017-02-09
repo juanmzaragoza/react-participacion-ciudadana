@@ -59,3 +59,15 @@ export const login = (username, password) => {
             });
     }
 }
+
+export const refreshLogin = () => {
+    return{
+        type: types.LOGIN_USER
+    }
+}
+
+export const logout = () => {
+    return{
+        type: types.LOGOUT_USER
+    }
+}

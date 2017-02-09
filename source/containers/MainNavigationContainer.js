@@ -1,24 +1,24 @@
 import { connect } from 'react-redux'
-//import {  toggleState } from '../actions'
+import { logout } from '../actions/UserAction'
 import MainNavigation from '../components/Layout/MainNavigation'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-      user: state.user
+      userIsAuthenticated: state.user.isAuthenticated
     }
 }
 
-/*const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    loginUsernamePassword: (username,password) => {
-      dispatch(login(username,password));
+    userLogout: (e) => {
+      dispatch(logout());
     }
   }
-}*/
+}
 
 const MainNavigationContainer = connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(MainNavigation)
 
 export default MainNavigationContainer

@@ -4,7 +4,6 @@ class LoginForm extends React.Component {
 
   constructor(props) {
       super(props);
-      this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -57,7 +56,7 @@ class LoginForm extends React.Component {
               null
           }
 
-          <input className="btn btn-primary btn-xl btn-block" value="Entrar" onClick={this.handleFormSubmit} />
+          <input className="btn btn-primary btn-xl btn-block" value="Entrar" onClick={this.handleFormSubmit.bind(this)} />
 
         </form>
 
@@ -75,7 +74,8 @@ LoginForm.propTypes = {
   componentDidMount: PropTypes.func,
   loginUsernamePassword: PropTypes.func,
   classPrincipal: PropTypes.string,
-  loginError: PropTypes.bool
+  loginError: PropTypes.bool,
+  loginSuccess: PropTypes.bool
 }
 
 export default LoginForm
