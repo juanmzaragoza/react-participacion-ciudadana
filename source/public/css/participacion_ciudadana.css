@@ -53,3 +53,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* Nube de tags - manito al pasar por encima de los tags */
+.tag-cloud-tag {
+  cursor: pointer;
+}
