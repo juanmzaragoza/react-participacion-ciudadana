@@ -12,7 +12,7 @@ class CommentForm extends React.Component {
 	handleFormSubmit(e) {
 		if(this.props.canPost){
 			if(this.props.postComment !== undefined){
-				this.props.postComment(this.refs.comentario.value());
+				this.props.postComment(this.props.id, this.props.type, this.refs.comentario.value());
 			}
 		} else{
 			if(this.props.onNoComment !== undefined){
@@ -36,17 +36,27 @@ class CommentForm extends React.Component {
 					  <label htmlFor="comentarios">Comentarios</label>
 					  <TextArea className="form-control input-lg" rows="3" placeholder="Dejenos su comentario" id="comentario" ref="comentario" />
 					  <br />
-					  <SendButton button={true} className="btn btn-default" value="Enviar Comentario" />
-
-					  {this.props.error? 
+					  {this.props.messageError? 
 			              <div className="alert alert-danger" role="alert">
 			                <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 			                <span className="sr-only">Error:</span>
-			                No se pudo enviar el comentario. Intentelo nuvamente mas tarde
+			                No se pudo enviar el comentario. {this.props.messageError}
 			              </div>
 			              :
 			              null
 			          }
+			          {this.props.commentSuccess? 
+			              <div className="alert alert-success" role="alert">
+			                <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+			                <span className="sr-only">Exito:</span>
+			                Comentario enviado correctamente
+			              </div>
+			              :
+			              null
+			          }
+					  <SendButton button={true} className="btn btn-default" value="Enviar Comentario" />
+
+					  
 
 					</div>
 			    </Formulario>

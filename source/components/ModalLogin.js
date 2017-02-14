@@ -11,9 +11,13 @@ class ModalLogin extends React.Component {
 
   render() {
     var show = this.props.show? true:false;
-    console.log(show);
     return (
       <Modal show={show}>
+        <Modal.Header>
+          <button type="button" className="close" aria-label="Close" onClick={this.props.closeModal}>
+            <span aria-hidden="true">×</span>
+          </button>
+        </Modal.Header>
         <Modal.Body>
           <LoginForm/>
         </Modal.Body>
@@ -23,7 +27,8 @@ class ModalLogin extends React.Component {
 }
 
 ModalLogin.propTypes = {
-  show: PropTypes.bool
+  show: PropTypes.bool,
+  closeModal: PropTypes.func
 }
 
 export default ModalLogin

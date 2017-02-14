@@ -1,7 +1,6 @@
 import { default as React, Component, PropTypes  } from "react";
 import ReactDOM from "react-dom";
 import { Link } from 'react-router';
-import LoginForm from "../../containers/MainNavigationFormContainer";
 import ModalLoginContainer from "../../containers/ModalLoginContainer";
 
 class MainNavigation extends React.Component {

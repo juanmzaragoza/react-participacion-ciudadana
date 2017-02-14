@@ -1,5 +1,6 @@
-import { connect } from 'react-redux'
-import ModalLogin from '../components/ModalLogin'
+import { connect } from 'react-redux';
+import ModalLogin from '../components/ModalLogin';
+import { hideLoginForm } from '../actions/UserAction';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -7,9 +8,17 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    closeModal: () => {
+      dispatch(hideLoginForm());
+    }
+  }
+}
+
 const ModalLoginContainer = connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ModalLogin)
 
 export default ModalLoginContainer
