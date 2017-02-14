@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { logout } from '../actions/UserAction'
+import { logout, showLoginForm } from '../actions/UserAction'
 import MainNavigation from '../components/Layout/MainNavigation'
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,6 +12,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     userLogout: (e) => {
       dispatch(logout());
+    },
+    userLogin: (e) => {
+      dispatch(showLoginForm());
     }
   }
 }

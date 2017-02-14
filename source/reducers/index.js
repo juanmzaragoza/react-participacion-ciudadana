@@ -11,6 +11,7 @@ import categoryFilter from './categoryFilter'
 import tagFilter from './tagFilter'
 import result from './result'
 import user from './user'
+import loginForm from './loginForm'
 
 import { routerReducer as routing } from 'react-router-redux'
 
@@ -27,7 +28,8 @@ const app = combineReducers({
 	categoryFilter,
 	tagFilter,
 	result,
-	user
+	user,
+	loginForm
 })
 
 export default app

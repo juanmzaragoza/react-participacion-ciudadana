@@ -2,20 +2,12 @@ import { default as React, Component, PropTypes  } from "react";
 import ReactDOM from "react-dom";
 import { Link } from 'react-router';
 import LoginForm from "../../containers/MainNavigationFormContainer";
-import ModalFade from "../ModalFade";
-import { Modal } from "react-bootstrap";
+import ModalLoginContainer from "../../containers/ModalLoginContainer";
 
 class MainNavigation extends React.Component {
 
   constructor(props) {
     super(props);
-  }
-
-  componentDidUpdate(){
-    if(this.props.userIsAuthenticated !== undefined && this.props.userIsAuthenticated){
-      var modal = ReactDOM.findDOMNode(this.refs["modal_form"]);
-      modal.click();
-    }    
   }
 
   render() {
@@ -49,7 +41,7 @@ class MainNavigation extends React.Component {
                         {(this.props.userIsAuthenticated !== undefined && this.props.userIsAuthenticated === true)?
                           <li className="active-BA" onClick={this.props.userLogout}><a href="#">Cerrar sesion <span className="glyphicon glyphicon-log-out" aria-hidden="true" ></span></a></li>
                           :
-                          <li className="active-BA"><a href="#" data-target="#modal_form"  data-toggle="modal">Entrar a <img src={miBaBtn} className="glyphicon glyphicon-ba" /></a></li>
+                          <li className="active-BA" onClick={this.props.userLogin}><a href="#">Entrar a <img src={miBaBtn} className="glyphicon glyphicon-ba" /></a></li>
                         }
                 		</ul>
               		</div>
@@ -57,9 +49,7 @@ class MainNavigation extends React.Component {
           	</div>
         </nav>
 
-        <ModalFade id={"modal_form"} ref="modal_form" >
-          <LoginForm classPrincipal={"modal-body"} ref="login_form" />
-        </ModalFade> 
+        <ModalLoginContainer />
 
       </div>
     )
@@ -68,7 +58,8 @@ class MainNavigation extends React.Component {
 
 MainNavigation.propTypes = {
   userIsAuthenticated: PropTypes.bool,
-  userLogout: PropTypes.func
+  userLogout: PropTypes.func,
+  userLogin: PropTypes.func
 }
 
 export default MainNavigation

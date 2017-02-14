@@ -52,6 +52,7 @@ export const login = (username, password) => {
             })
             .then(json => {
                 dispatch(loginSuccess(json));
+                dispatch(hideLoginForm());
             })
             .catch(err => {
                 console.log(err);
@@ -69,5 +70,17 @@ export const refreshLogin = () => {
 export const logout = () => {
     return{
         type: types.LOGOUT_USER
+    }
+}
+
+export const showLoginForm = () => {
+    return{
+        type: types.SHOW_LOGIN_FORM
+    }
+}
+
+export const hideLoginForm = () => {
+    return{
+        type: types.HIDE_LOGIN_FORM
     }
 }
