@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { Link } from 'react-router';
 import LoginForm from "../../containers/MainNavigationFormContainer";
 import ModalFade from "../ModalFade";
+import { Modal } from "react-bootstrap";
 
 class MainNavigation extends React.Component {
 
