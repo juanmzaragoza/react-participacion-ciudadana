@@ -9,8 +9,8 @@ const mapStateToProps = (state, ownProps) => {
       canPost: state.user.isAuthenticated,
       id: state.result.content.id,
       type: state.result.content.obra_etapas !== undefined? 'obra':'evento',
-      messageError: state.commentEntity.error.isError? state.commentEntity.error.message:null,
-      commentSuccess: state.commentEntity.success
+      messageError: state.commentForm.error.isError? state.commentForm.error.message:null,
+      commentSuccess: state.commentForm.success
     }
 }
 
@@ -18,7 +18,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     postComment: (id, type, comment) => {
       var user = JSON.parse(AuthStore.getUser());
-      console.log("Tengo que acceder al local storage para obtener usuario");
       dispatch(c(id, type, comment, user.id));
     },
     onNoComment: () => {

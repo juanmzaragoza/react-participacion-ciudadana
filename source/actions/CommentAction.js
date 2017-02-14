@@ -3,6 +3,7 @@ import * as types from '../constants/RequestActionTypes';
 let config = require('../config/config')
 import { AuthStore } from '../store/AuthStore';
 
+//DO COMMENT
 export const commentSuccess = (json) => { //accion que se dispara al terminar de recibir la consulta
     return {
         type: types.COMMENT_SUCCESS,
@@ -50,5 +51,45 @@ export const comment = (id, type, comment, id_user) => {
                 console.log(err);
                 dispatch(commentError(err.message));
             });
+    }
+}
+
+//REQUEST COMENTS
+export const requestComments = () => { 
+    return{
+        type: types.REQUEST_COMMENTS
+    }
+}
+
+export const receiveComments = (json) => { //accion que se dispara al terminar de recibir la consulta
+    return {
+        type: types.REQUEST_COMMENTS_SUCCESS,
+        content: json.rows
+    }
+}
+
+export const requestCommentsError = () => { //se dispara esta accion para informar de un error
+    return{
+        type: types.REQUEST_COMMENTS_FAILURE,
+    }
+}
+
+export const fetchComments = (id, type, page = 1,limit = 25,filters = {}) => {
+
+    return (dispatch) => {
+
+        dispatch(requestComments());
+
+        return fetch(config.api_url+type+'/'+id+'/comentarios?limit='+limit+'&page='+page)
+            .then(response => {
+                return response.json()
+            })
+            .then(json => {
+                dispatch(receiveComments(json))
+            })
+            .catch(err => {
+                console.log(err)
+                dispatch(requestCommentsError())
+            })   
     }
 }

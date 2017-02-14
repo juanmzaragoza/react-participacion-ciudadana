@@ -1,4 +1,4 @@
-import {REQUEST_CONTENT_SUCCESS,REQUEST_CONTENT,REQUEST_CONTENT_FAILURE} from '../constants/RequestActionTypes'
+import {REQUEST_CONTENT_SUCCESS,REQUEST_CONTENT,REQUEST_CONTENT_FAILURE,REQUEST_COMMENTS_SUCCESS,REQUEST_COMMENTS,REQUEST_COMMENTS_FAILURE} from '../constants/RequestActionTypes'
 import * as utils from '../lib/utils'
 
 const initialState = {
@@ -26,6 +26,13 @@ export default function result(state = initialState, action) {
       return Object.assign({}, state, {
         isFetching: false,
         errorRequest: true
+      })
+
+    case REQUEST_COMMENTS_SUCCESS:
+      return Object.assign({}, state, {
+        content: Object.assign({}, state.content, {
+          comments: action.content
+        })
       })
 
     default:

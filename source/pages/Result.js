@@ -12,6 +12,7 @@ import ContentSecondaryContainer from "../containers/ContentSecondaryContainer";
 import {  requestResults } from '../actions/ResultAction'
 
 import CommentFormContainer from "../containers/CommentFormContainer"
+import CommentsListContainer from "../containers/CommentsListContainer"
 
 class Results extends React.Component {
 
@@ -42,6 +43,11 @@ class Results extends React.Component {
 			        		
 			        	<Separator/>
 			        	<CommentFormContainer />
+
+			        	<Separator/>
+			        	<CommentsListContainer 
+			        		id={this.props.params.id_result}
+			        		type={type} />
 
 			        </Article >
 

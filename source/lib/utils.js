@@ -30,3 +30,19 @@ export const shuffle = (array) => {
 
   return array;
 }
+
+export const getDateFormat = (date) => {
+
+  var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+  var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+  
+  var f=new Date(date);
+  return diasSemana[f.getDay()] + "," + pad2(f.getDate()) + "-" + pad2(f.getMonth()+1) + "-" + f.getFullYear()
+
+}
+
+function pad2(number) {
+   
+     return (number < 10 ? '0' : '') + number
+   
+}

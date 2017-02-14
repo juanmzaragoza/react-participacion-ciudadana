@@ -12,7 +12,7 @@ import tagFilter from './tagFilter'
 import result from './result'
 import user from './user'
 import loginForm from './loginForm'
-import commentEntity from './commentEntity'
+import commentForm from './commentForm'
 
 import { routerReducer as routing } from 'react-router-redux'
 
@@ -31,7 +31,7 @@ const app = combineReducers({
 	result,
 	user,
 	loginForm,
-	commentEntity
+	commentForm
 })
 
 export default app
