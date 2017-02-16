@@ -9,9 +9,9 @@ const MainBoxSearchBA = () => {
         <div className="box-btn-miBA " style={{display:'none'}}>
             <div className="container ">
                 <div className="row bg-content">
-                    <div className="col-md-9">
-                        <Link className="btn btn-primary btn-block btn-xl" to="/resultados?seccion=AGENDASEMANAL">
-                            AGENDA SEMANAL
+                    <div className="col-xs-12 col-sm-7 col-md-9">
+                        <Link to="/resultados?seccion=AGENDASEMANAL">
+                            <button className="btn btn-AGD btn-block btn-xl">AGENDA SEMANAL</button>
                         </Link>
                         <div className="clear"></div>
                 
@@ -21,7 +21,7 @@ const MainBoxSearchBA = () => {
                         <h3>en todas las obras, iniciativas y eventos de cada barrio.</h3>
                  
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-xs-12 col-sm-5 col-md-3">
                         <ProjectsDayPickerContainer />
                     </div>
                 </div>

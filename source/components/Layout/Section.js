@@ -12,9 +12,10 @@ class Section extends React.Component {
 		const titleIcon = (this.props.titleIcon)? this.props.titleIcon:null;
 		const clearElement = (this.props.title != undefined && this.props.title != '')? <div className="clear"></div>:null;
 		const renderInOneCol = (this.props.renderInOneCol !== undefined && this.props.renderInOneCol)? true:false;
+		const className = this.props.className? "container-fluid "+this.props.className:"container-fluid ";
 
 		return (
-			<section id={this.props.id} className="container-fluid">
+			<section id={this.props.id} className={className}>
 				<div className={"container"}>	
 					
 					{(this.props.title != undefined && this.props.title != '')? 
@@ -30,7 +31,9 @@ class Section extends React.Component {
 
 					{renderInOneCol?
 						<div className={"row"}>	
-							{this.props.children}
+							<div className="col-xs-12 col-sm-12 col-md-12">
+								{this.props.children}
+							</div>
 						</div>
 						:
 						<Row sizeCols={this.props.sizeCols}>
@@ -50,6 +53,7 @@ Section.propTypes = {
   title: PropTypes.string,
   sizeCols: PropTypes.array,
   renderInOneCol: PropTypes.bool,
+  className: PropTypes.string
 }
 
 export default Section

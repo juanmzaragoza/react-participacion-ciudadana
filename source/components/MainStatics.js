@@ -21,38 +21,53 @@ class MainStatics extends React.Component {
 
         return (
             <section id="content-dat" className="container-fluid">
-                <div className="container">
-                    <div className="row border-content">
-                        <div className="col-md-5">
-                            <h3>VECINOS PARTICIPANDO</h3>
-                            <div className="vec-vot-img">
-                                <img src={imageVecinosVotando} width="271" height="39" alt="..." />
+                <div className="row border-content">
+                    <div className="container">
+                        <div className="col-xs-12 col-sm-6 col-md-6">
+                            <div className="row">
+                                <div className="cont-datos-vot">
+                                    <div className="title-dat-C">
+                                        <h2>VECINOS PARTICIPANDO</h2>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-xs-12 col-sm-3 col-md-3">
                             <div className="row">
-                                <div className="vot-img">
-                                    <img src={urnaVotacion} width="50" height="55" alt="..." />
-                                </div>
-                                {this.props.isLoading? 
-                                    <h3 style={{paddingLeft: '110px'}}>{spin}</h3>
-                                    :
-                                    <h3>{this.props.votes}</h3>
-                                }
-                                <p>Votaron proyectos</p>
+                                <div className="cont-datos-vot">
+                                    <div className="vec-img-A">
+                                        <img src={urnaVotacion} width="50" height="55" alt="..." />
+                                    </div>
+                                    <div className="cant-vot-A">
+                                        {this.props.isLoading? 
+                                            <h2 style={{paddingLeft: '42px'}}>{spin}</h2>
+                                            :
+                                            <h2>{this.props.votes}</h2>
+                                        }
+                                    </div>
+                                    <div className="title-dat-A">
+                                        <p>Votaron proyectos</p>
+                                    </div>
+                                  </div>
                             </div>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-xs-12 col-sm-3 col-md-3">
                             <div className="row">
-                                <div className="vec-img">
-                                    <img src={vecinosParticip} width="70" height="55" alt="..." />
-                                </div>
-                                {this.props.isLoading? 
-                                    <h3 style={{paddingLeft: '154px'}}>{spin}</h3>
-                                    :
-                                    <h3>{this.props.subscriptions}</h3>
-                                }
-                                <p>Participaron en reuniones</p>
+                                <div className="cont-datos-vot">
+                                    <div className="vec-img">
+                                        <img src={vecinosParticip} width="70" height="55" alt="..." />
+                                    </div>
+                                    <div className="cant-vot">
+                                        {this.props.isLoading? 
+                                            <h2 style={{paddingLeft: '66px'}}>{spin}</h2>
+                                            :
+                                            <h2>{this.props.subscriptions}</h2>
+                                        }
+                                    </div>
+                                    <div className="title-dat">
+                                        <p>Participaron en reuniones</p>
+                                    </div>
+                                 </div>
                             </div>
                         </div>
                     </div>

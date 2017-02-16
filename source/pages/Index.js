@@ -12,7 +12,7 @@ class Index extends React.Component {
 
 	render() {
 
-		const imageHoracio = require("../public/content/images/Encuentros_con_Horacio.png");
+		const imageTrabjandoJuntos = require("../public/content/images/trabajando_juntos.png");
 		const imageObras = require("../public/content/images/Obras_en_tu_barrio.png");
 		const imageEvevntos = require("../public/content/images/Iniciativas_y_Eventos.png");
 		const imageBAElige = require("../public/content/images/ba-elige.png");
@@ -31,14 +31,14 @@ class Index extends React.Component {
 
 		    	<MainStaticsContainer />
 
-		    	<Section id={"content-nav-category"} title={'Participá'}>
+		    	<Section id={"content-nav-btn"} >
 		    		<ImageLinkItem 
 		    			linkHref="#"
 		    			imageSrc={imageBAElige}
 		    			description="..." />
 		    		<ImageLinkItem 
-		    			linkHref="horacio_diego_y_vos"
-		    			imageSrc={imageHoracio}
+		    			linkHref="/trabajando_juntos"
+		    			imageSrc={imageTrabjandoJuntos}
 		    			description="..."/>
 		    		<ImageLinkItem 
 		    			linkHref="/obras"
@@ -50,7 +50,13 @@ class Index extends React.Component {
 		    			description="..." />
 		    	</Section>
 
-		        <Section id={"content-nav-agenda"} title={'Últimas Iniciativas Participativas '}>
+		    	<Section className={"bg-vol"} >
+		    		<span className="vol">
+		    			<a href="contenido.html"><h2>Sumate al Voluntariado</h2></a>
+		    		</span>
+		    	</Section>
+
+		        <Section id={"content-nav-agenda"} title={'Iniciativas participativas destacadas '}>
 		        	<AgendaSemanalCarouselThumbnailContainer  />
 	        	</Section>
 
@@ -61,7 +67,7 @@ class Index extends React.Component {
 		    			description="..." />
 		    		<BioItem 
 		    			className={"bio-items"}
-		    			linkHref={"/horacio_diego_y_vos"}
+		    			linkHref={"/trabajando_juntos"}
 		    			imageSrc={imgBioItemA}
 		    			description="..." />
 		    		<BioItem 
@@ -71,7 +77,7 @@ class Index extends React.Component {
 		    			description="..." />
 		    		<BioItem 
 		    			className={"bio-items"}
-		    			linkHref={"#"}
+		    			linkHref={"http://bit.ly/ContactPC3"}
 		    			imageSrc={imgBioItemB}
 		    			description="..." />
 		    	</Section>
