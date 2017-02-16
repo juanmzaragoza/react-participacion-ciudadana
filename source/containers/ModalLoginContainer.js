@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import ModalLogin from '../components/ModalLogin';
-import { hideLoginForm } from '../actions/UserAction';
+import { hideLoginForm, login } from '../actions/UserAction';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-    	show: !state.user.isAuthenticated && state.loginForm.visible
+    	show: !state.user.isAuthenticated && state.loginForm.visible,
+      loginError: state.user.loginFaile,
+      loginSuccess: state.user.isAuthenticated
     }
 }
 
@@ -12,6 +14,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     closeModal: () => {
       dispatch(hideLoginForm());
+    },
+    loginUsernamePassword: (username,password) => {
+      dispatch(login(username,password));
     }
   }
 }
