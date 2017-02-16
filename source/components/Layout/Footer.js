@@ -59,7 +59,7 @@ class Footer extends React.Component {
                 <div className="cleaner"></div>
                 <div className="sub-brand">
                   <p>
-                    Comunicación Participativa.
+                    Participación Ciudadana
                     <br />
                     <span className="text-muted">Subsecretaría de Comunicación.</span>
                   </p>
