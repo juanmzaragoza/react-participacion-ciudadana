@@ -27,6 +27,7 @@ class CommentsList extends React.Component {
 	             		return (
 	             			<Comment key={index}
 	             				username={item.usuario.username}
+	             				gender={item.usuario.gender}
 	             				body={item.descripcion}
 	             				date={utils.getDateFormat(item.fecha_alta)} />
 	             		)

@@ -8,19 +8,32 @@ class Comment extends React.Component {
 
 	render(){
 
-		const avatars = [
-			require("../public/content/images/Avatar-moderacion.png"),
+		const avatarsFem = [
 			require("../public/content/images/Avatar-F-01.png"),
 			require("../public/content/images/Avatar-F-02.png"),
 			require("../public/content/images/Avatar-F-03.png"),
 			require("../public/content/images/Avatar-F-04.png"),
 			require("../public/content/images/Avatar-F-05.png"),
+		]
+
+		const avatarsMasc = [
 			require("../public/content/images/Avatar-M-01.png"),
 			require("../public/content/images/Avatar-M-02.png"),
 			require("../public/content/images/Avatar-M-03.png"),
 			require("../public/content/images/Avatar-M-04.png"),
 			require("../public/content/images/Avatar-M-05.png"),
+		]
+
+		const avatarsMod = [
+			require("../public/content/images/Avatar-moderacion.png"),			
 		];
+
+		var avatars = avatarsMod;
+		if(this.props.gender == "m"){
+			avatars = avatarsMasc;
+		} else if(this.props.gender == "f"){
+			avatars = avatarsFem;
+		}
 
 		return (
 			<div className="row">
