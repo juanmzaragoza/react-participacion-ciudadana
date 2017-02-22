@@ -15,6 +15,9 @@ class RegistrationForm extends React.Component {
 		if(this.props.getNeighborhoods !== undefined){
 			this.props.getNeighborhoods();
 		}
+		if(this.props.componentDidMount !== undefined){
+			this.props.componentDidMount();
+		}
 	}
 
   	number(value){
@@ -161,6 +164,7 @@ RegistrationForm.propTypes = {
   username: PropTypes.string,
   neighborhoods: PropTypes.array,
   getNeighborhoods: PropTypes.func,
+  componentDidMount: PropTypes.func,
   onSubmit: PropTypes.func,
   submitError: PropTypes.oneOfType([
     React.PropTypes.string,

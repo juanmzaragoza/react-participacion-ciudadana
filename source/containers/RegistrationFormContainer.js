@@ -13,6 +13,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    componentDidMount: () => {
+      //limpiar estado del formulario
+    },
     getNeighborhoods: () => {
       dispatch(fetchNeighborhoods(1, 50));
     },

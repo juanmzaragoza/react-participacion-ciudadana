@@ -13,6 +13,7 @@ import ObrasResults from './pages/ObrasResults'
 import Result from './pages/Result'
 import NotFoundPage from './pages/NotFoundPage'
 import Registro from './pages/Registro'
+import EnsureNotLoggedInContainer from './pages/EnsureNotLoggedInContainer'
 
 export default (
 	<Route path="/" component={App}>
@@ -31,7 +32,10 @@ export default (
   		<Route name="content_obra" path="/obra/:id_result" component={Result} />
       <Route name="content_evento" path="/evento/:id_result" component={Result} />
 
-      <Route path="/registro" component={Registro}/>
+      //estas paginas no se tienen que mostrar cuando el usuario esta logueado
+      <Route component={EnsureNotLoggedInContainer}>
+        <Route path="/registro" component={Registro}/>
+      </Route>
 
   		<Route path="*" component={NotFoundPage} />
 

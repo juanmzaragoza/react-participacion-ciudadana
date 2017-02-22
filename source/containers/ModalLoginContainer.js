@@ -5,7 +5,7 @@ import { hideLoginForm, login } from '../actions/UserAction';
 const mapStateToProps = (state, ownProps) => {
     return {
     	show: !state.user.isAuthenticated && state.loginForm.visible,
-      loginError: state.user.loginFaile,
+      loginError: state.user.loginFailed,
       loginSuccess: state.user.isAuthenticated
     }
 }
