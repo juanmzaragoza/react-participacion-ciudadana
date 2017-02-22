@@ -12,6 +12,7 @@ import ProyectosResults from './pages/ProyectosResults'
 import ObrasResults from './pages/ObrasResults'
 import Result from './pages/Result'
 import NotFoundPage from './pages/NotFoundPage'
+import Registro from './pages/Registro'
 
 export default (
 	<Route path="/" component={App}>
@@ -19,7 +20,7 @@ export default (
 
   		<Route path="/obras" component={Obras}/>
   		<Route path="/proyectos" component={Proyectos}/>
-      <Route path="/horacio_diego_y_vos" component={HoracioDiegoVos}/>
+      <Route path="/trabajando_juntos" component={HoracioDiegoVos}/>
       <Route path="/reuniones_de_vecinos" component={ReunionesVecinos}/>
       <Route path="/reuniones_con_ministros" component={ReunionesMinistros}/>
 
@@ -29,6 +30,8 @@ export default (
 
   		<Route name="content_obra" path="/obra/:id_result" component={Result} />
       <Route name="content_evento" path="/evento/:id_result" component={Result} />
+
+      <Route path="/registro" component={Registro}/>
 
   		<Route path="*" component={NotFoundPage} />
 

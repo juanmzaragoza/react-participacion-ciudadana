@@ -38,7 +38,7 @@ class MainNavigation extends React.Component {
                         <a href="#" onClick={this.props.userLogin}>Iniciar sesión</a>
                         <ul className="register_user">
                           <li><a href="#" onClick={this.props.userLogin}>Iniciar sesión</a></li>
-                          <li><Link to="/registro_usuario">¿Sos Nuevo? Registrate.</Link></li>
+                          <li><Link to="/registro">¿Sos Nuevo? Registrate.</Link></li>
                         </ul>
                       </li>
                     }
