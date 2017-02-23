@@ -14,6 +14,7 @@ import user from './user'
 import loginForm from './loginForm'
 import commentForm from './commentForm'
 import registrationForm from './registrationForm'
+import voteForm from './voteForm'
 
 import { routerReducer as routing } from 'react-router-redux'
 import { reducer as formReducer } from 'redux-form'
@@ -35,7 +36,8 @@ const app = combineReducers({
 	user,
 	loginForm,
 	commentForm,
-	registrationForm
+	registrationForm,
+	voteForm
 })
 
 export default app

@@ -14,6 +14,8 @@ import {  requestResults } from '../actions/ResultAction'
 import CommentFormContainer from "../containers/CommentFormContainer"
 import CommentsListContainer from "../containers/CommentsListContainer"
 
+import VoteFormContainer from "../containers/VoteFormContainer"
+
 class Results extends React.Component {
 
 	constructor(props) {
@@ -40,7 +42,10 @@ class Results extends React.Component {
 			        	<ContentMainContainer 
 			        		id={this.props.params.id_result}
 			        		type={type} />
-			        		
+			        	
+			        	<Separator/>
+			        	<VoteFormContainer />
+
 			        	<Separator/>
 			        	<CommentFormContainer />
 
