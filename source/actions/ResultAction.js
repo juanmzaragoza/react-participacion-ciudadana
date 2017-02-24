@@ -106,7 +106,7 @@ export const fetchContent = (request_type, content_id ,filters = {}) => {
     return (dispatch) => {
 
         //1- dispatch: actualizo el estado informando que la api call comenzó
-        dispatch(requestContent())
+        dispatch(requestContent());
 
         //2- devolvemos una promise a esperar
         return fetch(getFullUrl(0, 0, filters, request_type+'/'+content_id))

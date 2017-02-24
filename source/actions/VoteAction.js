@@ -54,3 +54,49 @@ export const vote = (votation_id, option_id, user_id) => {
             });
     }
 }
+
+export const requestVotation = () => {
+    return {
+        type: types.REQUEST_VOTATION
+    }
+}
+
+export const receiveVotation = (json) => { //accion que se dispara al terminar de recibir la consulta
+
+    return {
+        type: types.REQUEST_VOTATION_SUCCESS,
+        votation: json
+    }
+}
+
+export const requestVotationError = () => { //se dispara esta accion para informar de un error
+    return{
+        type: types.REQUEST_VOTATION_FAILURE,
+    }
+}
+
+export const fetchVotation = (request_type, content_id) => {
+
+    return (dispatch) => {
+
+        //1- dispatch: actualizo el estado informando que la api call comenzó
+        dispatch(requestVotation())
+
+        //2- devolvemos una promise a esperar
+        return fetch(config.api_url+'votaciones?publicado=1&estado=1&ultima=1&'+request_type+'='+content_id)
+            .then(response => {
+                return response.json()
+            })
+            .then(json => {
+                if(json.code === 200){
+                    dispatch(receiveVotation(json))
+                } else{
+                    dispatch(requestVotationError())
+                }                
+            })
+            .catch(err => {
+                console.log(err)
+                dispatch(requestVotationError())
+            })   
+    }
+}

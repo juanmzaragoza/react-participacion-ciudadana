@@ -16,23 +16,14 @@ const mapStateToProps = (state, ownProps) => {
       messageError: state.voteForm.error.isError? state.voteForm.error.message:null,
     }
 
-    if(state.result.content.votaciones !== undefined && state.result.content.votaciones.length > 0){
-
-      var votacionesActivas = state.result.content.votaciones.filter(function(votacion){
-        return votacion.publicado == 1 && votacion.estado == 1
-      })
-      votacionesActivas.sort(function(a, b){
-        var dateA = new Date(a.fecha_alta), dateB = new Date(b.fecha_alta);
-        return dateB-dateA;
-      })
-      var votacion = votacionesActivas[0];
-
+    if(state.voteForm.votation.error != true && state.voteForm.votation.content != null){
+      var votation = state.voteForm.votation.content;
       returnObj = Object.assign({}, returnObj, {
-        id: votacion.id,
-        titulo: votacion.nombre,
-        descripcion_breve: votacion.descripcion != null? votacion.descripcion.slice(0, 20):null,
-        contenido: votacion.descripcion,
-        opciones: votacion.opciones
+        id: votation.id,
+        titulo: votation.nombre,
+        descripcion_breve: votation.descripcion != null? votation.descripcion.slice(0, 20):null,
+        contenido: votation.descripcion,
+        opciones: votation.opciones
       });
     }
 
@@ -41,11 +32,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onSubmit: (e) => {
+    onSubmit(e){
       var user = JSON.parse(AuthStore.getUser());
       dispatch(vote(e.votacion, e.opcion, user.id));
     },
-    onNoVote: () => {
+    onNoVote(){
       dispatch(showLoginForm());
     }
   }
