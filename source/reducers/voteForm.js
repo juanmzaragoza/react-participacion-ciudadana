@@ -1,4 +1,5 @@
-import {VOTE_SUCCESS, VOTE_FAILURE, REQUEST_VOTATION_SUCCESS,REQUEST_VOTATION,REQUEST_VOTATION_FAILURE} from '../constants/RequestActionTypes'
+import {VOTE_SUCCESS, VOTE_FAILURE, REQUEST_VOTATION_SUCCESS,REQUEST_VOTATION,REQUEST_VOTATION_FAILURE,USER_ANSWERED_VOTATION_CHECKED} from '../constants/RequestActionTypes'
+import {USER_ANSWERED_VOTATION, USER_NOT_ANSWERED_VOTATION} from '../constants/VoteActionTypes'
 import * as utils from '../lib/utils'
 
 const initialState = {
@@ -11,6 +12,10 @@ const initialState = {
   error: {
     isError: false,
     message: ""
+  },
+  graph: {
+    show: false,
+    verified: false
   }
 }
 
@@ -56,6 +61,29 @@ export default function result(state = initialState, action) {
         votation: Object.assign({}, state.votation, {
           isFetching: false,
           errorRequest: true
+        })        
+      })
+
+    case USER_ANSWERED_VOTATION:
+      return Object.assign({}, state, {
+        graph: Object.assign({}, state.graph, {
+          show: true,
+          verified: true
+        })        
+      })
+
+    case USER_NOT_ANSWERED_VOTATION:
+      return Object.assign({}, state, {
+        graph: Object.assign({}, state.graph, {
+          show: false,
+          verified: true
+        })        
+      })
+
+    case USER_ANSWERED_VOTATION_CHECKED:
+      return Object.assign({}, state, {
+        graph: Object.assign({}, state.graph, {
+          verified: true
         })        
       })
 

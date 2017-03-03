@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import * as types from '../constants/RequestActionTypes';
+import * as voteTypes from '../constants/VoteActionTypes';
 let config = require('../config/config')
 import { AuthStore } from '../store/AuthStore';
 
@@ -100,3 +101,57 @@ export const fetchVotation = (request_type, content_id) => {
             })   
     }
 }
+
+export const checkIfUserAnswerVotation = (id, user_id) => {
+
+    return (dispatch) => {
+
+        dispatch(requestVotationCheck())
+
+        return fetch(config.api_url+'auth/votacion/'+id, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'bearer '+AuthStore.getJwt()
+                }
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then(json => {
+                dispatch(receiveVotationCheck(json,user_id));            
+            })
+            .catch(err => {
+                console.log(err)
+                dispatch(requestVotationError())
+            })
+    }
+}
+
+export const receiveVotationCheck = (json,user_id) => {
+
+    var response =  {
+        type: voteTypes.USER_NOT_ANSWERED_VOTATION,//USER_ANSWERED_VOTATION
+        votation: json
+    }, user_answered = false;
+
+    if(json.usuarios_participantes !== undefined){
+        user_answered = json.usuarios_participantes.some(function(element,index){
+            return element.id == user_id;
+        });
+    }
+
+    if(user_answered){
+        response.type = voteTypes.USER_ANSWERED_VOTATION;
+    }
+
+    return response;
+}
+
+export const requestVotationCheck = () => {
+    return {
+        type: voteTypes.USER_ANSWERED_VOTATION_CHECKED
+    }
+}
+

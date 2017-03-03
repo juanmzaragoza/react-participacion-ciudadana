@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import configureStore from './store/configureStore'
+import configureActors from "./store/configureActors";
 
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
@@ -27,8 +28,8 @@ import './public/js/jquery-ui.js'
 
 import './public/js/index.js'
 
-const store = configureStore()
-const history = syncHistoryWithStore(browserHistory, store)
+var store = configureActors(configureStore());
+const history = syncHistoryWithStore(browserHistory, store);
 
 render(
   <Root store={store} history={history} />,
