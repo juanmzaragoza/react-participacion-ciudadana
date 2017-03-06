@@ -2,6 +2,7 @@ import fetch from 'isomorphic-fetch';
 import * as types from '../constants/AuthConstants';
 import * as requestTypes from '../constants/RequestActionTypes';
 let config = require('../config/config')
+import { AuthStore } from '../store/AuthStore';
 
 export const requestLogin = () => { 
     return{
@@ -138,6 +139,38 @@ export const createUser = (values) => {
             .catch(err => {
                 console.log(err);
                 dispatch(createUserError(err.message));
+            });
+    }
+}
+
+export const refreshJWT = () => {
+
+    return (dispatch) => {
+
+        //2- devolvemos una promise a esperar
+        return fetch(config.api_url+'auth/actualizacion', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'bearer '+AuthStore.getJwt()
+                }
+            }).then(response => {
+                if(response.status == 200){
+                    return response.json();
+                }
+                if(response.status == 401){
+                    throw new Error("Usuario o contraseña incorrectos");
+                }
+                throw new Error("Ocurrio un problema con la autenticacion");
+                
+            })
+            .then(json => {
+                dispatch(loginSuccess(json));
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(logout());
             });
     }
 }

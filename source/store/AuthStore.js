@@ -4,10 +4,10 @@ import { EventEmitter } from 'events';
 const CHANGE_EVENT = 'change';
 
 export function setUser(profile, token) {
-  if (!localStorage.getItem('id_token')) {
+  //if (!localStorage.getItem('id_token')) {
     localStorage.setItem('profile', JSON.stringify(profile));
     localStorage.setItem('id_token', token);
-  }
+  //}
 }
 
 export function removeUser() {

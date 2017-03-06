@@ -8,11 +8,6 @@ class VoteGraph extends React.Component {
 		super(props);
 	}
 
-	componentDidMount(){
-		let chart = this.refs.chart.getChart();
-		chart.reflow();
-	}
-
 	render(){
 
 		const config = {
