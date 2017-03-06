@@ -5,7 +5,6 @@ export default function VotationComplete(state, dispatch){
 
 	if(showGraph(state)){
 		//dispatch action que verifica si tiene que mostrar el grafico o no
-		console.log("actors/VotationComplete");
 		var user = JSON.parse(AuthStore.getUser());
 		dispatch(checkIfUserAnswerVotation(state.voteForm.votation.content.id, user.id));
 	}

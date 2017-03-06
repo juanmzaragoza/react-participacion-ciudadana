@@ -28,6 +28,10 @@ export default function result(state = initialState, action) {
         error: Object.assign({}, state.error, {
           isError: false,
           message: ""
+        }),
+        graph: Object.assign({}, state.graph, {
+          show: true,
+          verified: true
         })
       })
     case VOTE_FAILURE:
@@ -44,7 +48,7 @@ export default function result(state = initialState, action) {
         votation: Object.assign({}, state.votation, {
           isFetching: true,
           errorRequest: false
-        })        
+        })
       })
 
     case REQUEST_VOTATION_SUCCESS:
@@ -53,7 +57,7 @@ export default function result(state = initialState, action) {
           isFetching: false,
           errorRequest: false,
           content: (action.votation.rows.length>0)? action.votation.rows[0]:{}
-        })        
+        }) 
       })
 
     case REQUEST_VOTATION_FAILURE:

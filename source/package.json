@@ -26,6 +26,7 @@
     "react-bootstrap": "^0.30.7",
     "react-day-picker": "^2.5.0",
     "react-dom": "^15.4.2",
+    "react-highcharts": "^11.5.0",
     "react-paginate": "^4.1.1",
     "react-redux": "^4.1.2",
     "react-router": "^2.6.1",
