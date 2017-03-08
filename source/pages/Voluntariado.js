@@ -4,7 +4,7 @@ import Main from "../components/Layout/Main";
 import Row from "../components/Layout/Row";
 import Separator from "../components/Layout/Separator";
 import Jumbotron from "../components/Jumbotron";
-import VoluntariadoListThumbnailDescriptionContainer from "../containers/VoluntariadoListThumbnailDescriptionContainer"
+{/*import VoluntariadoListThumbnailDescriptionContainer from "../containers/VoluntariadoListThumbnailDescriptionContainer"*/}
 
 const Voluntariado = () => (
     <Main >
@@ -15,7 +15,7 @@ const Voluntariado = () => (
 
         <Separator />
 
-        <VoluntariadoListThumbnailDescriptionContainer />
+        {/*<VoluntariadoListThumbnailDescriptionContainer />*/}
         
     </Main >
 )

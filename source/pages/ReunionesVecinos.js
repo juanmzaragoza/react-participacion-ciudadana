@@ -4,7 +4,7 @@ import Main from "../components/Layout/Main";
 import Row from "../components/Layout/Row";
 import Separator from "../components/Layout/Separator";
 import { CarouselImagesContainer } from "../components/CarouselImageItems"
-import ReunionesVecinosListThumbnailDescriptionContainer from "../containers/ReunionesVecinosListThumbnailDescriptionContainer"
+import { ReunionesVecinosListThumbnailDescriptionContainer } from "../components/ListThumbnailDescription";
 
 const ReunionesVecinos = () => (
 	<Main >
