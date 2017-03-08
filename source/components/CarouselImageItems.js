@@ -1,8 +1,12 @@
 import React, { PropTypes } from "react"
-import CarouselRow from "../components/CarouselRow"
-import ImageCaptionItem from "../components/Item/ImageCaptionItem"
+import { connect } from 'react-redux';
 
-class CarouselImageItems extends React.Component {
+import CarouselRow from "../components/CarouselRow";
+import ImageCaptionItem from "../components/Item/ImageCaptionItem";
+
+import {  fetchImagesFromGallery } from '../actions/MediaAction';
+
+export class CarouselImageItems extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -45,4 +49,35 @@ CarouselImageItems.propTypes = {
   imageSrc: PropTypes.object
 }
 
-export default CarouselImageItems
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        items: getItemsFromAction(state.headerSection.images)
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    componentWillMount: () => {
+        dispatch(fetchImagesFromGallery(ownProps.gallery));
+    }
+  }
+}
+
+export const CarouselImagesContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CarouselImageItems)
+
+function getItemsFromAction(itemsArray){
+    let items = [];
+    itemsArray.forEach(function(element,index){
+        let item = {
+            name: element.name,
+            description: element.description,
+            imageSrc: element.url
+        }
+        items.push(item);
+    });
+    return items;
+}

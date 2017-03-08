@@ -2,7 +2,7 @@ import React from "react";
 
 import Row from "../components/Layout/Row";
 import ResultsListGroupThumbnailContainer from "../containers/ResultsListGroupThumbnailContainer"
-import CarouselImagesContainer from "../containers/CarouselImagesContainer"
+import { CarouselImagesContainer } from "../components/CarouselImageItems"
 
 import Article from "../components/Layout/Article";
 import Aside from "../components/Layout/Aside";
