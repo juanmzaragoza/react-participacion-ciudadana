@@ -1,8 +1,13 @@
 import React, { PropTypes } from "react"
+import { connect } from 'react-redux'
+
 import CarouselRowContainer from "../containers/CarouselRowContainer"
 import ThumbnailDescriptionItem from "../components/Item/ThumbnailDescriptionItem"
 
-class CarouselThumbnailItems extends React.Component {
+import {  incrementPage, decrementPage } from '../actions/PaginationAction'
+import {fetchItemsBySeccion} from '../actions/ItemAction'
+
+export class CarouselThumbnailItems extends React.Component {
 
   	constructor(props) {
   		super(props)
@@ -51,4 +56,33 @@ CarouselThumbnailItems.propTypes = {
   componentDidMount: PropTypes.func
 }
 
-export default CarouselThumbnailItems
+const mapStateToProps = (state, ownProps) => {
+
+    let visibleItems = 4
+
+    return {
+        isLoading: (state.indexItems.isFetching || state.indexItems.errorRequest),
+        items: state.indexItems.items.length > 0? 
+        	state.indexItems.items.map((item) => {
+        		return Object.assign({}, item, {
+			        href: '/'+item.tipo+'/'+item.id
+			      })	
+        	}): [],
+        visibleItems: visibleItems,
+        withDescription: false,
+        descriptionTextClass: 'text-limit-five-lines'
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    componentDidMount: () => {
+        dispatch(fetchItemsBySeccion(1,25,{seccion_clave: 'DESTACADOS'}))
+    }
+  }
+}
+
+export const AgendaSemanalCarouselThumbnailContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CarouselThumbnailItems)

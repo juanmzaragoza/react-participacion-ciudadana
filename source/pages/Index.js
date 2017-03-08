@@ -4,7 +4,7 @@ import Main from "../components/Layout/Main";
 import Section from "../components/Layout/Section";
 import MainVideoContainer from "../containers/MainVideoContainer";
 import MainStaticsContainer from "../containers/MainStaticsContainer";
-import AgendaSemanalCarouselThumbnailContainer from "../containers/AgendaSemanalCarouselThumbnailContainer"
+import { AgendaSemanalCarouselThumbnailContainer } from "../components/CarouselThumbnailItems"
 import ImageLinkItem from "../components/Item/ImageLinkItem";
 import BioItem from "../components/Item/BioItem";
 
