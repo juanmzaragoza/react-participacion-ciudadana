@@ -11,7 +11,7 @@ import ContentSecondaryContainer from "../containers/ContentSecondaryContainer";
 
 import {  requestResults } from '../actions/ResultAction'
 
-import CommentFormContainer from "../containers/CommentFormContainer"
+import { CommentFormContainer } from "../components/CommentForm"
 import CommentsListContainer from "../containers/CommentsListContainer"
 
 import VoteSectionContainer from "../containers/VoteSectionContainer"

@@ -1,9 +1,16 @@
 import React, { PropTypes } from "react";
+import { connect } from 'react-redux';
+
 import SendButton from "./SendButton";
 import TextArea from "./TextArea";
 import Formulario from "./Formulario";
 
-class CommentForm extends React.Component {
+import { showLoginForm } from '../actions/UserAction';
+import { comment as c } from '../actions/CommentAction';
+
+import { AuthStore } from '../store/AuthStore';
+
+export class CommentForm extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -72,4 +79,30 @@ CommentForm.propTypes = {
   onNoComment: PropTypes.func
 }
 
-export default CommentForm
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+      canPost: state.user.isAuthenticated,
+      id: state.result.content.id,
+      type: state.result.content.obra_etapas !== undefined? 'obra':'evento',
+      messageError: state.commentForm.error.isError? state.commentForm.error.message:null,
+      commentSuccess: state.commentForm.success
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    postComment: (id, type, comment) => {
+      var user = JSON.parse(AuthStore.getUser());
+      dispatch(c(id, type, comment, user.id));
+    },
+    onNoComment: () => {
+      dispatch(showLoginForm());
+    }
+  }
+}
+
+export const CommentFormContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CommentForm)
