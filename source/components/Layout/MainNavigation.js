@@ -1,8 +1,11 @@
 import { default as React, Component, PropTypes  } from "react";
 import ReactDOM from "react-dom";
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 
-class MainNavigation extends React.Component {
+import { logout, showLoginForm } from '../../actions/UserAction';
+
+export class MainNavigation extends React.Component {
 
   constructor(props) {
     super(props);
@@ -57,4 +60,26 @@ MainNavigation.propTypes = {
   userLogin: PropTypes.func
 }
 
-export default MainNavigation
+
+//container
+const mapStateToProps = (state, ownProps) => {
+    return {
+      userIsAuthenticated: state.user.isAuthenticated
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    userLogout: (e) => {
+      dispatch(logout());
+    },
+    userLogin: (e) => {
+      dispatch(showLoginForm());
+    }
+  }
+}
+
+export const MainNavigationContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainNavigation)

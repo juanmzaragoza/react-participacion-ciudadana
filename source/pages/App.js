@@ -6,7 +6,7 @@ import Separator from "../components/Layout/Separator";
 import { AuthStore } from '../store/AuthStore';
 
 import ModalLoginContainer from "../containers/ModalLoginContainer";
-import MainNavigation from "../containers/MainNavigationContainer";
+import { MainNavigationContainer as MainNavigation } from "../components/Layout/MainNavigation";
 
 import { connect } from 'react-redux';
 import { refreshLogin } from '../actions/UserAction';
