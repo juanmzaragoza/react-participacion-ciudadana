@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import VoteFormContainer from "../containers/VoteFormContainer";
 import VoteGraphContainer from "../containers/VoteGraphContainer";
 
-class VoteSection extends React.Component {
+export class VoteSection extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -29,9 +29,7 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const VoteSectionContainer = connect(
+export const VoteSectionContainer = connect(
   mapStateToProps,
   null
 )(VoteSection)
-
-export default VoteSectionContainer;

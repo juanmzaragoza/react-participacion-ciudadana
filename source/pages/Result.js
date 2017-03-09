@@ -14,7 +14,7 @@ import {  requestResults } from '../actions/ResultAction'
 import { CommentFormContainer } from "../components/CommentForm"
 import CommentsListContainer from "../containers/CommentsListContainer"
 
-import VoteSectionContainer from "../containers/VoteSectionContainer"
+import { VoteSectionContainer } from "../components/VoteSection"
 
 class Results extends React.Component {
 
