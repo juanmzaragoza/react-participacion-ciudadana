@@ -1,11 +1,17 @@
 import React, { PropTypes } from "react";
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+import { Field, reduxForm , Form } from 'redux-form';
+
+import { fetchNeighborhoods } from '../actions/NeighborhoodAction';
+import { createUser } from '../actions/UserAction';
+
 import Formulario from "./Formulario";
 import Input from "./Input";
-import { Field, reduxForm , Form } from 'redux-form';
+
 const  { DOM: { input, select, textarea } } = React;
 
-class RegistrationForm extends React.Component {
+class Registration extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -160,7 +166,7 @@ class RegistrationForm extends React.Component {
 	}
 }
 
-RegistrationForm.propTypes = {
+Registration.propTypes = {
   username: PropTypes.string,
   neighborhoods: PropTypes.array,
   getNeighborhoods: PropTypes.func,
@@ -180,7 +186,36 @@ const validate = values => {
   	return errors;
 }
 
-export default reduxForm({
+export const RegistrationForm = reduxForm({
   form: 'RegistrationForm',  // a unique identifier for this form
   validate
-})(RegistrationForm)
+})(Registration)
+
+
+//container
+const mapStateToProps = (state, ownProps) => {
+    return {
+      neighborhoods: state.registrationForm.neighborhoods,
+      submitError: state.registrationForm.submitError.state? state.registrationForm.submitError.message:false,
+      submitSucess: state.registrationForm.submitSucess.state
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    componentDidMount: () => {
+      //limpiar estado del formulario
+    },
+    getNeighborhoods: () => {
+      dispatch(fetchNeighborhoods(1, 50));
+    },
+    onSubmit: (formValues) => {
+      dispatch(createUser(formValues));
+    }
+  }
+}
+
+export const RegistrationFormContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RegistrationForm)

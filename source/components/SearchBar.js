@@ -4,8 +4,6 @@ import {  browserHistory } from 'react-router';
 
 import {  searchItems } from '../actions';
 
-import SearchBar from '../components/SearchBar';
-
 export class SearchBar extends React.Component {
 
     constructor(props) {
