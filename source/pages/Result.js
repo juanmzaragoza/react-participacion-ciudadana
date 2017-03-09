@@ -6,7 +6,7 @@ import Article from "../components/Layout/Article";
 import Aside from "../components/Layout/Aside";
 import Separator from "../components/Layout/Separator";
 
-import ContentMainContainer from "../containers/ContentMainContainer";
+import { ContentMainContainer } from "../components/ContentMain";
 import ContentSecondaryContainer from "../containers/ContentSecondaryContainer";
 
 import {  requestResults } from '../actions/ResultAction'

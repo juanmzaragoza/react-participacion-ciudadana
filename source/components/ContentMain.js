@@ -1,9 +1,14 @@
 import React, { PropTypes } from "react";
+import { connect } from 'react-redux'
+
+import { fetchContent } from '../actions/ResultAction';
+import { fetchVotation } from '../actions/VoteAction';
+
 import ContentMainEtapas from "./ContentMainEtapas";
 import FacebookShareButton from "./FacebookShareButton";
 import TwitterShareButton from "./TwitterShareButton";
 
-class ContentMain extends React.Component {
+export class ContentMain extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -84,4 +89,24 @@ ContentMain.propTypes = {
   	componentDidMount: PropTypes.func
 }
 
-export default ContentMain
+//container
+const mapStateToProps = (state, ownProps) => {
+    return {
+        error: state.result.errorRequest,
+        content: state.result.content
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    componentDidMount: () => {
+        dispatch(fetchContent(ownProps.type,ownProps.id,{'publicado':1}));
+        dispatch(fetchVotation(ownProps.type,ownProps.id));
+    }
+  }
+}
+
+export const ContentMainContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContentMain)
