@@ -3,8 +3,8 @@ import React from "react";
 import Main from "../components/Layout/Main";
 import Section from "../components/Layout/Section";
 import { MainVideoContainer } from "../components/MainVideo";
-import MainStaticsContainer from "../containers/MainStaticsContainer";
-import { AgendaSemanalCarouselThumbnailContainer } from "../components/CarouselThumbnailItems"
+import { MainStaticsContainer } from "../components/MainStatics";
+import { AgendaSemanalCarouselThumbnailContainer } from "../components/CarouselThumbnailItems";
 import ImageLinkItem from "../components/Item/ImageLinkItem";
 import BioItem from "../components/Item/BioItem";
 

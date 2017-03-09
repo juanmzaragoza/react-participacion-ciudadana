@@ -1,9 +1,13 @@
 import React, { PropTypes } from "react";
+import { connect } from 'react-redux';
+
+import {fetchStatics} from '../actions/StaticsAction'
+
 const imageVecinosVotando = require("../public/content/images/vecinos_votando.png");
 const urnaVotacion = require("../public/content/images/urna_votacion.png");
 const vecinosParticip = require("../public/content/images/vecinos_participando.png");
 
-class MainStatics extends React.Component {
+export class MainStatics extends React.Component {
 
     constructor(props) {
         super(props)
@@ -83,4 +87,26 @@ MainStatics.propTypes = {
   subscriptions: PropTypes.number
 }
 
-export default MainStatics
+
+//container
+const mapStateToProps = (state, ownProps) => {
+
+    return {
+        isLoading: (state.requestStatics.isFetching || state.requestStatics.errorRequest),
+        votes: state.requestStatics.votes,
+        subscriptions: state.requestStatics.subscriptions
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    componentDidMount: () => {
+        dispatch(fetchStatics())
+    }
+  }
+}
+
+export const MainStaticsContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainStatics)
