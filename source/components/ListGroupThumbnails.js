@@ -1,10 +1,14 @@
-import React, { PropTypes } from "react"
-import CarouselRowContainer from "../containers/CarouselRowContainer"
-import ThumbnailDescriptionItem from "../components/Item/ThumbnailDescriptionItem"
+import React, { PropTypes } from "react";
+import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
 
-class ListGroupThumbnails extends React.Component {
+import {  fetchResults, fetchMoreResults } from '../actions/ResultAction'
+
+import CarouselRowContainer from "../containers/CarouselRowContainer"
+import ThumbnailDescriptionItem from "../components/Item/ThumbnailDescriptionItem"
+
+export class ListGroupThumbnails extends React.Component {
 
 	constructor(props) {
   		super(props);
@@ -105,4 +109,31 @@ ListGroupThumbnails.propTypes = {
   handlePageClick: PropTypes.func
 }
 
-export default ListGroupThumbnails
+//container
+const mapStateToProps = (state, ownProps) => {
+    return {
+        items: state.results.items,
+        isLoading: (state.results.isFetching || state.results.errorRequest),
+        page: state.results.page,
+        pageCount: state.results.pageCount,
+        colSm: 12,
+        colMd: 9
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  let resultsPerPage = 6;
+  return {
+    componentWillMount: () => {
+      dispatch(fetchResults(1,resultsPerPage,ownProps.filter,ownProps.type,false))
+    },
+    handlePageClick: (e) => {
+      dispatch(fetchResults(e.selected+1,resultsPerPage,ownProps.filter,ownProps.type,false));
+    }
+  }
+}
+
+export const ResultsListGroupThumbnailContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ListGroupThumbnails)

@@ -5,7 +5,7 @@ import Section from "../components/Layout/Section";
 import Article from "../components/Layout/Article";
 import Aside from "../components/Layout/Aside";
 import { CarouselImagesContainer } from "../components/CarouselImageItems"
-import ResultsListGroupThumbnailContainer from "../containers/ResultsListGroupThumbnailContainer"
+import { ResultsListGroupThumbnailContainer } from "../components/ListGroupThumbnails"
 
 import { CommuneFilterContainer } from "../components/SelectFilter"
 import TagFilterContainer from "../containers/TagFilterContainer"
