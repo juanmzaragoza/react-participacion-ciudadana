@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import MainBoxSearchBAContainer from "../containers/MainBoxSearchBAContainer"
+import { MainBoxSearchBAContainer } from "../components/MainBoxSearchBA"
 
 const MainVideo = (onScrollMainVideo) => (
     <section id="video" >
