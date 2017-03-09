@@ -1,22 +1,48 @@
 import React, { PropTypes } from "react";
+import { connect } from 'react-redux';
+import {  browserHistory } from 'react-router';
 
-const SearchBar = ({onSearch}) => {
+import {  searchItems } from '../actions';
 
-    let input
+import SearchBar from '../components/SearchBar';
 
-    return (
-        <div className="form-group has-button">
-            <input ref={node => {input = node}} type="text" className="form-control input-xl" id="search-obras-eventos" placeholder="Buscar" />
-            <button className="btn" onClick={ e => {onSearch((input !== undefined) ? input.value:'')}}>
-                <span className="glyphicon glyphicon-search"></span>
-            </button>
-        </div>
-    )
+export class SearchBar extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        let input
+
+        return (
+            <div className="form-group has-button">
+                <input ref={node => {input = node}} type="text" className="form-control input-xl" id="search-obras-eventos" placeholder="Buscar" />
+                <button className="btn" onClick={ e => {this.props.onSearch((input !== undefined) ? input.value:'')}}>
+                    <span className="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+        )
+    }
 }
 
 SearchBar.propTypes = {
   onSearch: PropTypes.func.isRequired
 }
 
-export default SearchBar
+
+//container
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onSearch: (text) => {
+        //dispatch(searchItems(text))
+        browserHistory.push('/resultados?nombre='+text)
+    }
+  }
+}
+
+export const SearchBarContainer = connect(
+  null,
+  mapDispatchToProps
+)(SearchBar)
 
