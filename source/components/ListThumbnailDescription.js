@@ -5,7 +5,7 @@ import {  fetchCategoriesFromSection } from '../actions/EventoAction';
 import {  clearBodySection } from '../actions/SectionAction';
 import {  fetchItemsFromGallery } from '../actions/MediaAction';
 
-import CarouselRowContainer from "../containers/CarouselRowContainer";
+import { CarouselRowContainer } from "../components/CarouselRow";
 import ThumbnailDescriptionItem from "../components/Item/ThumbnailDescriptionItem";
 
 export class ListThumbnailDescription extends React.Component {

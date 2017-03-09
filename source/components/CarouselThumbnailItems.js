@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 import { connect } from 'react-redux'
 
-import CarouselRowContainer from "../containers/CarouselRowContainer"
+import { CarouselRowContainer } from "../components/CarouselRow"
 import ThumbnailDescriptionItem from "../components/Item/ThumbnailDescriptionItem"
 
 import {  incrementPage, decrementPage } from '../actions/PaginationAction'

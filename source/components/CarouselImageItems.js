@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 import { connect } from 'react-redux';
 
-import CarouselRow from "../components/CarouselRow";
+import { CarouselRow } from "../components/CarouselRow";
 import ImageCaptionItem from "../components/Item/ImageCaptionItem";
 
 import {  fetchImagesFromGallery } from '../actions/MediaAction';

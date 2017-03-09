@@ -1,8 +1,13 @@
 import React, { PropTypes } from "react";
+import { connect } from 'react-redux';
+
+import { fetchComments } from '../actions/CommentAction';
+
 import Comment from "./Comment";
+
 import * as utils from '../lib/utils'
 
-class CommentsList extends React.Component {
+export class CommentsList extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -44,4 +49,23 @@ CommentsList.propTypes = {
   	getComments: PropTypes.func
 }
 
-export default CommentsList
+
+//container
+const mapStateToProps = (state, ownProps) => {
+    return {
+    	comments: state.result.content.comments
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    getComments: (id, type) => {
+      dispatch(fetchComments(ownProps.id, ownProps.type, 1, 25))
+    },
+  }
+}
+
+export const CommentsListContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CommentsList)

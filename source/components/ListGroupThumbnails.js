@@ -5,7 +5,7 @@ import ReactPaginate from 'react-paginate';
 
 import {  fetchResults, fetchMoreResults } from '../actions/ResultAction'
 
-import CarouselRowContainer from "../containers/CarouselRowContainer"
+import { CarouselRowContainer } from "../components/CarouselRow"
 import ThumbnailDescriptionItem from "../components/Item/ThumbnailDescriptionItem"
 
 export class ListGroupThumbnails extends React.Component {

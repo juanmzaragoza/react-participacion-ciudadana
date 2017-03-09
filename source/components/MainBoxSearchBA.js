@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 //import {  toggleState } from '../actions'
 
 import { SearchBarContainer } from '../components/SearchBar'
-import ProjectsDayPickerContainer from '../containers/ProjectsDayPickerContainer'
+import ProjectsDayPickerContainer from '../components/ProjectsDayPicker'
 
 export class MainBoxSearchBA extends React.Component {
 

@@ -12,7 +12,7 @@ import { ContentSecondaryContainer } from "../components/ContentSecondary";
 import {  requestResults } from '../actions/ResultAction'
 
 import { CommentFormContainer } from "../components/CommentForm"
-import CommentsListContainer from "../containers/CommentsListContainer"
+import { CommentsListContainer } from "../components/CommentsList"
 
 import { VoteSectionContainer } from "../components/VoteSection"
 
