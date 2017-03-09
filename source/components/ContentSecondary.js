@@ -1,6 +1,9 @@
 import React, { PropTypes } from "react";
+import { connect } from 'react-redux';
 
-class ContentSecondary extends React.Component {
+import { fetchContent } from '../actions/ResultAction';
+
+export class ContentSecondary extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -84,4 +87,16 @@ ContentSecondary.propTypes = {
   	componentDidMount: PropTypes.func
 }
 
-export default ContentSecondary
+
+//container
+const mapStateToProps = (state, ownProps) => {
+    return {
+    	error: state.result.errorRequest,
+        content: state.result.content
+    }
+}
+
+export const ContentSecondaryContainer = connect(
+  mapStateToProps,
+  null
+)(ContentSecondary)
