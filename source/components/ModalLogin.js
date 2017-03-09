@@ -1,10 +1,14 @@
 import { default as React, Component, PropTypes  } from "react";
 import ReactDOM from "react-dom";
 import { Modal } from "react-bootstrap";
+import { connect } from 'react-redux';
+
+import { hideLoginForm, login } from '../actions/UserAction';
+
 import Formulario from "./Formulario";
 import Input from "./Input";
 
-class ModalLogin extends React.Component {
+export class ModalLogin extends React.Component {
 
   constructor(props) {
     super(props);
@@ -86,4 +90,28 @@ ModalLogin.propTypes = {
   loginError: PropTypes.bool
 }
 
-export default ModalLogin
+
+//container
+const mapStateToProps = (state, ownProps) => {
+    return {
+      show: !state.user.isAuthenticated && state.loginForm.visible,
+      loginError: state.user.loginFailed,
+      loginSuccess: state.user.isAuthenticated
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    closeModal: () => {
+      dispatch(hideLoginForm());
+    },
+    loginUsernamePassword: (username,password) => {
+      dispatch(login(username,password));
+    }
+  }
+}
+
+export const ModalLoginContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModalLogin)

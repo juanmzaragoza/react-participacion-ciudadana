@@ -5,7 +5,7 @@ import Footer from "../components/Layout/Footer";
 import Separator from "../components/Layout/Separator";
 import { AuthStore } from '../store/AuthStore';
 
-import ModalLoginContainer from "../containers/ModalLoginContainer";
+import { ModalLoginContainer } from "../components/ModalLogin";
 import { MainNavigationContainer as MainNavigation } from "../components/Layout/MainNavigation";
 
 import { connect } from 'react-redux';
