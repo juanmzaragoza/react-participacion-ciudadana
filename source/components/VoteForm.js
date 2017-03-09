@@ -1,8 +1,15 @@
 import React, { PropTypes } from "react";
-import SendButton from "./SendButton";
+import { connect } from 'react-redux';
 import { Field, reduxForm , Form } from 'redux-form';
 
-class VoteForm extends React.Component {
+import { showLoginForm } from '../actions/UserAction';
+import { vote } from '../actions/VoteAction';
+
+import { AuthStore } from '../store/AuthStore';
+
+import SendButton from "./SendButton";
+
+class VoteFormComponent extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -101,7 +108,7 @@ class VoteForm extends React.Component {
 	}
 }
 
-VoteForm.propTypes = {
+VoteFormComponent.propTypes = {
   id: PropTypes.number,
   titulo: PropTypes.string,
   descripcion_breve: PropTypes.string,
@@ -112,6 +119,51 @@ VoteForm.propTypes = {
   onNoVote: PropTypes.func
 }
 
-export default reduxForm({
+export const VoteForm = reduxForm({
   	form: 'VoteForm',  // a unique identifier for this form
-})(VoteForm)
+})(VoteFormComponent)
+
+
+//container
+const mapStateToProps = (state, ownProps) => {
+
+    var returnObj = {
+      id: undefined,
+      titulo: undefined,
+      descripcion_breve: undefined,
+      contenido: undefined,
+      opciones: undefined,
+      canVote: state.user.isAuthenticated,
+      messageError: state.voteForm.error.isError? state.voteForm.error.message:null,
+    }
+
+    if(state.voteForm.votation.error != true && state.voteForm.votation.content != null){
+      var votation = state.voteForm.votation.content;
+      returnObj = Object.assign({}, returnObj, {
+        id: votation.id,
+        titulo: votation.nombre,
+        descripcion_breve: votation.descripcion != null? votation.descripcion.slice(0, 20):null,
+        contenido: votation.descripcion,
+        opciones: votation.opciones
+      });
+    }
+
+    return returnObj;
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onSubmit(e){
+      var user = JSON.parse(AuthStore.getUser());
+      dispatch(vote(e.votacion, e.opcion, user.id));
+    },
+    onNoVote(){
+      dispatch(showLoginForm());
+    }
+  }
+}
+
+export const VoteFormContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VoteForm)

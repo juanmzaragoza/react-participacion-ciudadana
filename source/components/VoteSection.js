@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 import { connect } from 'react-redux';
-import VoteFormContainer from "../containers/VoteFormContainer";
-import VoteGraphContainer from "../containers/VoteGraphContainer";
+import { VoteFormContainer } from "../components/VoteForm";
+import { VoteGraphContainer } from "../components/VoteGraph";
 
 export class VoteSection extends React.Component {
 

@@ -1,8 +1,13 @@
 import React, { PropTypes } from "react";
 import ReactHighcharts from "react-highcharts";
+import { connect } from 'react-redux';
 
+import { showLoginForm } from '../actions/UserAction';
+import { vote } from '../actions/VoteAction';
 
-class VoteGraph extends React.Component {
+import { AuthStore } from '../store/AuthStore';
+
+export class VoteGraph extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -80,4 +85,39 @@ VoteGraph.propTypes = {
   onNoVote: PropTypes.func
 }
 
-export default VoteGraph;
+
+//container
+const mapStateToProps = (state, ownProps) => {
+
+  var opciones = [], 
+    votos = [], 
+    titulo = 'sin nombre',
+    descripcion_breve = 'sin descripcion',
+    descripcion = 'sin descripcion';
+
+  if(state.voteForm.votation.error != true && state.voteForm.votation.content != null){
+    var votation = state.voteForm.votation.content;
+
+    state.voteForm.votation.content.opciones.map(function(opcion){
+      opciones.push(opcion.nombre);
+      votos.push(opcion.votos);
+    })
+
+    titulo = votation.nombre;
+    descripcion = votation.descripcion;
+    descripcion_breve = votation.descripcion != null? votation.descripcion.slice(0, 20):null;
+  }
+
+  return {
+    opciones: opciones,
+    votos: votos,
+    titulo: titulo,
+    descripcion_breve: descripcion_breve,
+    descripcion: descripcion
+  }
+}
+
+export const VoteGraphContainer = connect(
+  mapStateToProps,
+  null
+)(VoteGraph)
