@@ -7,8 +7,8 @@ import Aside from "../components/Layout/Aside";
 import { CarouselImagesContainer } from "../components/CarouselImageItems"
 import { ResultsListGroupThumbnailContainer } from "../components/ListGroupThumbnails"
 
-import { CommuneFilterContainer } from "../components/SelectFilter"
-import TagFilterContainer from "../containers/TagFilterContainer"
+import { CommuneFilterContainer } from "../components/SelectFilter";
+import { TagFilterContainer } from "../components/TagFilter";
 
 import * as type from '../constants/ApiResultType'
 

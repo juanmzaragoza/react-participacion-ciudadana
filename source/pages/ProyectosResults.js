@@ -7,7 +7,7 @@ import { ResultsListGroupThumbnailContainer } from "../components/ListGroupThumb
 import Article from "../components/Layout/Article";
 import Aside from "../components/Layout/Aside";
 import { CategoryFilterContainer } from "../components/SelectFilter"
-import TagFilterContainer from "../containers/TagFilterContainer"
+import { TagFilterContainer } from "../components/TagFilter";
 
 import * as type from '../constants/ApiResultType'
 
