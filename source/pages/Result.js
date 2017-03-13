@@ -16,7 +16,9 @@ import { CommentsListContainer } from "../components/CommentsList"
 
 import { VoteSectionContainer } from "../components/VoteSection"
 
-class Results extends React.Component {
+import { ButtonSubscribeContainer } from "../components/Button";
+
+class Result extends React.Component {
 
 	constructor(props) {
     	super(props);
@@ -41,7 +43,13 @@ class Results extends React.Component {
 
 			        	<ContentMainContainer 
 			        		id={this.props.params.id_result}
-			        		type={type} />
+			        		type={type} >
+
+		          			<ButtonSubscribeContainer 
+		          				id={this.props.params.id_result}
+			        			type={type} />
+
+		          		</ContentMainContainer>
 			        	
 			        	<Separator/>
 			        	<VoteSectionContainer />
@@ -67,4 +75,4 @@ class Results extends React.Component {
 	}
 }
 
-export default Results
+export default Result

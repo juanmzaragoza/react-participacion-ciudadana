@@ -59,8 +59,8 @@ export class ContentMain extends React.Component {
 					}
 					 
 	              	<div className="clear"></div>
-				 
-		          	<button type="submit" className="btn btn-vt">Suscribirse</button>
+				 	
+				 	{this.props.children}
 				  
 				 	<div className="clear"></div>	 
 		         

@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import * as types from '../constants/RequestActionTypes'
 let config = require('../config/config')
+import { checkIfUserIsSubscribed } from './SubscriptionAction'
 
 export const requestResults = () => {
     return {
@@ -118,6 +119,7 @@ export const fetchContent = (request_type, content_id ,filters = {}) => {
                     dispatch(requestContentError())
                 } else{
                     dispatch(receiveContent(json))
+                    dispatch(checkIfUserIsSubscribed(content_id,request_type))
                 }                
             })
             .catch(err => {
