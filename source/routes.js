@@ -4,8 +4,8 @@ import App from './pages/App'
 import Index from './pages/Index'
 import Obras from './pages/Obras'
 import Proyectos from './pages/Proyectos'
-import HoracioDiegoVos from './pages/HoracioDiegoVos'
-import ReunionesVecinos from './pages/ReunionesVecinos'
+import TrabajandoJuntos from './pages/TrabajandoJuntos'
+import HoracioDiego from './pages/HoracioDiego'
 import ReunionesMinistros from './pages/ReunionesMinistros'
 import Results from './pages/Results'
 import ProyectosResults from './pages/ProyectosResults'
@@ -21,9 +21,9 @@ export default (
 
   		<Route path="/obras" component={Obras}/>
   		<Route path="/proyectos" component={Proyectos}/>
-      <Route path="/trabajando_juntos" component={HoracioDiegoVos}/>
-      <Route path="/reuniones_de_vecinos" component={ReunionesVecinos}/>
-      <Route path="/reuniones_con_ministros" component={ReunionesMinistros}/>
+      <Route path="/trabajando_juntos" component={TrabajandoJuntos}/>
+      <Route path="/horacio_y_diego" component={HoracioDiego}/>
+      <Route path="/reuniones_de_ministros" component={ReunionesMinistros}/>
 
   		<Route path="/resultados" component={Results} />
   		<Route path="/resultados/obras/:id_state" component={ObrasResults} />

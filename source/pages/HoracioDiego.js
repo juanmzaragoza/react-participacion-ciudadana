@@ -4,20 +4,20 @@ import Main from "../components/Layout/Main";
 import Row from "../components/Layout/Row";
 import Separator from "../components/Layout/Separator";
 import { CarouselImagesContainer } from "../components/CarouselImageItems"
-import { ReunionesVecinosListThumbnailDescriptionContainer } from "../components/ListThumbnailDescription";
+import { HoracioDiegoListThumbnailDescriptionContainer } from "../components/ListThumbnailDescription";
 
-const ReunionesVecinos = () => (
+const HoracioDiego = () => (
 	<Main >
 
         <Row>
-            <CarouselImagesContainer gallery={'reunionesdevecinos'} />
+            <CarouselImagesContainer gallery={'horacioydiego'} />
         </Row>
 
         <Separator />
 
-        <ReunionesVecinosListThumbnailDescriptionContainer />
+        <HoracioDiegoListThumbnailDescriptionContainer />
         
     </Main >
 )
 
-export default ReunionesVecinos
+export default HoracioDiego

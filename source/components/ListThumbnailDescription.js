@@ -64,9 +64,9 @@ ListThumbnailDescription.propTypes = {
 
 
 //////////////////////////////////////////////////////////////
-// ReunionesVecinosListThumbnailDescriptionContainer
+// HoracioDiegoListThumbnailDescriptionContainer
 //////////////////////////////////////////////////////////////
-const mapStateToPropsReunionesVecinos = (state, ownProps) => {
+const mapStateToPropsHoracioDiego = (state, ownProps) => {
 
     return {
         items: getItemsFromAction(state.bodySection.items,'resultados/proyectos/'),
@@ -76,10 +76,10 @@ const mapStateToPropsReunionesVecinos = (state, ownProps) => {
     }
 }
 
-const mapDispatchToPropsReunionesVecinos = (dispatch, ownProps) => {
+const mapDispatchToPropsHoracioDiego = (dispatch, ownProps) => {
   return {
     componentDidMount: () => {
-        dispatch(fetchCategoriesFromSection('reunionesdevecinos'));
+        dispatch(fetchCategoriesFromSection('horacioydiego'));
     },
     componentWillUnmount: () => {
       dispatch(clearBodySection());
@@ -87,9 +87,9 @@ const mapDispatchToPropsReunionesVecinos = (dispatch, ownProps) => {
   }
 }
 
-export const ReunionesVecinosListThumbnailDescriptionContainer = connect(
-  mapStateToPropsReunionesVecinos,
-  mapDispatchToPropsReunionesVecinos
+export const HoracioDiegoListThumbnailDescriptionContainer = connect(
+  mapStateToPropsHoracioDiego,
+  mapDispatchToPropsHoracioDiego
 )(ListThumbnailDescription)
 
 //////////////////////////////////////////////////////////////
@@ -180,22 +180,22 @@ export const ObrasListThumbnailDescriptionContainer = connect(
 )(ListThumbnailDescription)
 
 //////////////////////////////////////////////////////////////
-// HDYVListThumbnailDescriptionContainer
+// TrabajandoJuntosListThumbnailDescriptionContainer
 //////////////////////////////////////////////////////////////
-const mapStateToPropsHDYVList = (state, ownProps) => {
+const mapStateToPropsTrabajandoJuntosList = (state, ownProps) => {
 
     return {
-        items: getItemsHDYVFromAction(state.bodySection.items),
-        itemsPerRow: 4,
+        items: getItemsTrabajandoJuntosFromAction(state.bodySection.items),
+        itemsPerRow: 3,
         colSm: 6,
-        colMd: 3
+        colMd: 4
     }
 }
 
-const mapDispatchToPropsHDYVList = (dispatch, ownProps) => {
+const mapDispatchToPropsTrabajandoJuntosList = (dispatch, ownProps) => {
   return {
     componentDidMount: () => {
-        dispatch(fetchCategoriesFromSection('horaciodiegovos'));
+        dispatch(fetchCategoriesFromSection('trabajandojuntos'));
     },
     componentWillUnmount: () => {
       dispatch(clearBodySection());
@@ -203,20 +203,20 @@ const mapDispatchToPropsHDYVList = (dispatch, ownProps) => {
   }
 }
 
-export const HDYVListThumbnailDescriptionContainer = connect(
-  mapStateToPropsHDYVList,
-  mapDispatchToPropsHDYVList
+export const TrabajandoJuntosListThumbnailDescriptionContainer = connect(
+  mapStateToPropsTrabajandoJuntosList,
+  mapDispatchToPropsTrabajandoJuntosList
 )(ListThumbnailDescription)
 
-function getItemsHDYVFromAction(itemsArray){
+function getItemsTrabajandoJuntosFromAction(itemsArray){
   let items = [];
   itemsArray.forEach(function(element,index){
 
     let linkHref = 'resultados/proyectos/'+element.id;
-    if(element.nombre == "Reuniones de Vecinos"){
-      linkHref = 'reuniones_de_vecinos';
-    } else if(element.nombre == "Reuniones con Ministros"){
-      linkHref = 'reuniones_con_ministros';
+    if(element.nombre.toLowerCase() == "horacio y diego"){
+      linkHref = 'horacio_y_diego';
+    } else if(element.nombre.toLowerCase() == "reuniones con ministros"){
+      linkHref = 'reuniones_de_ministros';
     }
 
     let item = {
