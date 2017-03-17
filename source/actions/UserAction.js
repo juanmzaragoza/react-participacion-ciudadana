@@ -121,7 +121,8 @@ export const createUser = (values) => {
                     identificacion: values.identificacion,
                     genero: values.genero,
                     celular: values.celular,
-                    barrio: values.barrio
+                    barrio: values.barrio,
+                    host: values.host
                 })
             }).then(response => {
                 if(response.status == 200 || response.status == 400){

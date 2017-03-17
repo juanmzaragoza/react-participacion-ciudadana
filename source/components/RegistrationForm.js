@@ -210,7 +210,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(fetchNeighborhoods(1, 50));
     },
     onSubmit: (formValues) => {
-      dispatch(createUser(formValues));
+      var values = Object.assign({},formValues,{
+      	host: location.protocol.concat("//").concat(window.location.hostname).concat(':').concat(window.location.port).concat('/')
+      })
+      dispatch(createUser(values));
     }
   }
 }
