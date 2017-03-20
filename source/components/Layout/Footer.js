@@ -38,7 +38,7 @@ class Footer extends React.Component {
               <li><a href="https://twitter.com/BAPartCiudadana"><i className="fa fa-twitter fa-lg"></i></a></li>
               <li><a href="https://www.instagram.com/baparticipacionciudadana/"><i className="fa fa-instagram fa-lg"></i></a></li>
               <li><a href="#"><i className="fa fa-youtube-play fa-lg"></i></a></li>
-              <li><a href="#"><i className="fa fa-rss fa-lg"></i></a></li>
+              {/*<li><a href="#"><i className="fa fa-rss fa-lg"></i></a></li>*/}
             </ul>
           </li>
         </ul>
