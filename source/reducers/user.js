@@ -1,11 +1,16 @@
 import {LOGIN_API_REQUEST,LOGIN_API_SUCCESS,LOGIN_API_FAILURE, LOGIN_USER, LOGOUT_USER} from '../constants/AuthConstants';
+import {CONFIRM_EMAIL_SUCCESS, CONFIRM_EMAIL_ERROR} from '../constants/UserConstants';
 import * as utils from '../lib/utils';
 import {AuthStore,setUser,removeUser} from '../store/AuthStore';
 
 const initialState = {
   isLoggingIn: false, //indica si se esta logueando el usuario
   loginFailed: false,
-  isAuthenticated: false
+  isAuthenticated: false,
+  validationProcess: {
+    success: false,
+    error: false
+  }
 }
 
 export default function result(state = initialState, action) { 
@@ -59,6 +64,22 @@ export default function result(state = initialState, action) {
         isLoggingIn: false,
         loginFailed: false,
         isAuthenticated: false
+      })
+
+    case CONFIRM_EMAIL_SUCCESS:
+      return Object.assign({}, state, {
+        validationProcess: Object.assign({}, state.validationProcess, {
+          success: true,
+          error: false
+        })
+      })
+
+    case CONFIRM_EMAIL_ERROR:
+      return Object.assign({}, state, {
+        validationProcess: Object.assign({}, state.validationProcess, {
+          success: false,
+          error: true
+        })
       })
 
     default:
