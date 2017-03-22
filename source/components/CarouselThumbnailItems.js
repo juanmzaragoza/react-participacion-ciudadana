@@ -36,7 +36,8 @@ export class CarouselThumbnailItems extends React.Component {
 								description={this.props.withDescription? item.descripcion_breve:""} 
 								linkHref={item.href}
 								linkText={"Leer más"}
-								descriptionTextClass={this.props.descriptionTextClass} />
+								descriptionTextClass={this.props.descriptionTextClass}
+                linesPerTitle={3} />
 						))
 					}
 				</CarouselRowContainer>

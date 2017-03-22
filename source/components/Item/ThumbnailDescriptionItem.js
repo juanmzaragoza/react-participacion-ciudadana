@@ -1,5 +1,6 @@
-import React, { PropTypes } from "react"
-import { Link } from 'react-router'
+import React, { PropTypes } from "react";
+import { Link } from 'react-router';
+import Dotdotdot from 'react-dotdotdot';
 
 class ThumbnailDescriptionItem extends React.Component {
 
@@ -19,12 +20,28 @@ class ThumbnailDescriptionItem extends React.Component {
 		this.refs.description.innerHTML = "";
 	}
 
+	renderTitle() {
+		return (
+			(this.props.linesPerTitle > 0)?
+				(<h3 title={this.props.label}> {/*elipsis*/}
+					<Dotdotdot clamp={this.props.linesPerTitle}>
+						{this.props.label}
+					</Dotdotdot>
+				</h3>)
+				:
+				(<h3 title={this.props.label}>
+					{this.props.label}
+				</h3>)
+		)
+	}
+
 	renderCaption(){
+
 		return (
 			(this.props.isCategory === true)?
 				(<div className="caption">
 					<div className="text-category">
-						<h3>{this.props.label}</h3>
+						{this.renderTitle.bind(this)()}
 						<p className={this.props.descriptionTextClass} ref="description"></p>
 						<p>
 							<Link to={this.props.linkHref} className="btn btn-primary" role="button">
@@ -35,7 +52,7 @@ class ThumbnailDescriptionItem extends React.Component {
 				</div>)
 				:					
 				(<div className="caption">
-					<h3>{this.props.label}</h3>
+					{this.renderTitle.bind(this)()}
 					<p className={this.props.descriptionTextClass} ref="description"></p>
 					<p>
 						<Link to={this.props.linkHref} className="btn btn-primary" role="button">
@@ -84,6 +101,7 @@ ThumbnailDescriptionItem.propTypes = {
   descriptionTextClass: PropTypes.string,
   isFirst: PropTypes.bool,
   isCategory: PropTypes.bool,
+  linesPerTitle: PropTypes.number,
 }
 
 export default ThumbnailDescriptionItem

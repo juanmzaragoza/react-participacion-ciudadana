@@ -44,7 +44,8 @@ export class ListGroupThumbnails extends React.Component {
 					linkHref={'/'+item.tipo+'/'+item.id}
 					colSm={6}
 					colMd={4} 
-					descriptionTextClass='text-limit-two-lines' />
+					descriptionTextClass='text-limit-two-lines'
+					linesPerTitle={3} />
 			)
 		});
 
