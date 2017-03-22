@@ -10,7 +10,13 @@ Ejecutar en el raiz del proyecto
 
 		npm install
 
-Copiar el archivo ´config/config.default.json´ a ´config/config.json´ y configurarlo con la url donde se encuentra instalada la API de Participacion ciudadana (Symfony2/NodeJs).
+Copiar el archivo ´config/config.default.json´ a ´config/config.json´ y configurarlo con la url donde se encuentra instalada la API de Participacion ciudadana (NodeJs):
+
+	{
+		"port": puerto de exposicion del frontend,
+		"api_url": "url_donde_se_encuentra_instalada_la_api_node (por ej.: http://localhost:3001/api/)",
+		...
+	}
 
 Ejecutar aplicación
 		
