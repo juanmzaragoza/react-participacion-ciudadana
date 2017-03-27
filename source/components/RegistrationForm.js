@@ -7,7 +7,6 @@ import { fetchNeighborhoods } from '../actions/NeighborhoodAction';
 import { createUser } from '../actions/UserAction';
 
 import Formulario from "./Formulario";
-import Input from "./Input";
 
 const  { DOM: { input, select, textarea } } = React;
 

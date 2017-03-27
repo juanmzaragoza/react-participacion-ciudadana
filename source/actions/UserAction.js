@@ -7,6 +7,8 @@ import * as userTypes from '../constants/UserConstants';
 let config = require('../config/config')
 import { AuthStore } from '../store/AuthStore';
 
+import { SubmissionError } from 'redux-form';
+
 export const requestLogin = () => { 
     return{
         type: types.LOGIN_API_REQUEST
@@ -224,6 +226,67 @@ export const emailConfirmation = (values) => {
             .catch(err => {
                 console.log(err);
                 dispatch(emailConfirmationError(err.message));
+            });
+    }
+}
+
+//RESET PASSWORD EMAIL
+export const showResetPasswordForm = () => {
+    return{
+        type: types.SHOW_RESET_PASSWORD_FORM
+    }
+}
+
+export const hideResetPasswordForm = () => {
+    return{
+        type: types.HIDE_RESET_PASSWORD_FORM
+    }
+}
+
+export const emailResetPasswordSuccess = (json) => { //accion que se dispara al terminar de recibir la consulta
+    return {
+        type: userTypes.RESET_PASSWORD_SUCCESS,
+        data: json
+    }
+}
+
+export const emailResetPasswordError = (error) => { //se dispara esta accion para informar de un error
+    return{
+        type: userTypes.RESET_PASSWORD_ERROR,
+        error: error
+    }
+}
+
+export const emailResetPassword = (values) => {
+
+    return (dispatch) => {
+
+        return fetch(config.api_url+'usuario/resetear_contrasena', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: values.email,
+                    host: values.host
+                })
+            }).then(response => {
+                if(response.status == 200 || response.status == 400){
+                    return response.json();
+                }
+                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
+            })
+            .then(json => {
+                if(json.code == 400){
+                    throw new Error(json.error);
+                } else{
+                    dispatch(emailResetPasswordSuccess(json));    
+                }                
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(emailResetPasswordError(err.message));
             });
     }
 }
