@@ -15,6 +15,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import Registro from './pages/Registro'
 import EnsureNotLoggedInContainer from './pages/EnsureNotLoggedInContainer'
 import ValidarEmail from './pages/ValidarEmail'
+import CambiarContrasena from './pages/CambiarContrasena'
 
 export default (
 	<Route path="/" component={App}>
@@ -38,6 +39,8 @@ export default (
         <Route path="/registro" component={Registro}/>
         <Route path="/verificacion" component={ValidarEmail}/>
       </Route>
+
+      <Route path="/cambiar_contrasena" component={CambiarContrasena}/>
 
   		<Route path="*" component={NotFoundPage} />
 

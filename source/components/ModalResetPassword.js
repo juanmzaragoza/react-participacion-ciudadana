@@ -123,7 +123,15 @@ ModalResetPassword.propTypes = {
   closeModal: PropTypes.func,
   componentWillMount: PropTypes.func,
   componentDidMount: PropTypes.func,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  successMessage: PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.bool
+  ]),
+  errorMessage: PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.bool
+  ])
 }
 
 const validate = values => {
