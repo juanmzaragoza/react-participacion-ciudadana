@@ -19,10 +19,11 @@ class Index extends React.Component {
 
 		const imageAgenda = require("../public/content/images/lg-agd.png");
 
-		const imgBioDescription = require("../public/content/images/Bio-Participación.png");
-		const imgBioItemA = require("../public/content/images/Bio-items-A.png");
-		const imgBioItemB = require("../public/content/images/Bio-items-B.png");
-		const imgBioItemC = require("../public/content/images/Bio-items-C.png");
+		const tituloBioParticipacion = require("../public/content/images/titulo-bio-Participacion.png");
+		const queEsParticipacionCiudadana = require("../public/content/images/bio-QueEsParticipacion-ciudadana.png");
+		const imgBioItemA = require("../public/content/images/Bio-Participa-de-las-reuniones.png");
+		const imgBioItemB = require("../public/content/images/Bio-Sumate-a-obras-y-proyectos.png");
+		const imgBioItemC = require("../public/content/images/Bio-compartinos-tu-opinion.png");
 
 	    return (
 			<div>
@@ -61,25 +62,37 @@ class Index extends React.Component {
 	        	</Section>
 
 	        	<Section id={"content-nav-bio"} renderInOneCol={true} >
-		    		<BioItem 
-		    			className={"bio-descrip"}
-		    			imageSrc={imgBioDescription}
-		    			description="..." />
-		    		<BioItem 
-		    			className={"bio-items"}
-		    			linkHref={"/trabajando_juntos"}
-		    			imageSrc={imgBioItemA}
-		    			description="..." />
-		    		<BioItem 
-		    			className={"bio-items"}
-		    			linkHref={"#"}
-		    			imageSrc={imgBioItemC}
-		    			description="..." />
-		    		<BioItem 
-		    			className={"bio-items"}
-		    			linkHref={"http://bit.ly/ContactPC3"}
-		    			imageSrc={imgBioItemB}
-		    			description="..." />
+
+	        		<div className="row ">
+					 	<div className="col-md-12">
+						 	<img src={tituloBioParticipacion} className="img-thumbnail" alt="..." />
+					 	</div>
+				 	</div>
+				 	<div className="clear"></div>
+
+				 	<div className="row ">
+					 	<div className="col-md-12">
+						 	<img src={queEsParticipacionCiudadana} className="img-thumbnail" alt="..." />
+					 	</div>
+				 	</div>
+
+				 	<div className="row ">
+			    		<BioItem 
+			    			className={"col-xs-4 col-sm-4 col-md-4"}
+			    			linkHref={"/trabajando_juntos"}
+			    			imageSrc={imgBioItemA}
+			    			description="..." />
+			    		<BioItem 
+			    			className={"col-xs-4 col-sm-4 col-md-4"}
+			    			linkHref={"/proyectos"}
+			    			imageSrc={imgBioItemC}
+			    			description="proyectos" />
+			    		<BioItem 
+			    			className={"col-xs-4 col-sm-4 col-md-4s"}
+			    			linkHref={"https://comunicacionhrl.secure.force.com/forms/FF_VFP_PCSumate"}
+			    			imageSrc={imgBioItemB}
+			    			description="..." />
+			    	</div>
 		    	</Section>
 
 			</div>
