@@ -1,4 +1,5 @@
-import * as requestType from '../constants/RequestActionTypes'
+import * as requestType from '../constants/RequestActionTypes';
+import * as userType from '../constants/UserConstants';
 
 const initialState = {
   isFetching: false,
@@ -34,7 +35,7 @@ export default function communeFilter(state = initialState, action) {
         errorRequest: true
       })
 
-    case requestType.CREATE_USER_FAILURE:
+    case userType.CREATE_USER_FAILURE:
       return Object.assign({}, state, {
         submitError: Object.assign({}, state.submitError, {
           state: true,
@@ -45,7 +46,7 @@ export default function communeFilter(state = initialState, action) {
         })
       })
 
-    case requestType.CREATE_USER_SUCCESS:
+    case userType.CREATE_USER_SUCCESS:
       return Object.assign({}, state, {
         submitError: Object.assign({}, state.submitError, {
           state: false,

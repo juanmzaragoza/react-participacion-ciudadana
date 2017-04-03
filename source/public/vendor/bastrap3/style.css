@@ -21,6 +21,20 @@ a{text-decoration:none;}
 	 color:#232323;
 }
 
+.navbar-header h3{margin-bottom:2px;margin-top:10px;}
+
+/* .bapc {
+	 width:400px;
+	 height:30px;
+     font-family: "OpenSans", Helvetica, Arial, sans-serif;
+	 font-size: 22px;
+	 position:relative;
+     line-height: 1.42857143;
+     color: #333;
+	 margin-top:100px;
+	 border:1px solid #ddd;
+}
+ */
 .logo-hast{
 	 width: 65px;
 	 margin-top:1px;
@@ -65,8 +79,17 @@ a{text-decoration:none;}
 
 #content-nav-bio{
 	 padding-top:30px;
-	 padding-bottom:30px;
+	/*  padding-bottom:30px; */
+	/*   background-color:#81D4E8;   */
+	    background:url(../../content/images/bg-Bio-Participacion.png);
+	    background-repeat:no-repeat;
+        background-size:cover; 
+	   width:100%;
+       height:auto; 
 }
+
+
+
 
 .clear{height:20px;}
 
@@ -355,7 +378,7 @@ a{text-decoration:none;}
 
 
 .bg-vot{ 
-     background-color:#f2dae9; 
+     background-color:#fcf5fa; 
      border:3px solid #e20079; 
      padding:5px 12px; 
      border-radius:5px;

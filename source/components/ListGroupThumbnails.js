@@ -44,7 +44,8 @@ export class ListGroupThumbnails extends React.Component {
 					linkHref={'/'+item.tipo+'/'+item.id}
 					colSm={6}
 					colMd={4} 
-					descriptionTextClass='text-limit-two-lines' />
+					descriptionTextClass='text-limit-two-lines'
+					linesPerTitle={3} />
 			)
 		});
 
@@ -122,13 +123,19 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  let resultsPerPage = 6;
+
+  var resultsPerPage = 6;
+  var filtroPorNombre = {nombre: ownProps.filter.nombre};
+  var filtroPorTag = {tag_nombre: ownProps.filter.tag_nombre};
+  
   return {
     componentWillMount: () => {
-      dispatch(fetchResults(1,resultsPerPage,ownProps.filter,ownProps.type,false))
+      dispatch(fetchResults(1,resultsPerPage,filtroPorNombre,ownProps.type,false));
+      dispatch(fetchResults(1,resultsPerPage,filtroPorTag,ownProps.type,true));
     },
     handlePageClick: (e) => {
-      dispatch(fetchResults(e.selected+1,resultsPerPage,ownProps.filter,ownProps.type,false));
+      dispatch(fetchResults(e.selected+1,resultsPerPage,filtroPorNombre,ownProps.type,false));
+      dispatch(fetchResults(e.selected+1,resultsPerPage,filtroPorTag,ownProps.type,true));
     }
   }
 }

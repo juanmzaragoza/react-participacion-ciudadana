@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Modal } from "react-bootstrap";
 import { connect } from 'react-redux';
 
-import { hideLoginForm, login } from '../actions/UserAction';
+import { hideLoginForm, login, showResetPasswordForm } from '../actions/UserAction';
 
 import Formulario from "./Formulario";
 import Input from "./Input";
@@ -53,7 +53,7 @@ export class ModalLogin extends React.Component {
 
             <div className="form-group">
               <label htmlFor="id_password">Contraseña</label> 
-              <span className="passw"><a href="#">Olvidé mi contraseña.</a></span>
+              <span className="passw"><a href="#" onClick={this.props.handleResetPassword}>Olvidé mi contraseña</a></span>
               <Input className="form-control input-lg" id="id_password" name="password" ref="password" placeholder="Contraseña" type="password" />
             </div>
 
@@ -87,6 +87,7 @@ ModalLogin.propTypes = {
   componentWillMount: PropTypes.func,
   componentDidMount: PropTypes.func,
   loginUsernamePassword: PropTypes.func,
+  handleResetPassword: PropTypes.func,
   loginError: PropTypes.bool
 }
 
@@ -107,6 +108,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     loginUsernamePassword: (username,password) => {
       dispatch(login(username,password));
+    },
+    handleResetPassword: () => {
+      dispatch(showResetPasswordForm());
     }
   }
 }

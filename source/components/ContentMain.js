@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 import { fetchContent } from '../actions/ResultAction';
 import { fetchVotation } from '../actions/VoteAction';
@@ -47,6 +47,7 @@ export class ContentMain extends React.Component {
 		        </div>)
 		        :
 	        	(<div>
+
 	          		<header>
 			  			<h1>{content.nombre}</h1>
 				  		<p className="lead" ref="shortdescription"></p>
@@ -71,7 +72,10 @@ export class ContentMain extends React.Component {
 				  
 			     	<p>Compartí esta información con tus amigos y vecinos del barrio.</p>
 		         	<ul className="share-redes">
-		         		<li><FacebookShareButton /></li>
+		         		<li><FacebookShareButton 
+		         				title={this.props.content.nombre}
+		         				description={this.props.content.descripcion_breve}
+		         				image={window.location.origin+require("../public/content/images/agenda01.png")} /></li>
 		         		<li><TwitterShareButton /></li>
 						<li><a href="#"> <img src={imgSocialInst}  /> </a></li>
 			     	</ul>

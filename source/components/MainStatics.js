@@ -46,7 +46,7 @@ export class MainStatics extends React.Component {
                                         {this.props.isLoading? 
                                             <h2 style={{paddingLeft: '42px'}}>{spin}</h2>
                                             :
-                                            <h2>{this.props.votes}</h2>
+                                            <h2>{this.props.votes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h2>
                                         }
                                     </div>
                                     <div className="title-dat-A">
@@ -65,7 +65,7 @@ export class MainStatics extends React.Component {
                                         {this.props.isLoading? 
                                             <h2 style={{paddingLeft: '66px'}}>{spin}</h2>
                                             :
-                                            <h2>{this.props.subscriptions}</h2>
+                                            <h2>{this.props.subscriptions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h2>
                                         }
                                     </div>
                                     <div className="title-dat">

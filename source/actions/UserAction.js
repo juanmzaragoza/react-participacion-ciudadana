@@ -1,8 +1,13 @@
 import fetch from 'isomorphic-fetch';
+
 import * as types from '../constants/AuthConstants';
 import * as requestTypes from '../constants/RequestActionTypes';
+import * as userTypes from '../constants/UserConstants';
+
 let config = require('../config/config')
 import { AuthStore } from '../store/AuthStore';
+
+import { SubmissionError } from 'redux-form';
 
 export const requestLogin = () => { 
     return{
@@ -90,14 +95,14 @@ export const hideLoginForm = () => {
 //CREATE USER
 export const createUserSuccess = (json) => { //accion que se dispara al terminar de recibir la consulta
     return {
-        type: requestTypes.CREATE_USER_SUCCESS,
+        type: userTypes.CREATE_USER_SUCCESS,
         user: json
     }
 }
 
 export const createUserError = (error) => { //se dispara esta accion para informar de un error
     return{
-        type: requestTypes.CREATE_USER_FAILURE,
+        type: userTypes.CREATE_USER_FAILURE,
         error: error
     }
 }
@@ -121,7 +126,8 @@ export const createUser = (values) => {
                     identificacion: values.identificacion,
                     genero: values.genero,
                     celular: values.celular,
-                    barrio: values.barrio
+                    barrio: values.barrio,
+                    host: values.host
                 })
             }).then(response => {
                 if(response.status == 200 || response.status == 400){
@@ -171,6 +177,166 @@ export const refreshJWT = () => {
             .catch(err => {
                 console.log(err);
                 dispatch(logout());
+            });
+    }
+}
+
+//USER CONFIRM EMAIL
+export const emailConfirmationSuccess = (json) => { //accion que se dispara al terminar de recibir la consulta
+    return {
+        type: userTypes.CONFIRM_EMAIL_SUCCESS,
+        user: json
+    }
+}
+
+export const emailConfirmationError = (error) => { //se dispara esta accion para informar de un error
+    return{
+        type: userTypes.CONFIRM_EMAIL_ERROR,
+        error: error
+    }
+}
+
+export const emailConfirmation = (values) => {
+
+    return (dispatch) => {
+
+        return fetch(config.api_url+'usuario/verificar', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: values.email,
+                    token: values.token
+                })
+            }).then(response => {
+                if(response.status == 200 || response.status == 400){
+                    return response.json();
+                }
+                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
+            })
+            .then(json => {
+                if(json.code == 400){
+                    throw new Error(json.error);
+                } else{
+                    dispatch(emailConfirmationSuccess(json));    
+                }                
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(emailConfirmationError(err.message));
+            });
+    }
+}
+
+//RESET PASSWORD EMAIL
+export const showResetPasswordForm = () => {
+    return{
+        type: types.SHOW_RESET_PASSWORD_FORM
+    }
+}
+
+export const hideResetPasswordForm = () => {
+    return{
+        type: types.HIDE_RESET_PASSWORD_FORM
+    }
+}
+
+export const emailResetPasswordSuccess = (json) => { //accion que se dispara al terminar de recibir la consulta
+    return {
+        type: userTypes.RESET_PASSWORD_SUCCESS,
+        data: json
+    }
+}
+
+export const emailResetPasswordError = (error) => { //se dispara esta accion para informar de un error
+    return{
+        type: userTypes.RESET_PASSWORD_ERROR,
+        error: error
+    }
+}
+
+export const emailResetPassword = (values) => {
+
+    return (dispatch) => {
+
+        return fetch(config.api_url+'usuario/resetear_contrasena', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: values.email,
+                    host: values.host
+                })
+            }).then(response => {
+                if(response.status == 200 || response.status == 400){
+                    return response.json();
+                }
+                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
+            })
+            .then(json => {
+                if(json.code == 400){
+                    throw new Error(json.error);
+                } else{
+                    dispatch(emailResetPasswordSuccess(json));    
+                }                
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(emailResetPasswordError(err.message));
+            });
+    }
+}
+
+//CHANGE PASSWORD
+export const changePasswordSuccess = (json) => { //accion que se dispara al terminar de recibir la consulta
+    return {
+        type: userTypes.CHANGE_PASSWORD_SUCCESS,
+        data: json
+    }
+}
+
+export const changePasswordError = (error) => { //se dispara esta accion para informar de un error
+    return{
+        type: userTypes.CHANGE_PASSWORD_ERROR,
+        error: error
+    }
+}
+
+export const changePassword = (values) => {
+
+    return (dispatch) => {
+
+        return fetch(config.api_url+'usuario/cambiar_contrasena', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: values.email,
+                    password: values.password,
+                    token: values.token
+                })
+            }).then(response => {
+                if(response.status == 200 || response.status == 400){
+                    return response.json();
+                }
+                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
+            })
+            .then(json => {
+                if(json.code == 400){
+                    throw new Error(json.error);
+                } else{
+                    dispatch(changePasswordSuccess(json));    
+                }                
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(changePasswordError(err.message));
             });
     }
 }
