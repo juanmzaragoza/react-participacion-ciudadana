@@ -2,6 +2,7 @@ import { default as React, Component, PropTypes  } from "react";
 import ReactDOM from "react-dom";
 import { Modal } from "react-bootstrap";
 import { connect } from 'react-redux';
+import { Field, reduxForm , Form, SubmissionError } from 'redux-form';
 
 import { hideLoginForm, login, showResetPasswordForm } from '../actions/UserAction';
 
@@ -26,12 +27,29 @@ export class ModalLogin extends React.Component {
     }
   }
 
-  handleFormSubmit() {
-    this.props.loginUsernamePassword(this.refs.username.value(),this.refs.password.value());
+  renderField ({ input, id, placeholder, className, label, required, type, extra = false,meta: { touched, error, warning } }) {
+    
+    const formGroup = (touched && error)? "form-group has-error":"form-group ";
+
+    return (
+      <div className={formGroup}>
+        <label htmlFor={id}>{label}</label>
+        {extra? extra:null}
+        <input {...input} className={className} id={id} placeholder={placeholder} type={type} required={required}/>
+        {touched && ((error && <span id="error" className="help-block">{error}</span>) || (warning && <span>{warning}</span>))}
+      </div>
+    )
+  }
+
+  required(value){
+    return value ? undefined : 'Campo requerido';
   }
 
   render() {
+
+    const { handleSubmit } = this.props;
     var show = this.props.show? true:false;
+
     return (
       <Modal show={show}>
 
@@ -42,26 +60,36 @@ export class ModalLogin extends React.Component {
           <h3 className="modal-title" id="modal-header-title">Ingresar a Mi Cuenta</h3>
         </Modal.Header>
 
-        <Formulario action="#" submit={this.handleFormSubmit.bind(this)}>
+        <Formulario action="#" submit={ handleSubmit(this.props.onSubmit) } >
 
           <Modal.Body>
 
-            <div className="form-group">
-              <label htmlFor="id_username">Nombre de usuario</label>
-              <Input className="form-control input-lg" id="id_username" name="username" ref="username" placeholder="Nombre de usuario" type="text" />
-            </div>
+            <Field className="form-control input-lg" 
+              label={"Nombre de usuario"}
+              id={"id_username"} 
+              name={"username"} 
+              placeholder={"Nombre de usuario"} 
+              component={this.renderField} 
+              validate={this.required}
+              required={true}
+              type={"text"} />
 
-            <div className="form-group">
-              <label htmlFor="id_password">Contraseña</label> 
-              <span className="passw"><a href="#" onClick={this.props.handleResetPassword}>Olvidé mi contraseña</a></span>
-              <Input className="form-control input-lg" id="id_password" name="password" ref="password" placeholder="Contraseña" type="password" />
-            </div>
+            <Field className="form-control input-lg" 
+              label={"Contraseña"}
+              id={"id_password"} 
+              name={"password"} 
+              placeholder={"Contraseña"} 
+              component={this.renderField} 
+              validate={this.required}
+              required={true}
+              type={"password"}
+              extra={<span className="passw"><a href="#" onClick={this.props.handleResetPassword}>Olvidé mi contraseña</a></span>} />
 
-            {this.props.loginError? 
+            {this.props.errorMessage?
               <div className="alert alert-danger" role="alert">
                 <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                 <span className="sr-only">Error:</span>
-                Usuario o contraseña incorrecto
+                &nbsp; <b>Error.</b> {this.props.errorMessage}
               </div>
               :
               null
@@ -86,17 +114,30 @@ ModalLogin.propTypes = {
   closeModal: PropTypes.func,
   componentWillMount: PropTypes.func,
   componentDidMount: PropTypes.func,
-  loginUsernamePassword: PropTypes.func,
+  onSubmit: PropTypes.func,
   handleResetPassword: PropTypes.func,
-  loginError: PropTypes.bool
+  errorMessage: PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.bool
+  ])
 }
+
+const validate = values => {
+  const errors = {};
+  return errors;
+}
+
+export const ModalLoginForm = reduxForm({
+  form: 'ModalLoginForm',  // a unique identifier for this form
+  validate
+})(ModalLogin)
 
 
 //container
 const mapStateToProps = (state, ownProps) => {
     return {
       show: !state.user.isAuthenticated && state.loginForm.visible,
-      loginError: state.user.loginFailed,
+      errorMessage: state.user.loginFailed,
       loginSuccess: state.user.isAuthenticated
     }
 }
@@ -106,8 +147,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     closeModal: () => {
       dispatch(hideLoginForm());
     },
-    loginUsernamePassword: (username,password) => {
-      dispatch(login(username,password));
+    onSubmit: (values) => {
+      dispatch(login(values.username,values.password));
     },
     handleResetPassword: () => {
       dispatch(showResetPasswordForm());
@@ -115,7 +156,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-export const ModalLoginContainer = connect(
+export const ModalLoginFormContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ModalLogin)
+)(ModalLoginForm)

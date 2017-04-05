@@ -44,7 +44,7 @@ export default function result(state = initialState, action) {
     case LOGIN_API_FAILURE:
       return Object.assign({}, state, {
         isLoggingIn: false,
-        loginFailed: true
+        loginFailed: action.error
       })
 
     case LOGIN_USER:

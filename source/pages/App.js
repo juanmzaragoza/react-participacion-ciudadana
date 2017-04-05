@@ -5,7 +5,7 @@ import Footer from "../components/Layout/Footer";
 import Separator from "../components/Layout/Separator";
 import { AuthStore } from '../store/AuthStore';
 
-import { ModalLoginContainer } from "../components/ModalLogin";
+import { ModalLoginFormContainer } from "../components/ModalLogin";
 import {ModalResetPasswordContainer} from "../components/ModalResetPassword"
 import { MainNavigationContainer as MainNavigation } from "../components/Layout/MainNavigation";
 
@@ -31,7 +31,7 @@ class Application extends React.Component {
 
 		        <Footer />
 
-		        <ModalLoginContainer />
+		        <ModalLoginFormContainer />
 		        <ModalResetPasswordContainer />
 
 		    </div>
