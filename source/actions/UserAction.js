@@ -3,6 +3,7 @@ import fetch from 'isomorphic-fetch';
 import * as types from '../constants/AuthConstants';
 import * as requestTypes from '../constants/RequestActionTypes';
 import * as userTypes from '../constants/UserConstants';
+import * as authTypes from '../constants/AuthConstants';
 
 let config = require('../config/config')
 import { AuthStore } from '../store/AuthStore';
@@ -29,42 +30,47 @@ export const loginError = (error) => { //se dispara esta accion para informar de
     }
 }
 
-export const login = (username, password) => {
+export const login = (username, password, extraVerification) => {
 
     return (dispatch) => {
 
-        //1- dispatch: actualizo el estado informando que la api call comenzó
-        dispatch(requestLogin());
+        if(!extraVerification){
+            dispatch(loginError("Corrobore el campo de validacion"));
+        } else{
+            //1- dispatch: actualizo el estado informando que la api call comenzó
+            dispatch(requestLogin());
 
-        //2- devolvemos una promise a esperar
-        return fetch(config.api_url+'auth', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username: username,
-                    password: password
+            //2- devolvemos una promise a esperar
+            return fetch(config.api_url+'auth', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                }).then(response => {
+                    if(response.status == 200){
+                        return response.json();
+                    }
+                    if(response.status == 401){
+                        throw new Error("Usuario o contraseña incorrectos");
+                    }
+                    throw new Error("Ocurrio un problema con la autenticacion");
+                    
                 })
-            }).then(response => {
-                if(response.status == 200){
-                    return response.json();
-                }
-                if(response.status == 401){
-                    throw new Error("Usuario o contraseña incorrectos");
-                }
-                throw new Error("Ocurrio un problema con la autenticacion");
-                
-            })
-            .then(json => {
-                dispatch(loginSuccess(json));
-                dispatch(hideLoginForm());
-            })
-            .catch(err => {
-                console.log(err);
-                dispatch(loginError(err.message));
-            });
+                .then(json => {
+                    dispatch(loginSuccess(json));
+                    dispatch(hideLoginForm());
+                })
+                .catch(err => {
+                    console.log(err);
+                    c
+                });
+        }
+
     }
 }
 
@@ -339,4 +345,63 @@ export const changePassword = (values) => {
                 dispatch(changePasswordError(err.message));
             });
     }
+}
+
+//Captcha Login
+export const resetLoginCaptcha = () => { //accion que se dispara al terminar de recibir la consulta
+    return {
+        type: authTypes.RESET_LOGIN_CAPTCHA_CHECK
+    }
+}
+
+export const verifyLoginCaptchaSuccess = () => {
+    return {
+        type: authTypes.LOGIN_CAPTCHA_CHECK_SUCCESS
+    }
+}
+
+export const verifyLoginCaptchaError = () => {
+    return {
+        type: authTypes.LOGIN_CAPTCHA_CHECK_ERROR
+    }
+}
+
+export const verifyLoginCaptcha = (response) => {
+
+    return (dispatch) => {
+
+        if(response == ""){
+
+            dispatch(verifyLoginCaptchaSuccess());
+
+        } else{
+
+            return fetch(config.google.verify_url, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    },
+                    body: 'secret='+config.google.captcha_secret_key+'&response='+response
+                }).then(response => {
+                    if(response.status == 200){
+                        return response.json();
+                    }
+                    throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
+                })
+                .then(json => {
+                    if(json.success){
+                        dispatch(verifyLoginCaptchaSuccess());
+                    } else{
+                        dispatch(verifyLoginCaptchaError());
+                    }                
+                })
+                .catch(err => {
+                    console.log(err);
+                    dispatch(verifyLoginCaptchaError());
+                });
+
+        }
+
+    }
+    
 }

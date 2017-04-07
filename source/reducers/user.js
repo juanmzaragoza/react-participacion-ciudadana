@@ -33,13 +33,7 @@ export default function result(state = initialState, action) {
       }
 
       setUser(profile, action.user.token);
-      AuthStore.emitChange();
-
-      return Object.assign({}, state, {
-        isLoggingIn: false,
-        loginFailed: false,
-        isAuthenticated: true
-      })
+      return returnLoginUser(state);
 
     case LOGIN_API_FAILURE:
       return Object.assign({}, state, {
@@ -48,12 +42,7 @@ export default function result(state = initialState, action) {
       })
 
     case LOGIN_USER:
-      AuthStore.emitChange();
-      return Object.assign({}, state, {
-        isLoggingIn: false,
-        loginFailed: false,
-        isAuthenticated: true
-      })
+      return returnLoginUser(state);
 
     case LOGOUT_USER:
 
@@ -86,4 +75,13 @@ export default function result(state = initialState, action) {
       return state
 
   }
+}
+
+function returnLoginUser(state){
+  AuthStore.emitChange();
+  return Object.assign({}, state, {
+    isLoggingIn: false,
+    loginFailed: false,
+    isAuthenticated: true
+  })
 }

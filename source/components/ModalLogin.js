@@ -7,7 +7,7 @@ import { Field, reduxForm , Form, SubmissionError } from 'redux-form';
 import { hideLoginForm, login, showResetPasswordForm } from '../actions/UserAction';
 
 import Formulario from "./Formulario";
-import Input from "./Input";
+import { LoginCaptcha } from './Captcha';
 
 export class ModalLogin extends React.Component {
 
@@ -60,7 +60,7 @@ export class ModalLogin extends React.Component {
           <h3 className="modal-title" id="modal-header-title">Ingresar a Mi Cuenta</h3>
         </Modal.Header>
 
-        <Formulario action="#" submit={ handleSubmit(this.props.onSubmit) } >
+        <Formulario action="#" submit={ handleSubmit((values)=>{this.props.onSubmit(values, this.props.submitEnabled);})/*handleSubmit(this.props.onSubmit)*/ } >
 
           <Modal.Body>
 
@@ -84,6 +84,10 @@ export class ModalLogin extends React.Component {
               required={true}
               type={"password"}
               extra={<span className="passw"><a href="#" onClick={this.props.handleResetPassword}>Olvidé mi contraseña</a></span>} />
+
+            <div className="form-group">
+              <LoginCaptcha />
+            </div>
 
             {this.props.errorMessage?
               <div className="alert alert-danger" role="alert">
@@ -138,7 +142,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
       show: !state.user.isAuthenticated && state.loginForm.visible,
       errorMessage: state.user.loginFailed,
-      loginSuccess: state.user.isAuthenticated
+      loginSuccess: state.user.isAuthenticated,
+      submitEnabled: state.loginForm.captcha.verified
     }
 }
 
@@ -147,8 +152,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     closeModal: () => {
       dispatch(hideLoginForm());
     },
-    onSubmit: (values) => {
-      dispatch(login(values.username,values.password));
+    onSubmit: (values, extraVerification) => {
+      dispatch(login(values.username,values.password,extraVerification));
     },
     handleResetPassword: () => {
       dispatch(showResetPasswordForm());

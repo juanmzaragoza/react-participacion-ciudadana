@@ -22,10 +22,17 @@ Copiar el archivo ´config/config.default.json´ a ´config/config.json´ y conf
 		},
 		"twitter": {
 			"url": La url para compartir en twitter: "https://twitter.com/intent/tweet"
+		},
+		"google": {
+			"captcha_secret_key": API secret Key de la aplicacion. Por ej.: "6LfPjxsUAAAAAK2hIoy2A_uauCMZZ9BpbgUBvfD7",
+			"captcha_site_key": API Key de la aplicacion. Por ej.: 6LfPjxsUAAAAAOSEIFZ8Gn5soshEhfvy7-omfXsp,
+			...
 		}
 	}
 
-Para la configuracion de "facebook" ver documentacion en https://developers.facebook.com/docs/apps/register para crear el "app_id".
+Para la configuracion de "Facebook" ver documentacion en https://developers.facebook.com/docs/apps/register para crear el "app_id".
+
+Para la configuracion del captcha de "Google" ver documentacion https://www.google.com/recaptcha/admin para crear el "captcha_site_key" (Site key) y el "captcha_secret_key" (Secret key).
 
 Ejecutar aplicación
 		

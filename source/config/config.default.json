@@ -9,5 +9,10 @@
 		"twitter": {
 			"url": "https://twitter.com/intent/tweet"
 		}
+	},
+	"google": {
+		"verify_url": "https://www.google.com/recaptcha/api/siteverify",
+		"captcha_secret_key": "6LfPjxsUAAAAAK2hIoy2A_uauCMZZ9BpbgUBvfD7",
+		"captcha_site_key": "6LfPjxsUAAAAAOSEIFZ8Gn5soshEhfvy7-omfXsp"
 	}
 }
