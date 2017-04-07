@@ -7,7 +7,7 @@ const initialState = {
   captcha: {
     verified: false,
     error: false
-  },  
+  },
   restartPassword: {
     visible: false,
     errorMessage: false,

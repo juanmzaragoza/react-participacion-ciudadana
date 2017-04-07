@@ -97,13 +97,17 @@ export class ModalLogin extends React.Component {
               </div>
               :
               null
-            }
+            }            
 
           </Modal.Body>
 
           <Modal.Footer>
             <button type="button" className="btn btn-default" onClick={this.props.closeModal}>Cancelar</button>
-            <button type="submit" className="btn btn-primary">Ingresar</button>
+            {this.props.submitEnabled?
+              <button  type="submit" className="btn btn-primary">Ingresar</button>
+              :
+              null
+            }
           </Modal.Footer>
 
         </Formulario>
