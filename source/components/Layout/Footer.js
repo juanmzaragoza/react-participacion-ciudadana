@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from 'react-router';
 var logoFooterGob = require("../../public/content/images/logo-footer-gob.png");
 
+import config from '../../config/config'
+
 class Footer extends React.Component {
 
   constructor(props) {
@@ -15,9 +17,9 @@ class Footer extends React.Component {
         <ul>
           <li><Link to="/obras">Obras</Link></li>
           <li><Link to="/proyectos">Proyectos</Link></li>
-          <li><a href="#">BA Elige</a></li>
+          <li><a href={config.baelige_url} target="_blank">BA Elige</a></li>
           <li><Link href="#">Reuniones de Vecinos</Link></li>
-          <li><Link href="#">Reuniones de Ministros</Link></li>
+          <li><Link href="/reuniones_de_ministros">Reuniones de Ministros</Link></li>
           <li><a href="#">Contacto</a></li>
         </ul>
       </div>

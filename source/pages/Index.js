@@ -8,6 +8,8 @@ import { AgendaSemanalCarouselThumbnailContainer } from "../components/CarouselT
 import ImageLinkItem from "../components/Item/ImageLinkItem";
 import BioItem from "../components/Item/BioItem";
 
+import config from "../config/config"
+
 class Index extends React.Component {
 
 	render() {
@@ -33,10 +35,9 @@ class Index extends React.Component {
 		    	<MainStaticsContainer />
 
 		    	<Section id={"content-nav-btn"} >
-		    		<ImageLinkItem 
-		    			linkHref="#"
-		    			imageSrc={imageBAElige}
-		    			description="..." />
+		    		<a href={config.baelige_url} target="_blank">
+						<img src={imageBAElige} alt={"..."} className="img-thumbnail" />
+					</a>
 		    		<ImageLinkItem 
 		    			linkHref="/trabajando_juntos"
 		    			imageSrc={imageTrabjandoJuntos}

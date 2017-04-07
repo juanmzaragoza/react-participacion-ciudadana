@@ -1,6 +1,7 @@
 {
 	"port": 8080,
 	"api_url": "http://localhost:3001/api/",
+	"baelige_url": "https://baelige.buenosaires.gob.ar/",
 	"share": {
 		"facebook": {
 			"url": "https://www.facebook.com/dialog/share",
