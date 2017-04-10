@@ -125,8 +125,13 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 
   var resultsPerPage = 6;
-  var filtroPorNombre = {nombre: ownProps.filter.nombre};
-  var filtroPorTag = {tag_nombre: ownProps.filter.tag_nombre};
+  console.log(ownProps.filter);
+  var filtroPorNombre = Object.assign({},ownProps.filter, {
+  	nombre: ownProps.filter.nombre
+  });
+  var filtroPorTag = Object.assign({},ownProps.filter, {
+  	tag_nombre: ownProps.filter.tag_nombre
+  });
   
   return {
     componentWillMount: () => {
