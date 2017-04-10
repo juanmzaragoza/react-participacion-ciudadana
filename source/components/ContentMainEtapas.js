@@ -1,9 +1,33 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from "react";
+import ContentMainEtapaDescription from "./ContentMainEtapaDescription"
 
 class ContentMainEtapas extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			selectedEtapa: null
+		};
+	}
+
+	changeDescription(etapa){
+		if(this.state.selectedEtapa == null || this.state.selectedEtapa.id != etapa.id){
+			
+			this.setState({
+		      selectedEtapa: Object.assign({}, etapa, {
+		      	show: true
+		      })
+		    });
+
+		} else{
+
+			this.setState({
+		      selectedEtapa: Object.assign({}, this.state.selectedEtapa, {
+		      	show: !this.state.selectedEtapa.show
+		      })
+		    });
+
+		}
 	}
 
 	render(){
@@ -48,7 +72,7 @@ class ContentMainEtapas extends React.Component {
 			        	  			<li key={index}>
 								     	<div className="box-etapa">
 									     	<div className="box-title">
-										     	<a href="#"><p>{etapa.etapa.nombre}</p></a>
+										     	<a className="pointer-element" onClick={ e => {this.changeDescription(etapa)}}><p>{etapa.etapa.nombre}</p></a>
 										 	</div>
 										 	<div className="box-num">
 										     	<img src={imgEtapa} />
@@ -70,6 +94,14 @@ class ContentMainEtapas extends React.Component {
 					  </div>
 					 
 			 	</div>
+
+			 	<div className="clear"></div>
+
+			 	<ContentMainEtapaDescription 
+				 	show={this.state.selectedEtapa? this.state.selectedEtapa.show:false}
+				 	description={this.state.selectedEtapa? this.state.selectedEtapa.descripcion:null} />
+			 	
+
 		 	</div>
 		)
 	}

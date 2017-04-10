@@ -55,6 +55,6 @@
 }
 
 /* Nube de tags - manito al pasar por encima de los tags */
-.tag-cloud-tag {
+.tag-cloud-tag, .pointer-element {
   cursor: pointer;
 }
