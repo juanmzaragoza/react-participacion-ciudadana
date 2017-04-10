@@ -24,6 +24,17 @@ export class Captcha extends React.Component {
     }
   }
 
+  componentDidUpdate(){
+    if(this.props.errorLogin || this.props.errorCaptcha){
+      this.refs.recaptchaInstance.reset(); //reseteo el captcha
+      this.props.onLoad(); //reinicio su estado
+    }
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    return (nextProps.errorLogin != this.props.errorLogin || nextProps.errorCaptcha != this.props.errorCaptcha);
+  }
+
   render() {
     return (
       <Recaptcha 
@@ -40,7 +51,8 @@ export class Captcha extends React.Component {
 //container
 const mapStateToProps = (state, ownProps) => {
     return {
-      error: state.loginForm.captcha.error
+      errorCaptcha: state.loginForm.captcha.error,
+      errorLogin: state.user.loginFailed
     }
 }
 

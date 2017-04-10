@@ -57,18 +57,21 @@ export default function result(state = initialState, action) {
     case RESET_LOGIN_CAPTCHA_CHECK:
       return Object.assign({}, state, {
         captcha: Object.assign({}, state.captcha, {
+          error: false,
           verified: false
         })
       })
     case LOGIN_CAPTCHA_CHECK_SUCCESS:
       return Object.assign({}, state, {
         captcha: Object.assign({}, state.captcha, {
+          error: false,
           verified: true
         })
       })
     case LOGIN_CAPTCHA_CHECK_ERROR:
       return Object.assign({}, state, {
         captcha: Object.assign({}, state.captcha, {
+          error: true,
           verified: false
         })
       })

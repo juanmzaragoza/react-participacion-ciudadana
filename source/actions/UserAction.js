@@ -67,7 +67,7 @@ export const login = (username, password, extraVerification) => {
                 })
                 .catch(err => {
                     console.log(err);
-                    c
+                    dispatch(loginError(err.message));
                 });
         }
 
@@ -372,7 +372,7 @@ export const verifyLoginCaptcha = (response) => {
 
         if(response == ""){
 
-            dispatch(verifyLoginCaptchaSuccess());
+            dispatch(verifyLoginCaptchaError());
 
         } else{
 
@@ -383,10 +383,7 @@ export const verifyLoginCaptcha = (response) => {
                     },
                     body: 'secret='+config.google.captcha_secret_key+'&response='+response
                 }).then(response => {
-                    if(response.status == 200){
-                        return response.json();
-                    }
-                    throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
+                    return response.json();
                 })
                 .then(json => {
                     if(json.success){

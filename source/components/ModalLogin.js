@@ -4,7 +4,7 @@ import { Modal } from "react-bootstrap";
 import { connect } from 'react-redux';
 import { Field, reduxForm , Form, SubmissionError } from 'redux-form';
 
-import { hideLoginForm, login, showResetPasswordForm } from '../actions/UserAction';
+import { hideLoginForm, login, showResetPasswordForm, resetLoginCaptcha } from '../actions/UserAction';
 
 import Formulario from "./Formulario";
 import { LoginCaptcha } from './Captcha';
@@ -103,11 +103,7 @@ export class ModalLogin extends React.Component {
 
           <Modal.Footer>
             <button type="button" className="btn btn-default" onClick={this.props.closeModal}>Cancelar</button>
-            {this.props.submitEnabled?
-              <button  type="submit" className="btn btn-primary">Ingresar</button>
-              :
-              null
-            }
+            <button  type="submit" className="btn btn-primary">Ingresar</button>
           </Modal.Footer>
 
         </Formulario>
@@ -146,7 +142,6 @@ const mapStateToProps = (state, ownProps) => {
     return {
       show: !state.user.isAuthenticated && state.loginForm.visible,
       errorMessage: state.user.loginFailed,
-      loginSuccess: state.user.isAuthenticated,
       submitEnabled: state.loginForm.captcha.verified
     }
 }
