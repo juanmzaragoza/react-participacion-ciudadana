@@ -360,9 +360,10 @@ export const verifyLoginCaptchaSuccess = () => {
     }
 }
 
-export const verifyLoginCaptchaError = () => {
+export const verifyLoginCaptchaError = (message) => {
     return {
-        type: authTypes.LOGIN_CAPTCHA_CHECK_ERROR
+        type: authTypes.LOGIN_CAPTCHA_CHECK_ERROR,
+        error: message
     }
 }
 
@@ -372,10 +373,10 @@ export const verifyLoginCaptcha = (response) => {
 
         if(response == ""){
 
-            dispatch(verifyLoginCaptchaError());
+            dispatch(verifyLoginCaptchaError("No se ha validado el captcha"));
 
         } else{
-
+            
             return fetch(config.google.verify_url, {
                     method: 'POST',
                     headers: {
@@ -394,7 +395,7 @@ export const verifyLoginCaptcha = (response) => {
                 })
                 .catch(err => {
                     console.log(err);
-                    dispatch(verifyLoginCaptchaError());
+                    dispatch(verifyLoginCaptchaError("Error interno al validar el captcha"));
                 });
 
         }

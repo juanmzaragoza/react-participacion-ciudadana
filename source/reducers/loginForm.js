@@ -6,7 +6,8 @@ const initialState = {
   visible: false,
   captcha: {
     verified: false,
-    error: false
+    error: false,
+    errorMessage: ''
   },
   restartPassword: {
     visible: false,
@@ -65,6 +66,7 @@ export default function result(state = initialState, action) {
       return Object.assign({}, state, {
         captcha: Object.assign({}, state.captcha, {
           error: false,
+          errorMessage: '',
           verified: true
         })
       })
@@ -72,6 +74,7 @@ export default function result(state = initialState, action) {
       return Object.assign({}, state, {
         captcha: Object.assign({}, state.captcha, {
           error: true,
+          errorMessage: action.error,
           verified: false
         })
       })

@@ -45,13 +45,19 @@ export class ModalLogin extends React.Component {
     return value ? undefined : 'Campo requerido';
   }
 
+  closeModal(){
+    if(this.props.closeModal !== undefined){
+       this.props.closeModal();
+    }
+  }
+
   render() {
 
     const { handleSubmit } = this.props;
     var show = this.props.show? true:false;
 
     return (
-      <Modal show={show}>
+      <Modal show={show} onHide={this.closeModal.bind(this)}>
 
         <Modal.Header>
           <button type="button" className="close" aria-label="Close" onClick={this.props.closeModal}>
@@ -139,9 +145,12 @@ export const ModalLoginForm = reduxForm({
 
 //container
 const mapStateToProps = (state, ownProps) => {
+    
+    var captchaError = state.loginForm.captcha.error? state.loginForm.captcha.errorMessage: false;
+
     return {
       show: !state.user.isAuthenticated && state.loginForm.visible,
-      errorMessage: state.user.loginFailed,
+      errorMessage: state.user.loginFailed || state.loginForm.captcha.errorMessage,
       submitEnabled: state.loginForm.captcha.verified
     }
 }
