@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { fetchContent } from '../actions/ResultAction';
 
+import { ModalGallery } from "./ModalGallery";
+
 export class ContentSecondary extends React.Component {
 
 	constructor(props) {
@@ -15,21 +17,40 @@ export class ContentSecondary extends React.Component {
 		}
  	}
 
+ 	handleOnClickImage(e){
+ 		e.preventDefault();
+ 		console.log(this.refs.modalgallery)
+ 		this.refs.modalgallery.openModal();
+ 	}
+
  	renderImagesSection() {
+
+ 		var imagesUrl = [];
+
  		return(
 			<section>
+
             	<h2>Imágenes</h2>
-            	<div className="row row-modalcarousel">
+            	<div className="row row-modalcarousel" onClick={this.handleOnClickImage.bind(this)}>
         	  		{this.props.content.images.map((image,index) => {
+        	  			imagesUrl.push(image.image.url);
         	  			if(image.image && image.position > 1){
         	  				return(
-		              			<a className="col-xs-6" href={image.image.url} title={image.image.name} key={index}>
+		              			<a 
+		              				className="col-xs-6" 
+		              				href={image.image.url} 
+		              				title={image.image.name} 
+		              				key={index}
+		              				>
 				                	<img className="img-responsive thumbnail" src={image.image.url} />
 				              	</a>
 		              		)
         	  			}
 	              	})}
 	            </div>
+
+	            <ModalGallery images={imagesUrl} ref="modalgallery" />
+	            
     		</section>  
  		)
 	}
@@ -84,6 +105,7 @@ export class ContentSecondary extends React.Component {
 ContentSecondary.propTypes = {
 	error: PropTypes.bool,
 	content: PropTypes.object.isRequired,
+	onClickImage: PropTypes.func,
   	componentDidMount: PropTypes.func
 }
 
