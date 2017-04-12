@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router';
 
 import Main from "../components/Layout/Main";
 import Section from "../components/Layout/Section";
@@ -54,7 +55,9 @@ class Index extends React.Component {
 
 		    	<Section className={"bg-vol"} >
 		    		<span className="vol">
-		    			<a href="contenido.html"><h2>Sumate al Voluntariado</h2></a>
+		    			<Link to="/resultados?seccion=VOLUNTARIADO">
+                            <h2>Sumate al Voluntariado</h2>
+                        </Link>
 		    		</span>
 		    	</Section>
 
