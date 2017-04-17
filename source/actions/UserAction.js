@@ -160,7 +160,7 @@ export const refreshJWT = () => {
     return (dispatch) => {
 
         //2- devolvemos una promise a esperar
-        return fetch(config.api_url+'auth/actualizacion', {
+        return fetch(config.api_url+'auth/refrescar', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
