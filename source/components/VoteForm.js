@@ -53,55 +53,42 @@ class VoteFormComponent extends React.Component {
 
 		return (
 			(this.props.opciones != null && this.props.opciones.length>0)?
-				<div>
-					<header>
-	              		<h2>{this.props.titulo}</h2>
-	              		<p className="lead">{this.props.descripcion_breve}</p>
-		            </header>
-				 
-				 	<article className="contenido">
-	     				{this.props.contenido}
-				 	</article>
-				 	<div className="clear"></div>
+			  	<div className="row">
+			     	<div className="col-xs-12 col-sm-12 col-md-12" >
+				     	<Form className="bg-vot" onSubmit={ handleSubmit(this.handleFormSubmit) } > 
 
-				  	<div className="row">
-				     	<div className="col-xs-12 col-sm-12 col-md-12" >
-					     	<Form className="bg-vot" onSubmit={ handleSubmit(this.handleFormSubmit) } > 
+				     		<header>
+							  	<h3>{this.props.titulo}</h3>
+                         	</header>
 
-					     		<header>
-								  	<h3>{this.props.titulo}</h3>
-	                         	</header>
+						 	<div className="clear_ev"></div>
+						 	{this.props.opciones.map( (opcion, index) => {
+						 		return (
+						 			<Field 
+						 				key={index}
+							 			id={opcion.id} 
+							 			name={"opcion"}
+							 			description={opcion.descripcion} 
+							 			component={this.renderField} />
+						 		)
+						 	})}
+						 	
+						 	{this.props.messageError? 
+				              	<div className="alert alert-warning" role="alert">
+				                	<span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					                <span className="sr-only">Error:</span>
+					                &nbsp;No se pudo realizar la votacion. {this.props.messageError}
+				              	</div>
+				              	:
+				              	null
+				          	}
 
-							 	<div className="clear_ev"></div>
-							 	{this.props.opciones.map( (opcion, index) => {
-							 		return (
-							 			<Field 
-							 				key={index}
-								 			id={opcion.id} 
-								 			name={"opcion"}
-								 			description={opcion.descripcion} 
-								 			component={this.renderField} />
-							 		)
-							 	})}
-							 	
-							 	{this.props.messageError? 
-					              	<div className="alert alert-warning" role="alert">
-					                	<span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-						                <span className="sr-only">Error:</span>
-						                &nbsp;No se pudo realizar la votacion. {this.props.messageError}
-					              	</div>
-					              	:
-					              	null
-					          	}
+						  	<button type="submit" className="btn btn-vt btn-lg">Votar</button>
+						  	<div className="clear"></div>
 
-							  	<button type="submit" className="btn btn-vt btn-lg">Votar</button>
-							  	<div className="clear"></div>
-
-						 	</Form>
-					 	</div>
-				 	</div>	 
-	             	<div className="clear"></div>
-	        	</div>
+					 	</Form>
+				 	</div>
+			 	</div>
 	        	:
 	        	null
 		)
@@ -111,8 +98,6 @@ class VoteFormComponent extends React.Component {
 VoteFormComponent.propTypes = {
   id: PropTypes.number,
   titulo: PropTypes.string,
-  descripcion_breve: PropTypes.string,
-  contenido: PropTypes.string,
   opciones: PropTypes.array,
   canVote: PropTypes.bool,
   onSubmit: PropTypes.func,
@@ -130,8 +115,6 @@ const mapStateToProps = (state, ownProps) => {
     var returnObj = {
       id: undefined,
       titulo: undefined,
-      descripcion_breve: undefined,
-      contenido: undefined,
       opciones: undefined,
       canVote: state.user.isAuthenticated,
       messageError: state.voteForm.error.isError? state.voteForm.error.message:null,
@@ -142,8 +125,6 @@ const mapStateToProps = (state, ownProps) => {
       returnObj = Object.assign({}, returnObj, {
         id: votation.id,
         titulo: votation.nombre,
-        descripcion_breve: votation.descripcion != null? votation.descripcion.slice(0, 20):null,
-        contenido: votation.descripcion,
         opciones: votation.opciones
       });
     }
