@@ -71,7 +71,7 @@ export class ContentSecondary extends React.Component {
 	              		return(
 	              			<tr key={index}>
 		                      <td>{archivo.archivo.name}</td>
-		                      <td><button className="btn btn-blue btn-block btn-sm"><span className="glyphicon glyphicon-arrow-down"></span></button></td>
+		                      <td><a href={archivo.archivo.url} target="_blank" ><button className="btn btn-blue btn-block btn-sm"><span className="glyphicon glyphicon-arrow-down"></span></button></a></td>
 		                    </tr>
 	              		)
 	              	})}
