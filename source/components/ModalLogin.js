@@ -146,12 +146,12 @@ export const ModalLoginForm = reduxForm({
 //container
 const mapStateToProps = (state, ownProps) => {
     
-    var captchaError = state.loginForm.captcha.error? state.loginForm.captcha.errorMessage: false;
+    var captchaError = state.captcha.error? state.captcha.errorMessage: false;
 
     return {
       show: !state.user.isAuthenticated && state.loginForm.visible,
-      errorMessage: state.user.loginFailed || state.loginForm.captcha.errorMessage,
-      submitEnabled: state.loginForm.captcha.verified
+      errorMessage: state.user.loginFailed || state.captcha.errorMessage,
+      submitEnabled: state.captcha.verified
     }
 }
 

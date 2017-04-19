@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import { Field, reduxForm , Form } from 'redux-form';
 
 import { fetchNeighborhoods } from '../actions/NeighborhoodAction';
-import { createUser } from '../actions/UserAction';
+import { createUser, resetLoginCaptcha } from '../actions/UserAction';
 
 import Formulario from "./Formulario";
+import { RegistrationCaptcha } from './Captcha';
 
 const  { DOM: { input, select, textarea } } = React;
 
@@ -22,6 +23,12 @@ class Registration extends React.Component {
 		}
 		if(this.props.componentDidMount !== undefined){
 			this.props.componentDidMount();
+		}
+	}
+
+	componentWillMount(){
+		if(this.props.componentWillMount !== undefined){
+			this.props.componentWillMount();
 		}
 	}
 
@@ -113,7 +120,7 @@ class Registration extends React.Component {
 	          		<h2 className="h1 text-center">Completá tus datos</h2>
 	          		<br/>
 
-	          		<Formulario className="col-md-8 col-md-offset-2" submit={ handleSubmit(this.props.onSubmit) }>
+	          		<Formulario className="col-md-8 col-md-offset-2" submit={ handleSubmit((values)=>{this.props.onSubmit(values, this.props.submitEnabled);}) }>
 
 			            {this.renderInputs("nombre","Nombre","Nombre","text",null,false,"apellido","Apellido","Apellido","text",null,false)}
 			            <br/>
@@ -137,6 +144,10 @@ class Registration extends React.Component {
 							</label>
 			            </div>
 			            <br/>
+
+			            <div className="form-group">
+			              <RegistrationCaptcha />
+			            </div>
 						
 						{this.props.submitError?
 							<div className="alert alert-danger" role="alert">
@@ -195,24 +206,25 @@ export const RegistrationForm = reduxForm({
 const mapStateToProps = (state, ownProps) => {
     return {
       neighborhoods: state.registrationForm.neighborhoods,
-      submitError: state.registrationForm.submitError.state? state.registrationForm.submitError.message:false,
-      submitSucess: state.registrationForm.submitSucess.state
+      submitError: state.registrationForm.submitError.state? state.registrationForm.submitError.message:state.captcha.errorMessage,
+      submitSucess: state.registrationForm.submitSucess.state,
+      submitEnabled: state.captcha.verified
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    componentDidMount: () => {
-      //limpiar estado del formulario
-    },
+  	componentWillMount: () => {
+  		console.log("willmount")
+  	},
     getNeighborhoods: () => {
       dispatch(fetchNeighborhoods(1, 50));
     },
-    onSubmit: (formValues) => {
+    onSubmit: (formValues, extraVerification) => {
       var values = Object.assign({},formValues,{
       	host: location.protocol.concat("//").concat(window.location.hostname).concat(':').concat(window.location.port).concat('/')
       })
-      dispatch(createUser(values));
+      dispatch(createUser(values,extraVerification));
     }
   }
 }

@@ -25,14 +25,14 @@ export class Captcha extends React.Component {
   }
 
   componentDidUpdate(){
-    if(this.props.errorLogin || this.props.errorCaptcha){
+    if(this.props.errorSubmit || this.props.errorCaptcha){
       this.refs.recaptchaInstance.reset(); //reseteo el captcha
       this.props.onLoad(); //reinicio su estado
     }
   }
 
   shouldComponentUpdate(nextProps, nextState){
-    return (nextProps.errorLogin != this.props.errorLogin || nextProps.errorCaptcha != this.props.errorCaptcha);
+    return (nextProps.errorSubmit != this.props.errorSubmit || nextProps.errorCaptcha != this.props.errorCaptcha);
   }
 
   render() {
@@ -48,11 +48,13 @@ export class Captcha extends React.Component {
 
 }
 
-//container
+//////////////////////////////////////////////////////////////
+//container login captcha
+//////////////////////////////////////////////////////////////
 const mapStateToProps = (state, ownProps) => {
     return {
-      errorCaptcha: state.loginForm.captcha.error,
-      errorLogin: state.user.loginFailed
+      errorCaptcha: state.captcha.error,
+      errorSubmit: state.user.loginFailed
     }
 }
 
@@ -71,3 +73,30 @@ export const LoginCaptcha = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Captcha)
+
+//////////////////////////////////////////////////////////////
+//container registration captcha
+//////////////////////////////////////////////////////////////
+const mapRegStateToProps = (state, ownProps) => {
+    return {
+      errorCaptcha: state.captcha.error,
+      errorSubmit: state.registrationForm.submitError.state
+    }
+}
+
+const mapRegDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onLoad: () => {
+      dispatch(resetLoginCaptcha());
+    },
+    onVerify: (response) => {
+      dispatch(verifyLoginCaptcha(response));
+    }
+  }
+}
+
+export const RegistrationCaptcha = connect(
+  mapRegStateToProps,
+  mapRegDispatchToProps
+)(Captcha)
+

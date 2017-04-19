@@ -35,7 +35,7 @@ export const login = (username, password, extraVerification) => {
     return (dispatch) => {
 
         if(!extraVerification){
-            dispatch(loginError("Corrobore el campo de validacion"));
+            dispatch(loginError("El Captcha no pudo ser verificado"));
         } else{
             //1- dispatch: actualizo el estado informando que la api call comenzó
             dispatch(requestLogin());
@@ -113,45 +113,50 @@ export const createUserError = (error) => { //se dispara esta accion para inform
     }
 }
 
-export const createUser = (values) => {
+export const createUser = (values, extraVerification) => {
 
     return (dispatch) => {
 
-        return fetch(config.api_url+'usuario/crear', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    nombre: values.nombre,
-                    apellido: values.apellido,
-                    nombre_usuario: values.nombre_usuario,
-                    email: values.email,
-                    password: values.password,
-                    identificacion: values.identificacion,
-                    genero: values.genero,
-                    celular: values.celular,
-                    barrio: values.barrio,
-                    host: values.host
+        if(!extraVerification){
+            dispatch(createUserError("El Captcha no pudo ser verificado"));
+        } else{
+
+            return fetch(config.api_url+'usuario/crear', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nombre: values.nombre,
+                        apellido: values.apellido,
+                        nombre_usuario: values.nombre_usuario,
+                        email: values.email,
+                        password: values.password,
+                        identificacion: values.identificacion,
+                        genero: values.genero,
+                        celular: values.celular,
+                        barrio: values.barrio,
+                        host: values.host
+                    })
+                }).then(response => {
+                    if(response.status == 200 || response.status == 400){
+                        return response.json();
+                    }
+                    throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
                 })
-            }).then(response => {
-                if(response.status == 200 || response.status == 400){
-                    return response.json();
-                }
-                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
-            })
-            .then(json => {
-                if(json.code == 400){
-                    throw new Error(json.error);
-                } else{
-                    dispatch(createUserSuccess(json));    
-                }                
-            })
-            .catch(err => {
-                console.log(err);
-                dispatch(createUserError(err.message));
-            });
+                .then(json => {
+                    if(json.code == 400){
+                        throw new Error(json.error);
+                    } else{
+                        dispatch(createUserSuccess(json));    
+                    }                
+                })
+                .catch(err => {
+                    console.log(err);
+                    dispatch(createUserError(err.message));
+                });
+        }
     }
 }
 
@@ -348,7 +353,7 @@ export const changePassword = (values) => {
 }
 
 //Captcha Login
-export const resetLoginCaptcha = () => { //accion que se dispara al terminar de recibir la consulta
+export const resetLoginCaptcha = () => {
     return {
         type: authTypes.RESET_LOGIN_CAPTCHA_CHECK
     }
