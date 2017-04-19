@@ -382,7 +382,10 @@ export const verifyLoginCaptcha = (response) => {
 
         } else{
             
-            return fetch(config.google.verify_url, {
+            var proxyUrl = 'https://cors-anywhere.herokuapp.com/', //proxy que luego hay que cambiar
+                targetUrl = config.google.verify_url;
+
+            return fetch(proxyUrl + targetUrl, {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'

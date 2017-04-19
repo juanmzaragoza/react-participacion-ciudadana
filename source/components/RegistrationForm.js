@@ -163,7 +163,7 @@ class Registration extends React.Component {
 			            	<div className="alert alert-success" role="alert">
 			                	<span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
 				                <span className="sr-only">Exito:</span>
-				                &nbsp; Registro completado correctamente
+				                &nbsp; Registro completado correctamente. Se ha enviado un correo de verificación al correo electrónico ingresado
 			              	</div>
 			            	:
 			            	<button type="submit" className="btn btn-primary btn-lg">Crear Cuenta</button>
