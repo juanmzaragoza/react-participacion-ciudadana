@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react"
+import React from "react";
+import PropTypes from "prop-types";
 import { Link } from 'react-router'
 
 const ListGroupThumbnailItem = ({thumbnail_src, label, description, linkHref, colSm = 6, colMd = 3, descriptionTextClass = ''}) => {

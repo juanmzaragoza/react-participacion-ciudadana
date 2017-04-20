@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm , Form } from 'redux-form';
@@ -183,8 +184,8 @@ Registration.propTypes = {
   componentDidMount: PropTypes.func,
   onSubmit: PropTypes.func,
   submitError: PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.bool
+    PropTypes.string,
+    PropTypes.bool
   ])
 }
 

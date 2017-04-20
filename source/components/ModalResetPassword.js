@@ -1,4 +1,5 @@
-import { default as React, Component, PropTypes  } from "react";
+import { default as React, Component} from "react";
+import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { Modal } from "react-bootstrap";
 import { connect } from 'react-redux';
@@ -125,12 +126,12 @@ ModalResetPassword.propTypes = {
   componentDidMount: PropTypes.func,
   onSubmit: PropTypes.func,
   successMessage: PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.bool
+    PropTypes.string,
+    PropTypes.bool
   ]),
   errorMessage: PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.bool
+    PropTypes.string,
+    PropTypes.bool
   ])
 }
 

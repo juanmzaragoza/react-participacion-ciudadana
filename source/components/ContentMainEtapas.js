@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import ContentMainEtapaDescription from "./ContentMainEtapaDescription"
 
 class ContentMainEtapas extends React.Component {

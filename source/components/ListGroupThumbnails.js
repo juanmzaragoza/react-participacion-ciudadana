@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
@@ -125,7 +126,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 
   var resultsPerPage = 6;
-  console.log(ownProps.filter);
   var filtroPorNombre = Object.assign({},ownProps.filter, {
   	nombre: ownProps.filter.nombre
   });

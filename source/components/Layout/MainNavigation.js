@@ -1,4 +1,5 @@
-import { default as React, Component, PropTypes  } from "react";
+import { default as React, Component} from "react";
+import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { Link } from 'react-router';
 import { connect } from 'react-redux';

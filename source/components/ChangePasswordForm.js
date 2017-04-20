@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm , Form } from 'redux-form';
@@ -101,12 +102,12 @@ ChangePassword.propTypes = {
   onSubmit: PropTypes.func,
   onSuccessClick: PropTypes.func,
   successMessage: PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.bool
+    PropTypes.string,
+    PropTypes.bool
   ]),
   errorMessage: PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.bool
+    PropTypes.string,
+    PropTypes.bool
   ])
 }
 
