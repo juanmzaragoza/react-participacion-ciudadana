@@ -78,7 +78,7 @@ export class ContentMain extends React.Component {
 		         				description={this.props.content.descripcion_breve}
 		         				image={window.location.origin+require("../public/content/images/agenda01.png")} /></li>
 		         		<li><TwitterShareButton /></li>
-						<li><a href="#"> <img src={imgSocialInst}  /> </a></li>
+						{/*<li><a href="#"> <img src={imgSocialInst}  /> </a></li>*/}
 			     	</ul>
 
 			      	<div className="clear"></div>
