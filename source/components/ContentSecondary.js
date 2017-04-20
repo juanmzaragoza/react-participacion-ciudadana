@@ -34,18 +34,20 @@ export class ContentSecondary extends React.Component {
             	<h2>Imágenes</h2>
             	<div className="row row-modalcarousel" onClick={this.handleOnClickImage.bind(this)}>
         	  		{this.props.content.images.map((image,index) => {
-        	  			imagesUrl.push(image.image.url);
-        	  			if(image.image && image.position > 1){
-        	  				return(
-		              			<a 
-		              				className="col-xs-6" 
-		              				href={image.image.url} 
-		              				title={image.image.name} 
-		              				key={index}
-		              				>
-				                	<img className="img-responsive thumbnail" src={image.image.url} />
-				              	</a>
-		              		)
+        	  			if(image.image != null){
+	        	  			imagesUrl.push(image.image.url);
+	        	  			if(image.image && image.position > 1){
+	        	  				return(
+			              			<a 
+			              				className="col-xs-6" 
+			              				href={image.image.url} 
+			              				title={image.image.name} 
+			              				key={index}
+			              				>
+					                	<img className="img-responsive thumbnail" src={image.image.url} />
+					              	</a>
+			              		)
+	        	  			}
         	  			}
 	              	})}
 	            </div>
@@ -70,10 +72,13 @@ export class ContentSecondary extends React.Component {
 	              <tbody>
 	              	{this.props.content.archivos.map((archivo,index) => {
 	              		return(
-	              			<tr key={index}>
-		                      <td>{archivo.archivo.name}</td>
-		                      <td><a href={archivo.archivo.url} target="_blank" ><button className="btn btn-blue btn-block btn-sm"><span className="glyphicon glyphicon-arrow-down"></span></button></a></td>
-		                    </tr>
+	              			archivo.archivo != null?
+		              			<tr key={index}>
+			                      <td>{archivo.archivo.name}</td>
+			                      <td><a href={archivo.archivo.url} target="_blank" ><button className="btn btn-blue btn-block btn-sm"><span className="glyphicon glyphicon-arrow-down"></span></button></a></td>
+			                    </tr>
+			                    :
+			                    null
 	              		)
 	              	})}
 	              </tbody>
