@@ -70,23 +70,26 @@ class ContentMainEtapas extends React.Component {
 								var imgLinea = (etapa.en_curso)? liOn:liOff;
 
 								return(
-			        	  			<li key={index}>
-								     	<div className="box-etapa">
-									     	<div className="box-title">
-										     	<a className="pointer-element" onClick={ e => {this.changeDescription(etapa)}}><p>{etapa.etapa.nombre}</p></a>
+									etapa.etapa != null?
+				        	  			<li key={index}>
+									     	<div className="box-etapa">
+										     	<div className="box-title">
+											     	<a className="pointer-element" onClick={ e => {this.changeDescription(etapa)}}><p>{etapa.etapa.nombre}</p></a>
+											 	</div>
+											 	<div className="box-num">
+											     	<img src={imgEtapa} />
+											 	</div>
+											 	{(this.props.etapas[index+1] !== undefined)?
+												 	<div className="box-linea">
+												     	<img src={imgLinea} />
+											 		</div>
+											 		:
+											 		null
+											 	}
 										 	</div>
-										 	<div className="box-num">
-										     	<img src={imgEtapa} />
-										 	</div>
-										 	{(this.props.etapas[index+1] !== undefined)?
-											 	<div className="box-linea">
-											     	<img src={imgLinea} />
-										 		</div>
-										 		:
-										 		null
-										 	}
-									 	</div>
-									</li>
+										</li>
+										:
+										null
 								)
 			              	})}
 						 	

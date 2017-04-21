@@ -4,10 +4,11 @@
 
 * NodeJS v6.8.1
 
-## Instalación
+## Instalación (por primera vez)
 
 Ejecutar en el raiz del proyecto
 
+		rm node_modules/* -r
 		npm install
 
 Copiar el archivo ´config/config.default.json´ a ´config/config.json´ y configurarlo con la url donde se encuentra instalada la API de Participacion ciudadana (NodeJs):
