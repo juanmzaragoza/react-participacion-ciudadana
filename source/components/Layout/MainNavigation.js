@@ -16,6 +16,18 @@ export class MainNavigation extends React.Component {
   render() {
     const imgBaParticipa = require("../../public/content/images/baparticipa.png"),
           miBaBtn = require("../../public/vendor/bastrap3/ba-btn.png");
+
+    const loginLink = this.props.showLoginLink? 
+      (<li>
+        <a href="#" onClick={this.props.userLogin}>Iniciar sesión</a>
+        <ul className="register_user">
+          <li><a href="#" onClick={this.props.userLogin}>Iniciar sesión</a></li>
+          <li><Link to="/registro">¿Sos Nuevo? Registrate.</Link></li>
+        </ul>
+      </li>)
+      :
+      <li className="disabled"><a href="#">Iniciar sesión</a></li>;
+
     
     return (
     	<nav className="navbar navbar-default" role="navigation">
@@ -39,13 +51,7 @@ export class MainNavigation extends React.Component {
                     {(this.props.userIsAuthenticated !== undefined && this.props.userIsAuthenticated === true)?
                       <li className="active-BA" onClick={this.props.userLogout}><a href="#">Cerrar sesion <span className="glyphicon glyphicon-log-out" aria-hidden="true" ></span></a></li>
                       :
-                      <li>
-                        <a href="#" onClick={this.props.userLogin}>Iniciar sesión</a>
-                        <ul className="register_user">
-                          <li><a href="#" onClick={this.props.userLogin}>Iniciar sesión</a></li>
-                          <li><Link to="/registro">¿Sos Nuevo? Registrate.</Link></li>
-                        </ul>
-                      </li>
+                      loginLink
                     }
               		</ul>
             		</div>
@@ -58,6 +64,7 @@ export class MainNavigation extends React.Component {
 
 MainNavigation.propTypes = {
   userIsAuthenticated: PropTypes.bool,
+  showLoginLink: PropTypes.bool,
   userLogout: PropTypes.func,
   userLogin: PropTypes.func
 }
@@ -66,7 +73,8 @@ MainNavigation.propTypes = {
 //container
 const mapStateToProps = (state, ownProps) => {
     return {
-      userIsAuthenticated: state.user.isAuthenticated
+      userIsAuthenticated: state.user.isAuthenticated,
+      showLoginLink: (state.routing.locationBeforeTransitions != null)? !state.routing.locationBeforeTransitions.pathname.includes('registro'):true
     }
 }
 
