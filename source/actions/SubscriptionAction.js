@@ -85,7 +85,9 @@ export const subscribe = (id, request_type) => {
                     'Content-Type': 'application/json',
                     'Authorization': 'bearer '+AuthStore.getJwt()
                 },
-                body: {}
+                body: JSON.stringify({
+                    data: ''
+                })
             }).then(response => {
                 if(response.status == 200){
                     return response.json();
