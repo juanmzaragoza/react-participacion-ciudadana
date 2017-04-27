@@ -23,16 +23,19 @@ class ThumbnailDescriptionItem extends React.Component {
 
 	renderTitle() {
 		return (
-			(this.props.linesPerTitle > 0)?
-				(<h3 title={this.props.label}> {/*elipsis*/}
-					<Dotdotdot clamp={this.props.linesPerTitle}>
+			(this.props.label != undefined && this.props.label.length > 0)?
+				(this.props.linesPerTitle > 0)?
+					(<h3 title={this.props.label}> {/*elipsis*/}
+						<Dotdotdot clamp={this.props.linesPerTitle}>
+							{this.props.label}
+						</Dotdotdot>
+					</h3>)
+					:
+					(<h3 title={this.props.label}>
 						{this.props.label}
-					</Dotdotdot>
-				</h3>)
+					</h3>)
 				:
-				(<h3 title={this.props.label}>
-					{this.props.label}
-				</h3>)
+				null
 		)
 	}
 

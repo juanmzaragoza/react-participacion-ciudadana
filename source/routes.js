@@ -23,7 +23,7 @@ export default (
 
   		<Route path="/obras" component={Obras}/>
   		<Route path="/proyectos" component={Proyectos}/>
-      <Route path="/trabajando_juntos" component={TrabajandoJuntos}/>
+      <Route path="/reuniones_de_vecinos" component={TrabajandoJuntos}/>
       <Route path="/horacio_y_diego" component={HoracioDiego}/>
       <Route path="/reuniones_de_ministros" component={ReunionesMinistros}/>
 

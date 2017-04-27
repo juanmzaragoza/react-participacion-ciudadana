@@ -70,7 +70,7 @@ ListThumbnailDescription.propTypes = {
 const mapStateToPropsHoracioDiego = (state, ownProps) => {
 
     return {
-        items: getItemsFromAction(state.bodySection.items,'resultados/proyectos/'),
+        items: getItemsFromAction(state.bodySection.items,'resultados/proyectos/',false),
         itemsPerRow: 2,
         colSm: 6,
         colMd: 6
@@ -245,7 +245,7 @@ function getItemsObrasFromAction(itemsArray){
     return items;
 }
 
-function getItemsFromAction(itemsArray, url){
+function getItemsFromAction(itemsArray, url, isCategory = true){
   let items = [];
   itemsArray.forEach(function(element,index){
     let item = {
@@ -253,7 +253,7 @@ function getItemsFromAction(itemsArray, url){
       imageSrc: element.image.url,
       hrefText: '',
       linkHref: url+element.id,
-      isCategory: true
+      isCategory: isCategory
     }
     items.push(item);
   });

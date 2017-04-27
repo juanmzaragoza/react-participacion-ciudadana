@@ -16,7 +16,7 @@ class BioItem extends React.Component {
 		return (
 			<div className={className}>
 				{(this.props.linkHref != undefined && this.props.linkHref != '')?
-					<a href={this.props.linkHref}>
+					<a href={this.props.linkHref} target={this.props.target} >
 						{imgElement}
 					</a>:
 					imgElement

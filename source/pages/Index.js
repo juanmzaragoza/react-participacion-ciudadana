@@ -15,12 +15,10 @@ class Index extends React.Component {
 
 	render() {
 
-		const imageTrabjandoJuntos = require("../public/content/images/trabajando_juntos.png");
+		const imageReunionesVecinos = require("../public/content/images/seccion-reuniones-de-vecinos.png");
 		const imageObras = require("../public/content/images/Obras_en_tu_barrio.png");
 		const imageEvevntos = require("../public/content/images/Iniciativas_y_Eventos.png");
 		const imageBAElige = require("../public/content/images/ba-elige.png");
-
-		const imageAgenda = require("../public/content/images/lg-agd.png");
 
 		const tituloBioParticipacion = require("../public/content/images/titulo-bio-Participacion.png");
 		const queEsParticipacionCiudadana = require("../public/content/images/bio-QueEsParticipacion-ciudadana.png");
@@ -40,17 +38,17 @@ class Index extends React.Component {
 						<img src={imageBAElige} alt={"..."} className="img-thumbnail" />
 					</a>
 		    		<ImageLinkItem 
-		    			linkHref="/trabajando_juntos"
-		    			imageSrc={imageTrabjandoJuntos}
-		    			description="..."/>
+		    			linkHref="/reuniones_de_vecinos"
+		    			imageSrc={imageReunionesVecinos}
+		    			description="Imagen de reuniones de vecinos"/>
 		    		<ImageLinkItem 
 		    			linkHref="/obras"
 		    			imageSrc={imageObras}
-		    			description="..." />
+		    			description="Imagen de obras" />
 		    		<ImageLinkItem 
 		    			linkHref="/proyectos"
 		    			imageSrc={imageEvevntos}
-		    			description="..." />
+		    			description="Imagen de proyectos" />
 		    	</Section>
 
 		    	<Section className={"bg-vol"} >
@@ -87,15 +85,15 @@ class Index extends React.Component {
 			    			imageSrc={imgBioItemA}
 			    			description="..." />
 			    		<BioItem 
-			    			className={"col-xs-4 col-sm-4 col-md-4"}
+			    			className={"col-xs-4 col-sm-4 col-md-4s"}
 			    			linkHref={"/proyectos"}
-			    			imageSrc={imgBioItemC}
+			    			imageSrc={imgBioItemB}
 			    			description="proyectos" />
 			    		<BioItem 
-			    			className={"col-xs-4 col-sm-4 col-md-4s"}
+			    			className={"col-xs-4 col-sm-4 col-md-4"}
 			    			linkHref={"https://comunicacionhrl.secure.force.com/forms/FF_VFP_PCSumate"}
-			    			imageSrc={imgBioItemB}
-			    			description="..." />
+			    			imageSrc={imgBioItemC}
+			    			target="_blank" />
 			    	</div>
 		    	</Section>
 

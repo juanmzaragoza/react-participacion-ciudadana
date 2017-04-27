@@ -11,8 +11,8 @@ class ImageLinkItem extends React.Component {
 	render() {
 
 		const linkHref = this.props.linkHref? this.props.linkHref:"/";
-		const imageSrc = this.props.imageSrc? this.props.imageSrc:require("../../public/content/images/Encuentros_con_Horacio.png");
-		const description = this.props.description? this.props.description:"Encuentros con Horacio";
+		const imageSrc = this.props.imageSrc? this.props.imageSrc:null;
+		const description = this.props.description? this.props.description:"Ausencia de imagen";
 
 		return (
 			<Link to={linkHref}>
