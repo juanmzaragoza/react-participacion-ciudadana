@@ -55,8 +55,10 @@ class Index extends React.Component {
 		    	</Section>
 
 		    	<Section className={"bg-vol"} >
-		    		<VoluntariadoTitulosContainer 
-		    			type={type.RESULTS_OBRA_EVENTO} />
+		    		<Link to="/resultados?seccion=VOLUNTARIADO">
+			    		<VoluntariadoTitulosContainer 
+			    			type={type.RESULTS_OBRA_EVENTO} />
+			    	</Link>
 		    	</Section>
 
 		        <Section id={"content-nav-agenda"} title={'Iniciativas participativas destacadas '}>

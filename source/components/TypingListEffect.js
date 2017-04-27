@@ -20,8 +20,6 @@ export class TypingListEffect extends React.Component {
 
 	render(){
 
-		const classFormGroup = this.props.error? "form-group has-error":"form-group";
-
 		return (
 			<div className="container">
          		<div className="row ">
