@@ -16,6 +16,7 @@ import Registro from './pages/Registro'
 import EnsureNotLoggedInContainer from './pages/EnsureNotLoggedInContainer'
 import ValidarEmail from './pages/ValidarEmail'
 import CambiarContrasena from './pages/CambiarContrasena'
+import Voluntariado from './pages/Voluntariado'
 
 export default (
 	<Route path="/" component={App}>
@@ -26,6 +27,7 @@ export default (
       <Route path="/reuniones_de_vecinos" component={TrabajandoJuntos}/>
       <Route path="/horacio_y_diego" component={HoracioDiego}/>
       <Route path="/reuniones_de_ministros" component={ReunionesMinistros}/>
+      <Route path="/voluntarios" component={Voluntariado}/>
 
   		<Route path="/resultados" component={Results} />
   		<Route path="/resultados/obras/:id_state" component={ObrasResults} />

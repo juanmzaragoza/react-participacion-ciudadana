@@ -49,6 +49,7 @@ export class MainNavigation extends React.Component {
             			<li><Link to="/obras" activeClassName="link-active">Obras</Link></li>
 	              	<li><Link to="/proyectos" activeClassName="link-active">Proyectos</Link></li>
 	              	<li><Link to="/reuniones_de_vecinos" activeClassName="link-active">Reuniones de Vecinos</Link></li>
+                  <li><Link to="/voluntarios" activeClassName="link-active">Voluntariado</Link></li>
                   <li><a href={config.baelige_url} target="_blank">BA Elige</a></li>
                   {(this.props.userIsAuthenticated !== undefined && this.props.userIsAuthenticated === true)?
                     <li className="active-BA" onClick={this.props.userLogout}><a href="#">Cerrar sesion <span className="glyphicon glyphicon-log-out" aria-hidden="true" ></span></a></li>

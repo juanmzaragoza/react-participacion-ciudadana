@@ -2,22 +2,46 @@ import React from "react";
 
 import Main from "../components/Layout/Main";
 import Row from "../components/Layout/Row";
-import Separator from "../components/Layout/Separator";
-import Jumbotron from "../components/Jumbotron";
-{/*import VoluntariadoListThumbnailDescriptionContainer from "../containers/VoluntariadoListThumbnailDescriptionContainer"*/}
+import Article from "../components/Layout/Article";
+import Aside from "../components/Layout/Aside";
 
-const Voluntariado = () => (
-    <Main >
+import { TagFilterContainer } from "../components/TagFilter";
+import { CarouselImagesContainer } from "../components/CarouselImageItems";
+import { ResultsListGroupThumbnailContainer } from "../components/ListGroupThumbnails";
 
-        <Row>
-            <Jumbotron imageSrc={require("../public/content/images/voluntarios.gif")} />
-        </Row>
+import * as type from '../constants/ApiResultType';
 
-        <Separator />
+const Voluntariado = () => {
 
-        {/*<VoluntariadoListThumbnailDescriptionContainer />*/}
-        
-    </Main >
-)
+	let sizeCols = [9,3] //primera columna de la pagina de 9/12 y la segunda de 3/12
+	var filter = {
+		seccion: 'VOLUNTARIADO'
+	};
+
+	return (
+	    <Main >
+
+	        <Row>
+	            <CarouselImagesContainer gallery={'voluntariado'} />
+	        </Row>
+
+	        <div className="row">
+	        	
+	        	<Article colSm={12} colMd={9}>
+		        	<ResultsListGroupThumbnailContainer 
+		        		filter={filter}
+		        		type={type.RESULTS_OBRA_EVENTO}
+		        	/>
+		        </Article >
+
+	        	<Aside colSm={12} colMd={3}>
+					<TagFilterContainer type={type.RESULTS_OBRA_EVENTO}/>
+	          	</Aside>
+
+	        </div>
+	        
+	    </Main >
+	)
+}
 
 export default Voluntariado
