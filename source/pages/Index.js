@@ -8,6 +8,9 @@ import { MainStaticsContainer } from "../components/MainStatics";
 import { AgendaSemanalCarouselThumbnailContainer } from "../components/CarouselThumbnailItems";
 import ImageLinkItem from "../components/Item/ImageLinkItem";
 import BioItem from "../components/Item/BioItem";
+import {VoluntariadoTitulosContainer} from "../components/TypingListEffect";
+
+import * as type from '../constants/ApiResultType';
 
 import config from "../config/config"
 
@@ -52,11 +55,8 @@ class Index extends React.Component {
 		    	</Section>
 
 		    	<Section className={"bg-vol"} >
-		    		<span className="vol">
-		    			<Link to="/resultados?seccion=VOLUNTARIADO">
-                            <h2>Sumate al Voluntariado</h2>
-                        </Link>
-		    		</span>
+		    		<VoluntariadoTitulosContainer 
+		    			type={type.RESULTS_OBRA_EVENTO} />
 		    	</Section>
 
 		        <Section id={"content-nav-agenda"} title={'Iniciativas participativas destacadas '}>
