@@ -14,6 +14,7 @@ import Root from './components/Root'
 import Index from './pages/Index'
 
 //assets y estilos
+import './public/vendor/bastrap3/animate.css'
 import './public/vendor/bastrap3/bootstrap.min.css'
 import './public/vendor/bastrap3/bastrap.css'
 import './public/vendor/bastrap3/style.css'

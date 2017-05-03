@@ -7,6 +7,9 @@ class ThumbnailDescriptionItem extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			imgEffect: false
+		}
 	}
 
 	componentDidMount(){
@@ -67,6 +70,18 @@ class ThumbnailDescriptionItem extends React.Component {
 		)
 	}
 
+	activeEffect(){
+		this.setState({
+			imgEffect: true
+		})
+	}
+
+	desactiveEffect(){
+		this.setState({
+			imgEffect: false
+		})
+	}
+
 	render(){
 
 		let classRoot = "col-xs-12 col-sm-"+this.props.colSm+" col-md-"+this.props.colMd;
@@ -75,7 +90,11 @@ class ThumbnailDescriptionItem extends React.Component {
 			<div className={classRoot}>
 				<div className="thumbnail">
 					<Link to={this.props.linkHref} >
-				  		<img src={this.props.thumbnail_src} className={"img-rounded"} alt={this.props.label}/>
+				  		<img src={this.props.thumbnail_src} 
+					  		className={(this.state.imgEffect && this.props.imgClassName != undefined)? `img-rounded ${this.props.imgClassName}`:`img-rounded`} 
+					  		alt={this.props.label} 
+					  		onMouseEnter={this.activeEffect.bind(this)} 
+					  		onMouseLeave={this.desactiveEffect.bind(this)} />
 				  	</Link>
 				  	{this.renderCaption.bind(this)()}
 				</div>
@@ -106,6 +125,7 @@ ThumbnailDescriptionItem.propTypes = {
   isFirst: PropTypes.bool,
   isCategory: PropTypes.bool,
   linesPerTitle: PropTypes.number,
+  imgClassName: PropTypes.string,
 }
 
 export default ThumbnailDescriptionItem

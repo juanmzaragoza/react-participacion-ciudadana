@@ -50,7 +50,8 @@ export class ListThumbnailDescription extends React.Component {
 						linkText={item.hrefText? item.hrefText:"Leer más"} 
 						colSm={colSm}
 						colMd={colMd}
-						isCategory={item.isCategory? true:false} />
+						isCategory={item.isCategory? true:false}
+            imgClassName={"animated tada"} />
 				))}
 			</div>
 		)

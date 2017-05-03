@@ -37,21 +37,27 @@ class Index extends React.Component {
 		    	<MainStaticsContainer />
 
 		    	<Section id={"content-nav-btn"} >
-		    		<a href={config.baelige_url} target="_blank">
-						<img src={imageBAElige} alt={"..."} className="img-thumbnail" />
-					</a>
+		    		<ImageLinkItem 
+		    			linkHref={config.baelige_url}
+		    			imageSrc={imageBAElige}
+		    			description="..."
+		    			target="_blank"
+		    			animatedClass="animated slideInLeft" />
 		    		<ImageLinkItem 
 		    			linkHref="/reuniones_de_vecinos"
 		    			imageSrc={imageReunionesVecinos}
-		    			description="Imagen de reuniones de vecinos"/>
+		    			description="Imagen de reuniones de vecinos"
+		    			animatedClass="animated zoomIn" />
 		    		<ImageLinkItem 
 		    			linkHref="/obras"
 		    			imageSrc={imageObras}
-		    			description="Imagen de obras" />
+		    			description="Imagen de obras"
+		    			animatedClass="animated zoomIn" />
 		    		<ImageLinkItem 
 		    			linkHref="/proyectos"
 		    			imageSrc={imageEvevntos}
-		    			description="Imagen de proyectos" />
+		    			description="Imagen de proyectos"
+		    			animatedClass="animated slideInRight" />
 		    	</Section>
 
 		    	<Section className={"bg-vol"} >
