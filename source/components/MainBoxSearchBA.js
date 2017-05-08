@@ -2,8 +2,6 @@ import React from "react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-//import {  toggleState } from '../actions'
-
 import { SearchBarContainer } from '../components/SearchBar'
 import ProjectsDayPickerContainer from '../components/ProjectsDayPicker'
 
@@ -48,15 +46,6 @@ const mapStateToProps = (state, ownProps) => {
         show: false
     }
 }
-
-/*const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onScroll: () => {
-      //dispatch(toggleState())
-      console.log("scroll")
-    }
-  }
-}*/
 
 export const MainBoxSearchBAContainer = connect(
   mapStateToProps,

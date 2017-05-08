@@ -27,7 +27,7 @@
     "react": "^15.3.2",
     "react-addons-create-fragment": "^15.4.2",
     "react-bootstrap": "^0.30.8",
-    "react-day-picker": "^2.5.0",
+    "react-day-picker": "^5.4.2",
     "react-dom": "^15.4.2",
     "react-dotdotdot": "^1.0.17",
     "react-highcharts": "^11.5.0",

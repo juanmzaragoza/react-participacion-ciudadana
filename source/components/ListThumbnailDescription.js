@@ -197,7 +197,7 @@ const mapStateToPropsTrabajandoJuntosList = (state, ownProps) => {
 const mapDispatchToPropsTrabajandoJuntosList = (dispatch, ownProps) => {
   return {
     componentDidMount: () => {
-        dispatch(fetchCategoriesFromSection('trabajandojuntos'));
+        dispatch(fetchCategoriesFromSection('REUNIONESDEVECINOS'));
     },
     componentWillUnmount: () => {
       dispatch(clearBodySection());
