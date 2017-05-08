@@ -222,8 +222,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(fetchNeighborhoods(1, 50));
     },
     onSubmit: (formValues, extraVerification) => {
+    	
+      var nameHost = location.protocol.concat("//").concat(window.location.hostname),
+          port = window.location.port;
+
       var values = Object.assign({},formValues,{
-      	host: location.protocol.concat("//").concat(window.location.hostname).concat(':').concat(window.location.port).concat('/')
+      	host: (window.location.port)? nameHost.concat(':').concat(port).concat('/'):nameHost.concat('/')
       })
       dispatch(createUser(values,extraVerification));
     }
