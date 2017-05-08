@@ -161,10 +161,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(hideResetPasswordForm());
     },
     onSubmit: (formValues) => {
+
+      var nameHost = location.protocol.concat("//").concat(window.location.hostname),
+          port = window.location.port;
+
       var values = Object.assign({},formValues,{
-        host: location.protocol.concat("//").concat(window.location.hostname).concat(':').concat(window.location.port).concat('/')
+        host: (window.location.port != undefined)? nameHost.concat(':').concat(port).concat('/'):nameHost.concat('/')
       })
+
       dispatch(emailResetPassword(values));
+
     }
   }
 }
