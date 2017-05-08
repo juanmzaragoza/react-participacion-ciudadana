@@ -166,7 +166,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           port = window.location.port;
 
       var values = Object.assign({},formValues,{
-        host: (window.location.port != undefined)? nameHost.concat(':').concat(port).concat('/'):nameHost.concat('/')
+        host: (window.location.port)? nameHost.concat(':').concat(port).concat('/'):nameHost.concat('/')
       })
 
       dispatch(emailResetPassword(values));
