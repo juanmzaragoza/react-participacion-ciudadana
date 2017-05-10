@@ -6,13 +6,11 @@ import Section from "../components/Layout/Section";
 import { MainVideoContainer } from "../components/MainVideo";
 import { MainStaticsContainer } from "../components/MainStatics";
 import { AgendaSemanalCarouselThumbnailContainer } from "../components/CarouselThumbnailItems";
-import ImageLinkItem from "../components/Item/ImageLinkItem";
 import BioItem from "../components/Item/BioItem";
 import {VoluntariadoTitulosContainer} from "../components/TypingListEffect";
+import { ContentNavegacionCategoriasContainer } from "../components/ContentNavegacionCategorias";
 
 import * as type from '../constants/ApiResultType';
-
-import config from "../config/config"
 
 class Index extends React.Component {
 
@@ -36,29 +34,7 @@ class Index extends React.Component {
 
 		    	<MainStaticsContainer />
 
-		    	<Section id={"content-nav-btn"} >
-		    		<ImageLinkItem 
-		    			linkHref={config.baelige_url}
-		    			imageSrc={imageBAElige}
-		    			description="..."
-		    			target="_blank"
-		    			animatedClass="animated slideInLeft" />
-		    		<ImageLinkItem 
-		    			linkHref="/reuniones_de_vecinos"
-		    			imageSrc={imageReunionesVecinos}
-		    			description="Imagen de reuniones de vecinos"
-		    			animatedClass="animated zoomIn" />
-		    		<ImageLinkItem 
-		    			linkHref="/obras"
-		    			imageSrc={imageObras}
-		    			description="Imagen de obras"
-		    			animatedClass="animated zoomIn" />
-		    		<ImageLinkItem 
-		    			linkHref="/proyectos"
-		    			imageSrc={imageEvevntos}
-		    			description="Imagen de proyectos"
-		    			animatedClass="animated slideInRight" />
-		    	</Section>
+		    	<ContentNavegacionCategoriasContainer />
 
 		    	<Section className={"bg-vol"} >
 		    		<Link to="/resultados?seccion=VOLUNTARIADO">

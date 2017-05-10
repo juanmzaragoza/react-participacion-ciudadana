@@ -13,10 +13,11 @@ export class SearchBar extends React.Component {
 
     render() {
         let input
+        let inputClassName = this.props.inputClassName? "form-control "+this.props.inputClassName:"form-control input-xl";
 
         return (
             <div className="form-group has-button">
-                <input ref={node => {input = node}} type="text" className="form-control input-xl" id="search-obras-eventos" placeholder="Buscar" />
+                <input ref={node => {input = node}} type="text" className={inputClassName} id="search-obras-eventos" placeholder="Buscar" />
                 <button className="btn" onClick={ e => {this.props.onSearch((input !== undefined) ? input.value:'')}}>
                     <span className="glyphicon glyphicon-search"></span>
                 </button>
