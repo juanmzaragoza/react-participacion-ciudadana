@@ -24,7 +24,7 @@ const Results = (props) => {
 		<div className="container">
 
 			<Row>
-	    		<CarouselImagesContainer gallery={'obras'} />
+	    		<CarouselImagesContainer gallery={'resultados'} />
 	    	</Row>
 
 	        <div className="row">

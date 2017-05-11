@@ -46,7 +46,7 @@ TypingListEffect.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
 	
-	var itemsName = ['Sumate al Voluntariado'];
+	var itemsName = ['¡Sumate al Voluntariado!'];
 	state.results.items.forEach(function(element,index){
 		itemsName.push(element.nombre);
 	});

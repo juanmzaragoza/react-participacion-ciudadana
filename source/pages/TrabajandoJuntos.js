@@ -10,7 +10,7 @@ const Obras = () => (
 	<Main >
 
         <Row>
-            <CarouselImagesContainer gallery={'trabajandojuntos'} />
+            <CarouselImagesContainer gallery={'reunionesdevecinos'} />
         </Row>
 
         <Separator />
