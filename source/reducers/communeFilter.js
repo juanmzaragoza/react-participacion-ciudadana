@@ -1,6 +1,7 @@
 import * as requestType from '../constants/RequestActionTypes'
 import * as types from '../constants/ActionTypes'
 import * as utils from '../lib/utils'
+import * as common from './common';
 
 const initialState = {
   isFetching: false,
@@ -39,15 +40,11 @@ export default function communeFilter(state = initialState, action) {
       })
 
     case types.FILTER_BY_COMMUNE:
+
       let items = state.items.slice();
-      items.forEach(function(commune, index){
-        if(commune.id == action.commune.id){
-          commune.active = commune.active? false:true;
-          items[index] = commune;
-        }
-      });
+      
       return Object.assign({}, state, {
-        items: items
+        items: common.selectOnefilter(items, action.commune.id)
       })
 
     default:

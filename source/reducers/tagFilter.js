@@ -1,6 +1,7 @@
 import * as requestType from '../constants/RequestActionTypes'
 import * as types from '../constants/ActionTypes'
 import * as utils from '../lib/utils'
+import * as common from './common'
 
 const initialState = {
   isFetching: false,
@@ -40,15 +41,11 @@ export default function categoryFilter(state = initialState, action) {
       })
 
     case types.FILTER_BY_TAG:
+
       let items = state.items.slice();
-      items.forEach(function(tag, index){
-        if(tag.id == action.tag.id){
-          tag.active = tag.active? false:true;
-          items[index] = tag;
-        }
-      });
+
       return Object.assign({}, state, {
-        items: items
+        items: common.selectOnefilter(items, action.tag.id)
       })
 
     default:
