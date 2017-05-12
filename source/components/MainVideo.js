@@ -12,10 +12,13 @@ export class MainVideo extends React.Component {
 
     render() {
 
+      const videoPrincipal = require("../public/content/videos/Participacion_Ciudadana_Pagina720.mp4");
+
     	return (
 		    <section id="video" >
+          <videojs></videojs>
 		        <video width="100%" autoPlay={true} loop="loop" preload="auto" muted >
-		            <source src="content/videos/Participacion_Ciudadana_Pagina720.mp4" />
+		            <source src={videoPrincipal} />
 		        </video>
 		        <MainBoxSearchBAContainer />
 		    </section>

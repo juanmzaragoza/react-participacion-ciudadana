@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Frontend Basis Redux",
   "scripts": {
-    "start": "node server.js",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server --port 9898 --host 0.0.0.0 --config webpack.config.dev.js --hot --progress --inline",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
     "test:watch": "npm test -- --watch"
   },
@@ -56,6 +56,7 @@
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.28.0",
     "jsdom": "^5.6.1",
     "mocha": "^2.2.5",
     "node-libs-browser": "^0.5.2",
@@ -67,8 +68,10 @@
     "sass-loader": "^4.0.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.9.11",
+    "webpack": "^2.5.1",
     "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.9.1"
+    "webpack-dev-server": "^2.4.5",
+    "webpack-hot-middleware": "^2.9.1",
+    "webpack-notifier": "^1.5.0"
   }
 }
