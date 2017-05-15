@@ -3,15 +3,23 @@
 ## Requerimientos
 
 * NodeJS v6.8.1
+* Apache 2.2 (o superior) con mod rewrite activado
 
-## Instalación (por primera vez)
+## Instalación 
+
+Clonar el proyecto en cualquier directorio en el que tenga acceso de lectura y escritura desde http://git-asi.buenosaires.gob.ar/usuarioQA/asi-109-api-participacion-ciudadana.git
+Moverse a la carpeta `source/`
+
+        $ cd source
+
+En adelante la llamaremos `PROJECT_ROOT`.
 
 Ejecutar en el raiz del proyecto
 
-		rm node_modules/* -r
-		npm install
+	    $ rm node_modules/* -r
+	    $ npm install
 
-Copiar el archivo ´config/config.default.json´ a ´config/config.json´ y configurarlo con la url donde se encuentra instalada la API de Participacion ciudadana (NodeJs):
+Copiar el archivo `config/config.default.json` a `config/config.json` y configurarlo con la url donde se encuentra instalada la API de Participacion ciudadana (NodeJs):
 
 	{
 		"port": puerto de exposicion del frontend,
@@ -35,10 +43,26 @@ Para la configuracion de "Facebook" ver documentacion en https://developers.face
 
 Para la configuracion del captcha de "Google" ver documentacion https://www.google.com/recaptcha/admin para crear el "captcha_site_key" (Site key) y el "captcha_secret_key" (Secret key).
 
-Ejecutar aplicación
-		
-		export NODE_ENV=production && node server.js
+Compilar el proyecto (generará el proyecto compilador dentro de la carpeta `dist/`):
+
+	    $ npm run build:prod
+	    
+Crear un Virtual Host para la aplicacion usando la siguiente configuracion como ejemplo:
+
+    <VirtualHost *:80>
+		DocumentRoot "PROJECT_ROOT/dist"
+		ServerName URL_DEL_PROYECTO
+		DirectoryIndex index.html
+		<Directory "PROJECT_ROOT/dist/">
+			AllowOverride All
+			Allow from All
+			Require all granted
+		</Directory>
+		ErrorLog PROJECT_ROOT/dist/error.log
+		CustomLog PROJECT_ROOT/dist/access.log combined
+	</VirtualHost>
+
 
 ## Pruebas
 
-Desde un navegador, ingrese a la home de la aplicacion (definida en el ServerName) junto con el puerto configurado en ´config/config.json´. Por ejejmplo: http://localhost:3002/
+Desde un navegador, ingrese a la home de la aplicacion (definida en el ServerName) junto con el puerto configurado en `config/config.json`. Por ejejmplo: http://pc-react.localhost/
