@@ -4,7 +4,7 @@ const HtmlWebpackPlugin     = require('html-webpack-plugin');
 const path                  = require('path');
 
 const webpackConfig = {
-  devtool: '#cheap-module-eval-source-map',
+  devtool: '#eval',
   entry: {
     app: [
       'babel-polyfill', // Set up an ES6-ish environment

@@ -19,6 +19,7 @@ const ObrasResults = (props) => {
 		estado: props.params.id_state,
 		publicado: 1
 	};
+	const imgDefault = require("../public/content/images/Obras_en_tu_barrio-generica.png");
 
 	return(
 	    <div className="container">
@@ -33,6 +34,7 @@ const ObrasResults = (props) => {
 		        	<ResultsListGroupThumbnailContainer 
 		        		filter={filter}
 		        		type={type.RESULTS_OBRA}
+		        		imageDefault={imgDefault}
 		        	/>
 		        </Article >
 

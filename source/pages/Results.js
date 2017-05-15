@@ -19,6 +19,7 @@ const Results = (props) => {
 		fecha: props.location.query.fecha,
 		seccion: props.location.query.seccion
 	};
+	const imgDefault = require("../public/content/images/Iniciativas_y_Eventos-generica.png");
 
 	return(
 		<div className="container">
@@ -33,6 +34,7 @@ const Results = (props) => {
 		        	<ResultsListGroupThumbnailContainer 
 		        		filter={filter}
 		        		type={type.RESULTS_OBRA_EVENTO}
+		        		imageDefault={imgDefault}
 		        	/>
 		        </Article >
 

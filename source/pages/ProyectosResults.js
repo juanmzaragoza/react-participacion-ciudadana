@@ -18,6 +18,7 @@ const Results = (props) => {
 		categoria: props.params.id_category,
 		publicado: 1
 	};
+	const imgDefault = require("../public/content/images/Iniciativas_y_Eventos-generica.png");
 
 	return(
 		<div className="container">
@@ -32,6 +33,7 @@ const Results = (props) => {
 		        	<ResultsListGroupThumbnailContainer 
 		        		filter={filter}
 		        		type={type.RESULTS_EVENTO}
+		        		imageDefault={imgDefault}
 		        	/>
 		        </Article >
 

@@ -24,7 +24,7 @@ export class ListGroupThumbnails extends React.Component {
   	renderList(){
 
   		let tempitems = this.props.items.map((item,index) => {
-			let thumbnailSrc = undefined;
+			let thumbnailSrc = this.props.imageDefault;
 			if(item.images !== undefined && item.images.length>0){
 				for(let index in item.images){
 					if(item.images[index].position == 1 && item.images[index].image !== null){
@@ -33,8 +33,6 @@ export class ListGroupThumbnails extends React.Component {
 				}				
 			} else if(item.image_url){
 				thumbnailSrc = item.image_url;
-			} else if(thumbnailSrc === undefined) {
-				thumbnailSrc = require("../public/content/images/jumbo4.jpg");
 			}
 			return(
 				<ThumbnailDescriptionItem 
@@ -119,7 +117,8 @@ const mapStateToProps = (state, ownProps) => {
         page: state.results.page,
         pageCount: state.results.pageCount,
         colSm: 12,
-        colMd: 9
+        colMd: 9,
+        imageDefault: ownProps.imageDefault
     }
 }
 

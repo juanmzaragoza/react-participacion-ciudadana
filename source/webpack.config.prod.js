@@ -5,7 +5,7 @@ const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 const path                  = require('path');
 
 const webpackConfig = {
-  devtool: 'cheap-module-source-map',
+  devtool: '#cheap-module-source-map',
   entry: {
     app: [
       'babel-polyfill', // Set up an ES6-ish environment
