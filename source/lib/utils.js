@@ -46,3 +46,10 @@ function pad2(number) {
      return (number < 10 ? '0' : '') + number
    
 }
+
+export const objectIsEmpty = (map) => {
+   for(var key in map) {
+      return !map.hasOwnProperty(key);
+   }
+   return true;
+}

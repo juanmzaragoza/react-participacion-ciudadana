@@ -6,21 +6,20 @@ import Section from "../components/Layout/Section";
 import { MainVideoContainer } from "../components/MainVideo";
 import { MainStaticsContainer } from "../components/MainStatics";
 import { AgendaSemanalCarouselThumbnailContainer } from "../components/CarouselThumbnailItems";
-import ImageLinkItem from "../components/Item/ImageLinkItem";
 import BioItem from "../components/Item/BioItem";
+import {VoluntariadoTitulosContainer} from "../components/TypingListEffect";
+import { ContentNavegacionCategoriasContainer } from "../components/ContentNavegacionCategorias";
 
-import config from "../config/config"
+import * as type from '../constants/ApiResultType';
 
 class Index extends React.Component {
 
 	render() {
 
-		const imageTrabjandoJuntos = require("../public/content/images/trabajando_juntos.png");
+		const imageReunionesVecinos = require("../public/content/images/seccion-reuniones-de-vecinos.png");
 		const imageObras = require("../public/content/images/Obras_en_tu_barrio.png");
 		const imageEvevntos = require("../public/content/images/Iniciativas_y_Eventos.png");
 		const imageBAElige = require("../public/content/images/ba-elige.png");
-
-		const imageAgenda = require("../public/content/images/lg-agd.png");
 
 		const tituloBioParticipacion = require("../public/content/images/titulo-bio-Participacion.png");
 		const queEsParticipacionCiudadana = require("../public/content/images/bio-QueEsParticipacion-ciudadana.png");
@@ -35,30 +34,13 @@ class Index extends React.Component {
 
 		    	<MainStaticsContainer />
 
-		    	<Section id={"content-nav-btn"} >
-		    		<a href={config.baelige_url} target="_blank">
-						<img src={imageBAElige} alt={"..."} className="img-thumbnail" />
-					</a>
-		    		<ImageLinkItem 
-		    			linkHref="/trabajando_juntos"
-		    			imageSrc={imageTrabjandoJuntos}
-		    			description="..."/>
-		    		<ImageLinkItem 
-		    			linkHref="/obras"
-		    			imageSrc={imageObras}
-		    			description="..." />
-		    		<ImageLinkItem 
-		    			linkHref="/proyectos"
-		    			imageSrc={imageEvevntos}
-		    			description="..." />
-		    	</Section>
+		    	<ContentNavegacionCategoriasContainer />
 
 		    	<Section className={"bg-vol"} >
-		    		<span className="vol">
-		    			<Link to="/resultados?seccion=VOLUNTARIADO">
-                            <h2>Sumate al Voluntariado</h2>
-                        </Link>
-		    		</span>
+		    		<Link to="/resultados?seccion=VOLUNTARIADO">
+			    		<VoluntariadoTitulosContainer 
+			    			type={type.RESULTS_OBRA_EVENTO} />
+			    	</Link>
 		    	</Section>
 
 		        <Section id={"content-nav-agenda"} title={'Iniciativas participativas destacadas '}>
@@ -87,15 +69,15 @@ class Index extends React.Component {
 			    			imageSrc={imgBioItemA}
 			    			description="..." />
 			    		<BioItem 
-			    			className={"col-xs-4 col-sm-4 col-md-4"}
+			    			className={"col-xs-4 col-sm-4 col-md-4s"}
 			    			linkHref={"/proyectos"}
-			    			imageSrc={imgBioItemC}
+			    			imageSrc={imgBioItemB}
 			    			description="proyectos" />
 			    		<BioItem 
-			    			className={"col-xs-4 col-sm-4 col-md-4s"}
+			    			className={"col-xs-4 col-sm-4 col-md-4"}
 			    			linkHref={"https://comunicacionhrl.secure.force.com/forms/FF_VFP_PCSumate"}
-			    			imageSrc={imgBioItemB}
-			    			description="..." />
+			    			imageSrc={imgBioItemC}
+			    			target="_blank" />
 			    	</div>
 		    	</Section>
 

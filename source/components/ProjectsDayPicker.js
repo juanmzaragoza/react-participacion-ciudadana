@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
 import {  browserHistory } from 'react-router'
 import DayPicker from "react-day-picker";
+import * as utils from '../lib/utils';
+import { getAllSubscriptions } from '../actions/SubscriptionAction';
 
 const weekdaysLong = {
   // Make sure you start with the right day of the week!
@@ -31,16 +33,64 @@ const localeUtils = {
 }
 
 const mapStateToProps = (state, ownProps) => {
-
-    return {
-        locale: 'es',
-        localeUtils: localeUtils
+  
+  var modifiers = {};
+  if(!utils.objectIsEmpty(state.subscription.content)){
+    modifiers = {
+      ['obra']: getObraDates(state.subscription.content.suscripciones_obra),
+      ['reunion']: getEventoDates(state.subscription.content.suscripciones_reunion),
+      ['proyecto']: getEventoDates(state.subscription.content.suscripciones_evento)
     }
+  }
+
+  return {
+      locale: 'es',
+      localeUtils: localeUtils,
+      modifiers: modifiers
+  }
+}
+
+function getObraDates(suscripciones_obra){
+
+  var obras = suscripciones_obra.map(function(suscripcion){
+
+    var fechas_obra = suscripcion.obra.obra_etapas.map(function(etapa){
+      return getDateArray(etapa);
+    });
+    return [].concat.apply([], fechas_obra);
+
+  });
+
+  return [].concat.apply([], obras);
+}
+
+function getEventoDates(suscripciones_evento){
+
+  var eventos = suscripciones_evento.map(function(suscripcion){
+    return getDateArray(suscripcion.evento);
+  });
+
+  return [].concat.apply([], eventos);
+}
+
+function getDateArray(etapa){
+
+  var fechas = [];
+
+  if(etapa.fecha_desde){
+    fechas.push(new Date(etapa.fecha_desde.replace(/Z+$/, '')));
+  }
+
+  if(etapa.fecha_hasta){
+    fechas.push(new Date(etapa.fecha_hasta.replace(/Z+$/, '')));
+  }
+
+  return fechas;
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onDayClick: (e, day) => {
+    onDayClick: (day) => {
       var mm = day.getMonth() + 1;
       var dd = day.getDate();
       var fecha = [day.getFullYear(), (mm>9 ? '' : '0') + mm, (dd>9 ? '' : '0') + dd].join('-');

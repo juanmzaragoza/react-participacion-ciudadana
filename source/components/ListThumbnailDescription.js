@@ -50,7 +50,8 @@ export class ListThumbnailDescription extends React.Component {
 						linkText={item.hrefText? item.hrefText:"Leer más"} 
 						colSm={colSm}
 						colMd={colMd}
-						isCategory={item.isCategory? true:false} />
+						isCategory={item.isCategory? true:false}
+            imgClassName={"animated tada"} />
 				))}
 			</div>
 		)
@@ -70,7 +71,7 @@ ListThumbnailDescription.propTypes = {
 const mapStateToPropsHoracioDiego = (state, ownProps) => {
 
     return {
-        items: getItemsFromAction(state.bodySection.items,'resultados/proyectos/'),
+        items: getItemsFromAction(state.bodySection.items,'resultados/proyectos/',false),
         itemsPerRow: 2,
         colSm: 6,
         colMd: 6
@@ -196,7 +197,7 @@ const mapStateToPropsTrabajandoJuntosList = (state, ownProps) => {
 const mapDispatchToPropsTrabajandoJuntosList = (dispatch, ownProps) => {
   return {
     componentDidMount: () => {
-        dispatch(fetchCategoriesFromSection('trabajandojuntos'));
+        dispatch(fetchCategoriesFromSection('REUNIONESDEVECINOS'));
     },
     componentWillUnmount: () => {
       dispatch(clearBodySection());
@@ -245,7 +246,7 @@ function getItemsObrasFromAction(itemsArray){
     return items;
 }
 
-function getItemsFromAction(itemsArray, url){
+function getItemsFromAction(itemsArray, url, isCategory = true){
   let items = [];
   itemsArray.forEach(function(element,index){
     let item = {
@@ -253,7 +254,7 @@ function getItemsFromAction(itemsArray, url){
       imageSrc: element.image.url,
       hrefText: '',
       linkHref: url+element.id,
-      isCategory: true
+      isCategory: isCategory
     }
     items.push(item);
   });

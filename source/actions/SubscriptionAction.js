@@ -108,3 +108,65 @@ export const subscribe = (id, request_type) => {
             });
     }
 }
+
+export const getAllSubscriptions = () => {
+    
+    return (dispatch) => {
+        if(!AuthStore.isAuthenticated()){
+            dispatch(userIsNotAuthenticated());
+        } else{
+
+            dispatch(requestSubscriptions());
+
+            return fetch(config.api_url+'auth/suscripciones', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'bearer '+AuthStore.getJwt()
+                    }
+                }).then(response => {
+                    if(response.status == 200){
+                        return response.json();
+                    } else if(response.status == 401){
+                        throw new Error("Problema con la autenticacion");
+                    }
+                    throw new Error("Problema interno");
+                    
+                })
+                .then(json => {
+                    dispatch(receiveSubscriptions(json));
+                })
+                .catch(err => {
+                    console.log(err);
+                    dispatch(requestSubscriptionsError(err.message));
+                });
+        }
+    }
+}
+
+export const requestSubscriptions = () => { 
+    return{
+        type: actionTypes.REQUEST_SUBSCRIPTIONS
+    }
+}
+
+export const receiveSubscriptions = (json) => {
+    return {
+        type: actionTypes.REQUEST_SUBSCRIPTIONS_SUCCESS,
+        content: json
+    }
+}
+
+export const requestSubscriptionsError = (error) => {
+    return{
+        type: actionTypes.REQUEST_SUBSCRIPTIONS_FAILURE,
+        error: error
+    }
+}
+
+export const userIsNotAuthenticated = () => { 
+    return{
+        type: actionTypes.USER_ISNOT_AUTHENTICATED
+    }
+}

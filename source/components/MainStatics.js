@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import {fetchStatics} from '../actions/StaticsAction'
 
-const imageVecinosVotando = require("../public/content/images/vecinos_votando.png");
 const urnaVotacion = require("../public/content/images/urna_votacion.png");
 const vecinosParticip = require("../public/content/images/vecinos_participando.png");
 

@@ -17,6 +17,7 @@ import registrationForm from './registrationForm'
 import voteForm from './voteForm'
 import changePasswordForm from './changePasswordForm'
 import captcha from './captcha'
+import subscription from './subscription'
 
 import { routerReducer as routing } from 'react-router-redux'
 import { reducer as formReducer } from 'redux-form'
@@ -41,7 +42,8 @@ const app = combineReducers({
 	registrationForm,
 	voteForm,
 	changePasswordForm,
-	captcha
+	captcha,
+	subscription
 })
 
 export default app
