@@ -20,7 +20,6 @@ export class ContentSecondary extends React.Component {
 
  	handleOnClickImage(e){
  		e.preventDefault();
- 		console.log(this.refs.modalgallery)
  		this.refs.modalgallery.openModal();
  	}
 

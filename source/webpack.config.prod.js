@@ -1,33 +1,27 @@
 const webpack               = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const HtmlWebpackPlugin     = require('html-webpack-plugin');
+const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 const path                  = require('path');
 
 const webpackConfig = {
-  devtool: '#cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
   entry: {
     app: [
       'babel-polyfill', // Set up an ES6-ish environment
-      'webpack-dev-server/client?http://localhost:9898', // WebpackDevServer host and port
-      'webpack/hot/only-dev-server',
       path.join(__dirname, 'index.js')
     ],
     vendor: './vendors/index.js'
-  },
-  devServer: {
-
-    // Configuration in case you need to proxy calls to an api
-    proxy: {
-      '/api/*': ''
-    },
-    historyApiFallback: true,
-    contentBase: './build/dev_build'
   },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
     publicPath: '/'
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    historyApiFallback: true
+  },  
   module: {
     loaders: [
       {
@@ -36,7 +30,8 @@ const webpackConfig = {
         exclude: /node_modules/,
         include: __dirname
       },
-      { test: /\.css$/, loader: "style-loader!css-loader?importLoaders=1" },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?importLoaders=1'}) },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?modules!sass-loader'}) },
       { test: /\.(jpg|png|woff|woff2|eot|ttf|svg|htc|gif)(\?\S*)?$/, loader: 'url-loader?limit=100000' },
       { test: /\.json$/, loader: "json-loader"},
       { test: /\.(mp4|webm)$/, loader: 'url-loader?limit=10000' }
@@ -58,20 +53,20 @@ const webpackConfig = {
     }
   },
   plugins: [
+    new ExtractTextPlugin({ filename: 'app.bundle-[chunkhash].css', disable: false, allChunks: true }),
     new WebpackNotifierPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: 'vendor.bundle-[hash].js',
+      filename: 'vendor.bundle-[chunkhash].js',
       minChunks: Infinity
     }),
     new HtmlWebpackPlugin({
       template: 'public/index.tpl.html',
-      //filename: 'index.html'
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development')
+        NODE_ENV: JSON.stringify('production')
       }
     }),
     new webpack.ProvidePlugin({
