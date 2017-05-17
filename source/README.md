@@ -63,6 +63,12 @@ Crear un Virtual Host para la aplicacion usando la siguiente configuracion como 
 	</VirtualHost>
 
 
+
+## Actualización
+
+Ver archivo UPGRADE.md para 
+
+
 ## Pruebas
 
 Desde un navegador, ingrese a la home de la aplicacion (definida en el ServerName) junto con el puerto configurado en `config/config.json`. Por ejejmplo: http://pc-react.localhost/
