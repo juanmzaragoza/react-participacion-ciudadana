@@ -63,7 +63,6 @@ Crear un Virtual Host para la aplicacion usando la siguiente configuracion como 
 	</VirtualHost>
 
 
-
 ## Actualización
 
 Ver archivo UPGRADE.md para 
