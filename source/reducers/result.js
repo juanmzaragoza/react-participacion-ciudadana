@@ -1,7 +1,7 @@
-import {REQUEST_CONTENT_SUCCESS,REQUEST_CONTENT,REQUEST_CONTENT_FAILURE,REQUEST_COMMENTS_SUCCESS,REQUEST_COMMENTS,REQUEST_COMMENTS_FAILURE} from '../constants/RequestActionTypes';
-import {USER_IS_SUBSCRIBED, USER_ISNOT_SUBSCRIBED} from '../constants/SubscriptionActionTypes';
-import {LOGIN_USER,LOGOUT_USER} from '../constants/AuthConstants';
-import * as utils from '../lib/utils';
+import {REQUEST_CONTENT_SUCCESS,REQUEST_CONTENT,REQUEST_CONTENT_FAILURE,REQUEST_COMMENTS_SUCCESS,REQUEST_COMMENTS,REQUEST_COMMENTS_FAILURE} from 'constants/RequestActionTypes';
+import {USER_IS_SUBSCRIBED, USER_ISNOT_SUBSCRIBED} from 'constants/SubscriptionActionTypes';
+import {LOGIN_USER,LOGOUT_USER} from 'constants/AuthConstants';
+import * as utils from 'lib/utils';
 
 const initialState = {
   isFetching: false,

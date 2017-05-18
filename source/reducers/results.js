@@ -1,5 +1,5 @@
-import {REQUEST_RESULT_SUCCESS,REQUEST_RESULT,REQUEST_RESULT_FAILURE} from '../constants/RequestActionTypes'
-import * as utils from '../lib/utils'
+import {REQUEST_RESULT_SUCCESS,REQUEST_RESULT,REQUEST_RESULT_FAILURE} from 'constants/RequestActionTypes'
+import * as utils from 'lib/utils'
 
 const initialState = {
   limit: 25,

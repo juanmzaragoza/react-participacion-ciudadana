@@ -1,7 +1,7 @@
-import * as requestType from '../constants/RequestActionTypes'
-import * as types from '../constants/ActionTypes'
-import * as utils from '../lib/utils'
-import * as common from './common';
+import * as requestType from 'constants/RequestActionTypes'
+import * as types from 'constants/ActionTypes'
+import * as utils from 'lib/utils'
+import * as common from 'reducers/common';
 
 const initialState = {
   isFetching: false,

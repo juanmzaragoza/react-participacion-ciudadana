@@ -1,5 +1,5 @@
-import * as requestType from '../constants/RequestActionTypes';
-import * as userType from '../constants/UserConstants';
+import * as requestType from 'constants/RequestActionTypes';
+import * as userType from 'constants/UserConstants';
 
 const initialState = {
   isFetching: false,

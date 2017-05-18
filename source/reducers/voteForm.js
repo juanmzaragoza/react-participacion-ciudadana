@@ -1,6 +1,6 @@
-import {VOTE_SUCCESS, VOTE_FAILURE, REQUEST_VOTATION_SUCCESS,REQUEST_VOTATION,REQUEST_VOTATION_FAILURE,USER_ANSWERED_VOTATION_CHECKED} from '../constants/RequestActionTypes'
-import {USER_ANSWERED_VOTATION, USER_NOT_ANSWERED_VOTATION} from '../constants/VoteActionTypes'
-import * as utils from '../lib/utils'
+import {VOTE_SUCCESS, VOTE_FAILURE, REQUEST_VOTATION_SUCCESS,REQUEST_VOTATION,REQUEST_VOTATION_FAILURE,USER_ANSWERED_VOTATION_CHECKED} from 'constants/RequestActionTypes'
+import {USER_ANSWERED_VOTATION, USER_NOT_ANSWERED_VOTATION} from 'constants/VoteActionTypes'
+import * as utils from 'lib/utils'
 
 const initialState = {
   votation: {

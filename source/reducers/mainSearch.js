@@ -1,4 +1,4 @@
-import {MAIN_SEARCH_BY_TEXT} from '../constants/ActionTypes'
+import {MAIN_SEARCH_BY_TEXT} from 'constants/ActionTypes'
 
 const initialState = {
 	searchItemsByText: ''

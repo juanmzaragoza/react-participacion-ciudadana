@@ -1,5 +1,5 @@
-import { RESET_LOGIN_CAPTCHA_CHECK, LOGIN_CAPTCHA_CHECK_SUCCESS, LOGIN_CAPTCHA_CHECK_ERROR} from '../constants/AuthConstants'
-import * as utils from '../lib/utils'
+import { RESET_LOGIN_CAPTCHA_CHECK, LOGIN_CAPTCHA_CHECK_SUCCESS, LOGIN_CAPTCHA_CHECK_ERROR} from 'constants/AuthConstants'
+import * as utils from 'lib/utils'
 
 const initialState = {
   verified: false,

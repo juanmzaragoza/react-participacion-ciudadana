@@ -1,4 +1,4 @@
-import * as types from '../constants/RequestActionTypes'
+import * as types from 'constants/RequestActionTypes'
 
 const initialState = {
   isFetching: false,

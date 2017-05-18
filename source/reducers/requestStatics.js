@@ -1,4 +1,4 @@
-import {REQUEST_STATICS_SUCCESS,REQUEST_STATICS,REQUEST_STATICS_FAILURE} from '../constants/RequestActionTypes'
+import {REQUEST_STATICS_SUCCESS,REQUEST_STATICS,REQUEST_STATICS_FAILURE} from 'constants/RequestActionTypes'
 
 const initialState = {
   isFetching: true,
