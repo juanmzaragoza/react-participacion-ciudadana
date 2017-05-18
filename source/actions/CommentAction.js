@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
-import * as types from '../constants/RequestActionTypes';
-let config = require('../config/config')
-import { AuthStore } from '../store/AuthStore';
+import * as types from 'constants/RequestActionTypes';
+let config = require('config/config')
+import { AuthStore } from 'store/AuthStore';
 
 //DO COMMENT
 export const commentSuccess = (json) => { //accion que se dispara al terminar de recibir la consulta

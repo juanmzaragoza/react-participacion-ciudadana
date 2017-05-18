@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch'
-import * as types from '../constants/ActionTypes'
-import * as requestTypes from '../constants/RequestActionTypes'
-let config = require('../config/config')
+import * as types from 'constants/ActionTypes'
+import * as requestTypes from 'constants/RequestActionTypes'
+let config = require('config/config')
 
 export const filterByCategory = (category) => {
     return{

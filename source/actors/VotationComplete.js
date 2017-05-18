@@ -1,5 +1,5 @@
-import { AuthStore } from '../store/AuthStore';
-import {  checkIfUserAnswerVotation } from '../actions/VoteAction';
+import { AuthStore } from 'store/AuthStore';
+import {  checkIfUserAnswerVotation } from 'actions/VoteAction';
 
 export default function VotationComplete(state, dispatch){
 

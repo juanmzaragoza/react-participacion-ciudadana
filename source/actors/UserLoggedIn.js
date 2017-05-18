@@ -1,5 +1,5 @@
-import { AuthStore } from '../store/AuthStore';
-import {  refreshJWT } from '../actions/UserAction';
+import { AuthStore } from 'store/AuthStore';
+import {  refreshJWT } from 'actions/UserAction';
 
 export default function UserLoggedIn(state, dispatch){
 

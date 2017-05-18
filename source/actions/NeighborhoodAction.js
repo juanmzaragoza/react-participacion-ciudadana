@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
-import * as types from '../constants/RequestActionTypes';
-let config = require('../config/config');
+import * as types from 'constants/RequestActionTypes';
+let config = require('config/config');
 
 export const requestNeighborhoods = () => { 
     return{

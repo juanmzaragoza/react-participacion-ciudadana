@@ -1,12 +1,12 @@
 import fetch from 'isomorphic-fetch';
 
-import * as types from '../constants/AuthConstants';
-import * as requestTypes from '../constants/RequestActionTypes';
-import * as userTypes from '../constants/UserConstants';
-import * as authTypes from '../constants/AuthConstants';
+import * as types from 'constants/AuthConstants';
+import * as requestTypes from 'constants/RequestActionTypes';
+import * as userTypes from 'constants/UserConstants';
+import * as authTypes from 'constants/AuthConstants';
 
-let config = require('../config/config')
-import { AuthStore } from '../store/AuthStore';
+let config = require('config/config')
+import { AuthStore } from 'store/AuthStore';
 
 import { SubmissionError } from 'redux-form';
 

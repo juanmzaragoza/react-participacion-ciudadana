@@ -1,6 +1,6 @@
-import * as actionTypes from '../constants/SubscriptionActionTypes';
-let config = require('../config/config');
-import { AuthStore } from '../store/AuthStore';
+import * as actionTypes from 'constants/SubscriptionActionTypes';
+let config = require('config/config');
+import { AuthStore } from 'store/AuthStore';
 
 //check if user is subscribed
 export const checkIfUserIsSubscribed = (id, request_type) => {
