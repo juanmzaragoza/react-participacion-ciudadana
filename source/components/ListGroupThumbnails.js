@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
 
-import {  fetchResults, fetchMoreResults } from '../actions/ResultAction'
+import {  fetchResults, fetchMoreResults } from 'actions/ResultAction'
 
-import { CarouselRowContainer } from "../components/CarouselRow"
-import ThumbnailDescriptionItem from "../components/Item/ThumbnailDescriptionItem"
+import { CarouselRowContainer } from "components/CarouselRow"
+import ThumbnailDescriptionItem from "components/Item/ThumbnailDescriptionItem"
 
 export class ListGroupThumbnails extends React.Component {
 

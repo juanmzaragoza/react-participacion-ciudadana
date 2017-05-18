@@ -1,6 +1,6 @@
 import React from "react";
-var logoBa = require("../../public/vendor/bastrap3/logo-ba.svg");
-var logoBaPc = require("../../public/vendor/bastrap3/ba-PC-header.png");
+var logoBa = require("public/vendor/bastrap3/logo-ba.svg");
+var logoBaPc = require("public/vendor/bastrap3/ba-PC-header.png");
 
 const Header = () => (
   <header className="navbar navbar-primary navbar-top">

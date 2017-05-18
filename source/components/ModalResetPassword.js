@@ -5,10 +5,10 @@ import { Modal } from "react-bootstrap";
 import { connect } from 'react-redux';
 import { Field, reduxForm , Form, SubmissionError } from 'redux-form';
 
-import { hideResetPasswordForm, emailResetPassword } from '../actions/UserAction';
+import { hideResetPasswordForm, emailResetPassword } from 'actions/UserAction';
 
-import Formulario from "./Formulario";
-import Input from "./Input";
+import Formulario from "components/Formulario";
+import Input from "components/Input";
 
 const  { DOM: { input, select, textarea } } = React;
 

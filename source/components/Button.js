@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-import {  checkIfUserIsSubscribed, subscribe, unsubscribe } from '../actions/SubscriptionAction';
-import { showLoginForm } from '../actions/UserAction';
+import {  checkIfUserIsSubscribed, subscribe, unsubscribe } from 'actions/SubscriptionAction';
+import { showLoginForm } from 'actions/UserAction';
 
 export class Button extends React.Component {
 

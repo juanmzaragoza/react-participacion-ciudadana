@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux'
 
-import { MainBoxSearchBAContainer } from "../components/MainBoxSearchBA"
+import { MainBoxSearchBAContainer } from "components/MainBoxSearchBA"
 
 export class MainVideo extends React.Component {
 
@@ -12,7 +12,7 @@ export class MainVideo extends React.Component {
 
     render() {
 
-      const videoPrincipal = require("../public/content/videos/Participacion_Ciudadana_Pagina720.mp4");
+      const videoPrincipal = require("public/content/videos/Participacion_Ciudadana_Pagina720.mp4");
 
     	return (
 		    <section id="video" >

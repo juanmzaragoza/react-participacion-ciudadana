@@ -8,7 +8,7 @@ class HeaderJumbotron  extends React.Component {
 
     render() {
         let style = {
-            backgroundImage: 'url(' + require("../public/content/images/area.jpg") + ')'
+            backgroundImage: 'url(' + require("public/content/images/area.jpg") + ')'
         }
 
         return(

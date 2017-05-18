@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import ReactHighcharts from "react-highcharts";
 import { connect } from 'react-redux';
 
-import { showLoginForm } from '../actions/UserAction';
-import { vote } from '../actions/VoteAction';
+import { showLoginForm } from 'actions/UserAction';
+import { vote } from 'actions/VoteAction';
 
-import { AuthStore } from '../store/AuthStore';
+import { AuthStore } from 'store/AuthStore';
 
 export class VoteGraph extends React.Component {
 

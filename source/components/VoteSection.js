@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 import { Alert, Button } from "react-bootstrap";
 
-import { VoteFormContainer } from "../components/VoteForm";
-import { VoteGraphContainer } from "../components/VoteGraph";
+import { VoteFormContainer } from "components/VoteForm";
+import { VoteGraphContainer } from "components/VoteGraph";
 
 export class VoteSection extends React.Component {
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from 'react-router';
-var logoFooterGob = require("../../public/content/images/logo-footer-gob.png");
+var logoFooterGob = require("public/content/images/logo-footer-gob.png");
 
-import config from '../../config/config'
+import config from 'config/config'
 
 class Footer extends React.Component {
 

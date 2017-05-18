@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux'
 
-import { CarouselRowContainer } from "../components/CarouselRow"
-import ThumbnailDescriptionItem from "../components/Item/ThumbnailDescriptionItem"
+import { CarouselRowContainer } from "components/CarouselRow"
+import ThumbnailDescriptionItem from "components/Item/ThumbnailDescriptionItem"
 
-import {  incrementPage, decrementPage } from '../actions/PaginationAction'
-import {fetchItemsBySeccion} from '../actions/ItemAction'
+import {  incrementPage, decrementPage } from 'actions/PaginationAction'
+import {fetchItemsBySeccion} from 'actions/ItemAction'
 
 export class CarouselThumbnailItems extends React.Component {
 
@@ -32,7 +32,7 @@ export class CarouselThumbnailItems extends React.Component {
 								key={index}
 								thumbnail_src={(item.image_url != null)? 
 									item.image_url:
-									require("../public/content/images/agenda01.png")}
+									require("public/content/images/agenda01.png")}
 								label={item.nombre}
 								description={this.props.withDescription? item.descripcion_breve:""} 
 								linkHref={item.href}

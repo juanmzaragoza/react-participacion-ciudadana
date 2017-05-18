@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-import {  fetchCategoriesFromSection } from '../actions/EventoAction';
-import {  clearBodySection } from '../actions/SectionAction';
-import {  fetchItemsFromGallery } from '../actions/MediaAction';
+import {  fetchCategoriesFromSection } from 'actions/EventoAction';
+import {  clearBodySection } from 'actions/SectionAction';
+import {  fetchItemsFromGallery } from 'actions/MediaAction';
 
-import { CarouselRowContainer } from "../components/CarouselRow";
-import ThumbnailDescriptionItem from "../components/Item/ThumbnailDescriptionItem";
+import { CarouselRowContainer } from "components/CarouselRow";
+import ThumbnailDescriptionItem from "components/Item/ThumbnailDescriptionItem";
 
 export class ListThumbnailDescription extends React.Component {
 

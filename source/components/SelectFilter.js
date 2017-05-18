@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-import {  incrementPage, decrementPage, incrementPageAndCallAPI } from '../actions/PaginationAction';
-import {  filterByCategory, fetchCategorias } from '../actions/FilterAction';
-import {  fetchComunas, filterByCommune } from '../actions/FilterAction';
-import {  fetchResults } from '../actions/ResultAction';
+import {  incrementPage, decrementPage, incrementPageAndCallAPI } from 'actions/PaginationAction';
+import {  filterByCategory, fetchCategorias } from 'actions/FilterAction';
+import {  fetchComunas, filterByCommune } from 'actions/FilterAction';
+import {  fetchResults } from 'actions/ResultAction';
 
-import * as type from '../constants/ApiResultType';
+import * as type from 'constants/ApiResultType';
 
 export class SelectFilter extends React.Component {
 

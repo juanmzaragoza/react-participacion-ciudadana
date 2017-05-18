@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-import { fetchContent } from '../actions/ResultAction';
-import { fetchVotation } from '../actions/VoteAction';
+import { fetchContent } from 'actions/ResultAction';
+import { fetchVotation } from 'actions/VoteAction';
 
-import ContentMainEtapas from "./ContentMainEtapas";
-import FacebookShareButton from "./FacebookShareButton";
-import TwitterShareButton from "./TwitterShareButton";
+import ContentMainEtapas from "components/ContentMainEtapas";
+import FacebookShareButton from "components/FacebookShareButton";
+import TwitterShareButton from "components/TwitterShareButton";
 
 export class ContentMain extends React.Component {
 
@@ -38,7 +38,7 @@ export class ContentMain extends React.Component {
 	render(){
 
 		const content = this.props.content;
-		const imgSocialInst = require("../public/content/images/social-Inst.png");
+		const imgSocialInst = require("public/content/images/social-Inst.png");
 
 		return (
 			this.props.error?
@@ -76,7 +76,7 @@ export class ContentMain extends React.Component {
 		         		<li><FacebookShareButton 
 		         				title={this.props.content.nombre}
 		         				description={this.props.content.descripcion_breve}
-		         				image={window.location.origin+require("../public/content/images/agenda01.png")} /></li>
+		         				image={window.location.origin+require("public/content/images/agenda01.png")} /></li>
 		         		<li><TwitterShareButton /></li>
 						{/*<li><a href="#"> <img src={imgSocialInst}  /> </a></li>*/}
 			     	</ul>

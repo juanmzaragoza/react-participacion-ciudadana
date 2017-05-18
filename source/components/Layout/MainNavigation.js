@@ -4,8 +4,8 @@ import ReactDOM from "react-dom";
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import { logout, showLoginForm } from '../../actions/UserAction';
-import config from '../../config/config'
+import { logout, showLoginForm } from 'actions/UserAction';
+import config from 'config/config'
 
 export class MainNavigation extends React.Component {
 
@@ -14,7 +14,7 @@ export class MainNavigation extends React.Component {
   }
 
   render() {
-    const miBaBtn = require("../../public/vendor/bastrap3/ba-btn.png");
+    const miBaBtn = require("public/vendor/bastrap3/ba-btn.png");
 
     const loginLink = this.props.showLoginLink? 
       (<li>

@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { SearchBarContainer } from '../components/SearchBar'
-import ProjectsDayPickerContainer from '../components/ProjectsDayPicker'
+import { SearchBarContainer } from 'components/SearchBar'
+import ProjectsDayPickerContainer from 'components/ProjectsDayPicker'
 
 export class MainBoxSearchBA extends React.Component {
 

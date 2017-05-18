@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-import {fetchStatics} from '../actions/StaticsAction'
+import {fetchStatics} from 'actions/StaticsAction'
 
-const urnaVotacion = require("../public/content/images/urna_votacion.png");
-const vecinosParticip = require("../public/content/images/vecinos_participando.png");
+const urnaVotacion = require("public/content/images/urna_votacion.png");
+const vecinosParticip = require("public/content/images/vecinos_participando.png");
 
 export class MainStatics extends React.Component {
 

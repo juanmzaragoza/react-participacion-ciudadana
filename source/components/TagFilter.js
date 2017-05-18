@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import { TagCloud } from "react-tagcloud";
 
-import {  fetchTags, filterByTag } from '../actions/FilterAction';
-import {  fetchResults } from '../actions/ResultAction';
+import {  fetchTags, filterByTag } from 'actions/FilterAction';
+import {  fetchResults } from 'actions/ResultAction';
 
 export class TagFilter extends React.Component {
 

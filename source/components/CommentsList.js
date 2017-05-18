@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-import { fetchComments } from '../actions/CommentAction';
+import { fetchComments } from 'actions/CommentAction';
 
-import Comment from "./Comment";
+import Comment from "components/Comment";
 
-import * as utils from '../lib/utils'
+import * as utils from 'lib/utils'
 
 export class CommentsList extends React.Component {
 
