@@ -1,22 +1,22 @@
 import React from "react";
 
-import Main from "../components/Layout/Main";
-import Section from "../components/Layout/Section";
-import Article from "../components/Layout/Article";
-import Aside from "../components/Layout/Aside";
-import Separator from "../components/Layout/Separator";
+import Main from "components/Layout/Main";
+import Section from "components/Layout/Section";
+import Article from "components/Layout/Article";
+import Aside from "components/Layout/Aside";
+import Separator from "components/Layout/Separator";
 
-import { ContentMainContainer } from "../components/ContentMain";
-import { ContentSecondaryContainer } from "../components/ContentSecondary";
+import { ContentMainContainer } from "components/ContentMain";
+import { ContentSecondaryContainer } from "components/ContentSecondary";
 
-import {  requestResults } from '../actions/ResultAction'
+import {  requestResults } from 'actions/ResultAction'
 
-import { CommentFormContainer } from "../components/CommentForm"
-import { CommentsListContainer } from "../components/CommentsList"
+import { CommentFormContainer } from "components/CommentForm"
+import { CommentsListContainer } from "components/CommentsList"
 
-import { VoteSectionContainer } from "../components/VoteSection"
+import { VoteSectionContainer } from "components/VoteSection"
 
-import { ButtonSubscribeContainer } from "../components/Button";
+import { ButtonSubscribeContainer } from "components/Button";
 
 class Result extends React.Component {
 

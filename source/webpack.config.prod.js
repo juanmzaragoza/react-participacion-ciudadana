@@ -40,10 +40,10 @@ const webpackConfig = {
   resolve: {
 
     // Needed so you can require("a") instead of require("a.jsx")
-    //extensions: [ '.js', '.jsx', '.json', '.css', '.scss'],
+    extensions: [ '.js', '.jsx', '.json', '.css', '.scss'],
 
     // Let us do things like require("app/reducers/application")
-    //root: __dirname,
+    modules: [__dirname, 'node_modules'],
 
     // Whenever someone does import "react", resolve the one in the node_modules
     // at the top level, just in case a dependency also has react in its node_modules,

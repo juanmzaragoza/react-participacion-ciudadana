@@ -1,15 +1,15 @@
 import React from "react";
 
-import Main from "../components/Layout/Main";
-import Row from "../components/Layout/Row";
-import Article from "../components/Layout/Article";
-import Aside from "../components/Layout/Aside";
+import Main from "components/Layout/Main";
+import Row from "components/Layout/Row";
+import Article from "components/Layout/Article";
+import Aside from "components/Layout/Aside";
 
-import { TagFilterContainer } from "../components/TagFilter";
-import { CarouselImagesContainer } from "../components/CarouselImageItems";
-import { ResultsListGroupThumbnailContainer } from "../components/ListGroupThumbnails";
+import { TagFilterContainer } from "components/TagFilter";
+import { CarouselImagesContainer } from "components/CarouselImageItems";
+import { ResultsListGroupThumbnailContainer } from "components/ListGroupThumbnails";
 
-import * as type from '../constants/ApiResultType';
+import * as type from 'constants/ApiResultType';
 
 const Voluntariado = () => {
 

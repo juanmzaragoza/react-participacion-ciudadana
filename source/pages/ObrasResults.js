@@ -1,16 +1,16 @@
 import React from "react";
 
-import Row from "../components/Layout/Row";
-import Section from "../components/Layout/Section";
-import Article from "../components/Layout/Article";
-import Aside from "../components/Layout/Aside";
-import { CarouselImagesContainer } from "../components/CarouselImageItems"
-import { ResultsListGroupThumbnailContainer } from "../components/ListGroupThumbnails"
+import Row from "components/Layout/Row";
+import Section from "components/Layout/Section";
+import Article from "components/Layout/Article";
+import Aside from "components/Layout/Aside";
+import { CarouselImagesContainer } from "components/CarouselImageItems"
+import { ResultsListGroupThumbnailContainer } from "components/ListGroupThumbnails"
 
-import { CommuneFilterContainer } from "../components/SelectFilter";
-import { TagFilterContainer } from "../components/TagFilter";
+import { CommuneFilterContainer } from "components/SelectFilter";
+import { TagFilterContainer } from "components/TagFilter";
 
-import * as type from '../constants/ApiResultType'
+import * as type from 'constants/ApiResultType'
 
 const ObrasResults = (props) => {
 
@@ -19,7 +19,7 @@ const ObrasResults = (props) => {
 		estado: props.params.id_state,
 		publicado: 1
 	};
-	const imgDefault = require("../public/content/images/Obras_en_tu_barrio-generica.png");
+	const imgDefault = require("public/content/images/Obras_en_tu_barrio-generica.png");
 
 	return(
 	    <div className="container">

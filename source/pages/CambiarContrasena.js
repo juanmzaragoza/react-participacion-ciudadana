@@ -1,7 +1,7 @@
 import React from "react";
-import Main from "../components/Layout/Main";
-import Separator from "../components/Layout/Separator";
-import { ChangePasswordFormContainer } from "../components/ChangePasswordForm";
+import Main from "components/Layout/Main";
+import Separator from "components/Layout/Separator";
+import { ChangePasswordFormContainer } from "components/ChangePasswordForm";
 
 const CambiarContrasena = (props) => {
 
