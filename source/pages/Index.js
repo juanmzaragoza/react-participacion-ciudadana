@@ -65,7 +65,7 @@ class Index extends React.Component {
 				 	<div className="row ">
 			    		<BioItem 
 			    			className={"col-xs-4 col-sm-4 col-md-4"}
-			    			linkHref={"/trabajando_juntos"}
+			    			linkHref={"/reuniones_de_vecinos"}
 			    			imageSrc={imgBioItemA}
 			    			description="..." />
 			    		<BioItem 
