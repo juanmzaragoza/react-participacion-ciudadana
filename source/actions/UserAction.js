@@ -268,37 +268,43 @@ export const emailResetPasswordError = (error) => { //se dispara esta accion par
     }
 }
 
-export const emailResetPassword = (values) => {
+export const emailResetPassword = (values, extraVerification) => {
 
     return (dispatch) => {
 
-        return fetch(config.api_url+'usuario/resetear_contrasena', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: values.email,
-                    host: values.host
+        if(!extraVerification){
+            dispatch(emailResetPasswordError("El Captcha no pudo ser verificado"));
+        } else{
+
+            return fetch(config.api_url+'usuario/resetear_contrasena', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: values.email,
+                        host: values.host
+                    })
+                }).then(response => {
+                    if(response.status == 200 || response.status == 400){
+                        return response.json();
+                    }
+                    throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
                 })
-            }).then(response => {
-                if(response.status == 200 || response.status == 400){
-                    return response.json();
-                }
-                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
-            })
-            .then(json => {
-                if(json.code == 400){
-                    throw new Error(json.error);
-                } else{
-                    dispatch(emailResetPasswordSuccess(json));    
-                }                
-            })
-            .catch(err => {
-                console.log(err);
-                dispatch(emailResetPasswordError(err.message));
-            });
+                .then(json => {
+                    if(json.code == 400){
+                        throw new Error(json.error);
+                    } else{
+                        dispatch(emailResetPasswordSuccess(json));    
+                    }                
+                })
+                .catch(err => {
+                    console.log(err);
+                    dispatch(emailResetPasswordError(err.message));
+                });
+
+        }
     }
 }
 

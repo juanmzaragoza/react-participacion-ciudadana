@@ -85,19 +85,22 @@ const mapRegStateToProps = (state, ownProps) => {
     }
 }
 
-const mapRegDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onLoad: () => {
-      dispatch(resetLoginCaptcha());
-    },
-    onVerify: (response) => {
-      dispatch(verifyLoginCaptcha(response));
-    }
-  }
-}
-
 export const RegistrationCaptcha = connect(
   mapRegStateToProps,
-  mapRegDispatchToProps
+  mapDispatchToProps
 )(Captcha)
 
+//////////////////////////////////////////////////////////////
+//container change password captcha
+//////////////////////////////////////////////////////////////
+const mapChangePasswordStateToProps = (state, ownProps) => {
+    return {
+      errorCaptcha: state.captcha.error,
+      errorSubmit: state.changePasswordForm.errorMessage
+    }
+}
+
+export const ModalResetPasswordCaptcha = connect(
+  mapChangePasswordStateToProps,
+  mapDispatchToProps
+)(Captcha)

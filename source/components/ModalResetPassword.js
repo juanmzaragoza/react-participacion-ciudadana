@@ -9,6 +9,7 @@ import { hideResetPasswordForm, emailResetPassword } from '../actions/UserAction
 
 import Formulario from "./Formulario";
 import Input from "./Input";
+import { ModalResetPasswordCaptcha } from './Captcha';
 
 const  { DOM: { input, select, textarea } } = React;
 
@@ -53,7 +54,7 @@ export class ModalResetPassword extends React.Component {
     var show = this.props.show? true:false;
 
     return (
-      <Modal show={show}>
+      <Modal show={show} onHide={this.props.closeModal}>
 
         <Modal.Header>
           <button type="button" className="close" aria-label="Close" onClick={this.props.closeModal}>
@@ -62,7 +63,7 @@ export class ModalResetPassword extends React.Component {
           <h3 className="modal-title" id="modal-header-title">Ingresa tu correo electronico</h3>
         </Modal.Header>
 
-        <Formulario action="#" submit={ handleSubmit(this.props.onSubmit) } >
+        <Formulario action="#" submit={ handleSubmit((values)=>{this.props.onSubmit(values, this.props.submitEnabled);}) } >
 
           <Modal.Body>
 
@@ -81,6 +82,10 @@ export class ModalResetPassword extends React.Component {
               para recuperar su contraseña
             </p>
 
+            <div className="form-group">
+              <ModalResetPasswordCaptcha />
+            </div>
+
             {this.props.successMessage?
               <div className="alert alert-success" role="alert">
                 <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -90,7 +95,7 @@ export class ModalResetPassword extends React.Component {
               :
               null
             }
-
+                  
             {this.props.errorMessage?
               <div className="alert alert-danger" role="alert">
                 <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -132,7 +137,8 @@ ModalResetPassword.propTypes = {
   errorMessage: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.bool
-  ])
+  ]),
+  submitEnabled: PropTypes.bool
 }
 
 const validate = values => {
@@ -151,7 +157,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
       show: (state.loginForm.restartPassword && state.loginForm.restartPassword.visible),
       successMessage: state.loginForm.restartPassword.successMessage,
-      errorMessage: state.loginForm.restartPassword.errorMessage
+      errorMessage: state.loginForm.restartPassword.errorMessage,
+      submitEnabled: state.captcha.verified
     }
 }
 
@@ -160,7 +167,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     closeModal: () => {
       dispatch(hideResetPasswordForm());
     },
-    onSubmit: (formValues) => {
+    onSubmit: (formValues, extraVerification) => {
 
       var nameHost = location.protocol.concat("//").concat(window.location.hostname),
           port = window.location.port;
@@ -169,7 +176,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         host: (window.location.port)? nameHost.concat(':').concat(port).concat('/'):nameHost.concat('/')
       })
 
-      dispatch(emailResetPassword(values));
+      dispatch(emailResetPassword(values, extraVerification));
 
     }
   }

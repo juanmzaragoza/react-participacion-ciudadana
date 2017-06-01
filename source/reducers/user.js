@@ -1,4 +1,4 @@
-import {LOGIN_API_REQUEST,LOGIN_API_SUCCESS,LOGIN_API_FAILURE, LOGIN_USER, LOGOUT_USER} from '../constants/AuthConstants';
+import {LOGIN_API_REQUEST,LOGIN_API_SUCCESS,LOGIN_API_FAILURE, LOGIN_USER, LOGOUT_USER, SHOW_LOGIN_FORM} from '../constants/AuthConstants';
 import {CONFIRM_EMAIL_SUCCESS, CONFIRM_EMAIL_ERROR} from '../constants/UserConstants';
 import * as utils from '../lib/utils';
 import {AuthStore,setUser,removeUser} from '../store/AuthStore';
@@ -69,6 +69,11 @@ export default function result(state = initialState, action) {
           success: false,
           error: true
         })
+      })
+
+    case SHOW_LOGIN_FORM: //restart form
+      return Object.assign({}, state, {
+        loginFailed: false
       })
 
     default:
