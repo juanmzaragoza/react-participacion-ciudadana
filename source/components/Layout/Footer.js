@@ -20,7 +20,7 @@ class Footer extends React.Component {
           <li><a href={config.baelige_url} target="_blank">BA Elige</a></li>
           <li><Link href="/reuniones_de_vecinos">Reuniones de Vecinos</Link></li>
           <li><Link href="/reuniones_de_ministros">Reuniones de Ministros</Link></li>
-          {<li><a href="http://bit.ly/ContactPC3" target="_blank">Contacto</a></li>}
+          {/*<li><a href="http://bit.ly/ContactPC3" target="_blank">Contacto</a></li>*/}
         </ul>
       </div>
     )
