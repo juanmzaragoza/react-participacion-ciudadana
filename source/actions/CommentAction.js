@@ -1,5 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import * as types from '../constants/RequestActionTypes';
+import * as messages from '../constants/CommonMessages';
+
 let config = require('../config/config')
 import { AuthStore } from '../store/AuthStore';
 
@@ -49,7 +51,7 @@ export const comment = (id, type, comment, id_user) => {
             })
             .catch(err => {
                 console.log(err);
-                dispatch(commentError(err.message));
+                dispatch(commentError(messages.API_CALL_ERROR));
             });
     }
 }

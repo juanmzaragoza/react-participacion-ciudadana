@@ -4,6 +4,7 @@ import * as types from '../constants/AuthConstants';
 import * as requestTypes from '../constants/RequestActionTypes';
 import * as userTypes from '../constants/UserConstants';
 import * as authTypes from '../constants/AuthConstants';
+import * as messages from '../constants/CommonMessages';
 
 let config = require('../config/config')
 import { AuthStore } from '../store/AuthStore';
@@ -67,7 +68,7 @@ export const login = (username, password, extraVerification) => {
                 })
                 .catch(err => {
                     console.log(err);
-                    dispatch(loginError(err.message));
+                    dispatch(loginError(messages.API_CALL_ERROR));
                 });
         }
 
@@ -154,7 +155,7 @@ export const createUser = (values, extraVerification) => {
                 })
                 .catch(err => {
                     console.log(err);
-                    dispatch(createUserError(err.message));
+                    dispatch(createUserError(messages.API_CALL_ERROR));
                 });
         }
     }
@@ -236,7 +237,7 @@ export const emailConfirmation = (values) => {
             })
             .catch(err => {
                 console.log(err);
-                dispatch(emailConfirmationError(err.message));
+                dispatch(emailConfirmationError(messages.API_CALL_ERROR));
             });
     }
 }
@@ -301,7 +302,7 @@ export const emailResetPassword = (values, extraVerification) => {
                 })
                 .catch(err => {
                     console.log(err);
-                    dispatch(emailResetPasswordError(err.message));
+                    dispatch(emailResetPasswordError(messages.API_CALL_ERROR));
                 });
 
         }
@@ -353,7 +354,7 @@ export const changePassword = (values) => {
             })
             .catch(err => {
                 console.log(err);
-                dispatch(changePasswordError(err.message));
+                dispatch(changePasswordError(messages.API_CALL_ERROR));
             });
     }
 }

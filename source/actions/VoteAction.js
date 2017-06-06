@@ -1,6 +1,8 @@
 import fetch from 'isomorphic-fetch';
 import * as types from '../constants/RequestActionTypes';
 import * as voteTypes from '../constants/VoteActionTypes';
+import * as messages from '../constants/CommonMessages';
+
 let config = require('../config/config')
 import { AuthStore } from '../store/AuthStore';
 
@@ -51,7 +53,7 @@ export const vote = (votation_id, option_id, user_id) => {
             })
             .catch(err => {
                 console.log(err);
-                dispatch(voteError(err.message));
+                dispatch(voteError(messages.API_CALL_ERROR));
             });
     }
 }
