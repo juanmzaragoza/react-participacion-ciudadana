@@ -1,6 +1,6 @@
-import VotationComplete from './VotationComplete'
-import UserLoggedIn from './UserLoggedIn'
-import UpdateCalendarSubscriptions from './UpdateCalendarSubscriptions'
+import VotationComplete from 'actors/VotationComplete'
+import UserLoggedIn from 'actors/UserLoggedIn'
+import UpdateCalendarSubscriptions from 'actors/UpdateCalendarSubscriptions'
 
 
 const actors = {

@@ -5,10 +5,10 @@ import { Modal } from "react-bootstrap";
 import { connect } from 'react-redux';
 import { Field, reduxForm , Form, SubmissionError } from 'redux-form';
 
-import { hideLoginForm, login, showResetPasswordForm } from '../actions/UserAction';
+import { hideLoginForm, login, showResetPasswordForm, resetLoginCaptcha } from 'actions/UserAction';
 
-import Formulario from "./Formulario";
-import { LoginCaptcha } from './Captcha';
+import Formulario from "components/Formulario";
+import { LoginCaptcha } from 'components/Captcha';
 
 export class ModalLogin extends React.Component {
 

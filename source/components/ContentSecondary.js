@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-import { fetchContent } from '../actions/ResultAction';
+import { fetchContent } from 'actions/ResultAction';
 
-import { ModalGallery } from "./ModalGallery";
+import { ModalGallery } from "components/ModalGallery";
 
 export class ContentSecondary extends React.Component {
 

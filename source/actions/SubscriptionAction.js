@@ -1,8 +1,8 @@
-import * as actionTypes from '../constants/SubscriptionActionTypes';
-import * as messages from '../constants/CommonMessages';
+import * as actionTypes from 'constants/SubscriptionActionTypes';
+import * as messages from 'constants/CommonMessages';
 
-let config = require('../config/config');
-import { AuthStore } from '../store/AuthStore';
+let config = require('config/config');
+import { AuthStore } from 'store/AuthStore';
 
 //check if user is subscribed
 export const checkIfUserIsSubscribed = (id, request_type) => {

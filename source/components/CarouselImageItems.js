@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-import { CarouselRow } from "../components/CarouselRow";
-import ImageCaptionItem from "../components/Item/ImageCaptionItem";
+import { CarouselRow } from "components/CarouselRow";
+import ImageCaptionItem from "components/Item/ImageCaptionItem";
 
-import {  fetchImagesFromGallery } from '../actions/MediaAction';
+import {  fetchImagesFromGallery } from 'actions/MediaAction';
 
 export class CarouselImageItems extends React.Component {
 

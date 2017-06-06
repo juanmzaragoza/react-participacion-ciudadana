@@ -1,4 +1,4 @@
-import {CHANGE_PASSWORD_ERROR, CHANGE_PASSWORD_SUCCESS} from '../constants/UserConstants';
+import {CHANGE_PASSWORD_ERROR, CHANGE_PASSWORD_SUCCESS} from 'constants/UserConstants';
 
 const initialState = {
   errorMessage: false,

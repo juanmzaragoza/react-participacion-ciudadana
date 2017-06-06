@@ -1,5 +1,5 @@
-import {COMMENT_SUCCESS, COMMENT_FAILURE} from '../constants/RequestActionTypes'
-import * as utils from '../lib/utils'
+import {COMMENT_SUCCESS, COMMENT_FAILURE} from 'constants/RequestActionTypes'
+import * as utils from 'lib/utils'
 
 const initialState = {
   success: false,

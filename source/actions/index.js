@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import * as types from '../constants/ActionTypes'
+import * as types from 'constants/ActionTypes'
 
 export const searchItems = (text) => {
 	//hacer una busqueda aca

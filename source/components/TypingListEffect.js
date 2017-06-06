@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 import ReactRotatingText from 'react-rotating-text';
 
-import {  fetchResults } from '../actions/ResultAction';
+import {  fetchResults } from 'actions/ResultAction';
 
-import * as type from '../constants/ApiResultType';
+import * as type from 'constants/ApiResultType';
 
 export class TypingListEffect extends React.Component {
 

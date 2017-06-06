@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import { Field, reduxForm , Form } from 'redux-form';
 
-import { showLoginForm } from '../actions/UserAction';
-import { vote } from '../actions/VoteAction';
+import { showLoginForm } from 'actions/UserAction';
+import { vote } from 'actions/VoteAction';
 
-import { AuthStore } from '../store/AuthStore';
+import { AuthStore } from 'store/AuthStore';
 
-import SendButton from "./SendButton";
+import SendButton from "components/SendButton";
 
 class VoteFormComponent extends React.Component {
 

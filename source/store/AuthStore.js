@@ -1,4 +1,4 @@
-import AuthConstants from '../constants/AuthConstants';
+import AuthConstants from 'constants/AuthConstants';
 import { EventEmitter } from 'events';
 
 const CHANGE_EVENT = 'change';

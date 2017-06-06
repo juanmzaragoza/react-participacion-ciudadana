@@ -1,5 +1,5 @@
-import {REQUEST_SUBSCRIPTIONS_SUCCESS,REQUEST_SUBSCRIPTIONS,REQUEST_SUBSCRIPTIONS_FAILURE,USER_ISNOT_AUTHENTICATED} from '../constants/SubscriptionActionTypes';
-import * as utils from '../lib/utils';
+import {REQUEST_SUBSCRIPTIONS_SUCCESS,REQUEST_SUBSCRIPTIONS,REQUEST_SUBSCRIPTIONS_FAILURE,USER_ISNOT_AUTHENTICATED} from 'constants/SubscriptionActionTypes';
+import * as utils from 'lib/utils';
 
 const initialState = {
   successRequest: false,

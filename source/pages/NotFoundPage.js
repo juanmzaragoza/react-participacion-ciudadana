@@ -1,9 +1,9 @@
 import React from "react";
 
-import Main from "../components/Layout/Main";
-import Section from "../components/Layout/Section";
-import { SearchBarContainer } from '../components/SearchBar';
-import { ContentNavegacionCategoriasContainer } from "../components/ContentNavegacionCategorias";
+import Main from "components/Layout/Main";
+import Section from "components/Layout/Section";
+import { SearchBarContainer } from 'components/SearchBar';
+import { ContentNavegacionCategoriasContainer } from "components/ContentNavegacionCategorias";
 
 const NotFoundPage = () => {
 

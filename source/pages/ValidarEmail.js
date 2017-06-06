@@ -1,10 +1,10 @@
 import React from "react";
-import Main from "../components/Layout/Main";
-import Section from "../components/Layout/Section";
+import Main from "components/Layout/Main";
+import Section from "components/Layout/Section";
 
 import { connect } from 'react-redux';
 
-import { emailConfirmation } from '../actions/UserAction';
+import { emailConfirmation } from 'actions/UserAction';
 
 class ValidarEmail extends React.Component {
 

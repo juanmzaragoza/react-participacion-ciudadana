@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import {  browserHistory } from 'react-router';
 
-import {  searchItems } from '../actions';
+import {  searchItems } from 'actions';
 
 export class SearchBar extends React.Component {
 

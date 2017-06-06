@@ -1,4 +1,4 @@
-import actors from '../actors';
+import actors from 'actors';
 
 export default function configureActors(store){
 

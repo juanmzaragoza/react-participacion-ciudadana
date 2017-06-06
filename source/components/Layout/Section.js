@@ -1,6 +1,6 @@
 import { default as React, Component} from "react";
 import PropTypes from "prop-types";
-import Row from "./Row"
+import Row from "components/Layout/Row"
 
 class Section extends React.Component {
 

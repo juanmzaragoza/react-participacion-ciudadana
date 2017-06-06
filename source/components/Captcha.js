@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import Recaptcha from 'react-recaptcha';
 
-const config = require('../config/config');
+const config = require('config/config');
 
-import { resetLoginCaptcha, verifyLoginCaptcha } from '../actions/UserAction';
+import { resetLoginCaptcha, verifyLoginCaptcha } from 'actions/UserAction';
 
 export class Captcha extends React.Component {
 

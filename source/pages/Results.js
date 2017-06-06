@@ -1,14 +1,14 @@
 import React from "react";
 
-import Row from "../components/Layout/Row";
-import { ResultsListGroupThumbnailContainer } from "../components/ListGroupThumbnails"
-import { CarouselImagesContainer } from "../components/CarouselImageItems"
+import Row from "components/Layout/Row";
+import { ResultsListGroupThumbnailContainer } from "components/ListGroupThumbnails"
+import { CarouselImagesContainer } from "components/CarouselImageItems"
 
-import Article from "../components/Layout/Article";
-import Aside from "../components/Layout/Aside";
-import { TagFilterContainer } from "../components/TagFilter";
+import Article from "components/Layout/Article";
+import Aside from "components/Layout/Aside";
+import { TagFilterContainer } from "components/TagFilter";
 
-import * as type from '../constants/ApiResultType'
+import * as type from 'constants/ApiResultType'
 
 const Results = (props) => {
 
@@ -19,7 +19,7 @@ const Results = (props) => {
 		fecha: props.location.query.fecha,
 		seccion: props.location.query.seccion
 	};
-	const imgDefault = require("../public/content/images/Iniciativas_y_Eventos-generica.png");
+	const imgDefault = require("public/content/images/Iniciativas_y_Eventos-generica.png");
 
 	return(
 		<div className="container">

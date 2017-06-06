@@ -1,4 +1,4 @@
-import {INCREMENT_PAGE, DECREMENT_PAGE, RESTART_PAGE_NUMBERS} from '../constants/ActionTypes'
+import {INCREMENT_PAGE, DECREMENT_PAGE, RESTART_PAGE_NUMBERS} from 'constants/ActionTypes'
 import { LOCATION_CHANGE } from 'react-router-redux'
 
 const initialState = {

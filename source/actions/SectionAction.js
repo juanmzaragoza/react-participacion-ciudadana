@@ -1,4 +1,4 @@
-import * as actionTypes from '../constants/ActionTypes';
+import * as actionTypes from 'constants/ActionTypes';
 
 export const clearBodySection = () => { 
     return{

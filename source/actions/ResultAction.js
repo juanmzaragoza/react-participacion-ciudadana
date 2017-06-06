@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch'
-import * as types from '../constants/RequestActionTypes'
-let config = require('../config/config')
-import { checkIfUserIsSubscribed } from './SubscriptionAction'
+import * as types from 'constants/RequestActionTypes'
+let config = require('config/config')
+import { checkIfUserIsSubscribed } from 'actions/SubscriptionAction'
 
 export const requestResults = () => {
     return {

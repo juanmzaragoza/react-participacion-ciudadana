@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm , Form } from 'redux-form';
 
-import { fetchNeighborhoods } from '../actions/NeighborhoodAction';
-import { createUser, resetLoginCaptcha } from '../actions/UserAction';
+import { fetchNeighborhoods } from 'actions/NeighborhoodAction';
+import { createUser, resetLoginCaptcha } from 'actions/UserAction';
 
-import Formulario from "./Formulario";
-import { RegistrationCaptcha } from './Captcha';
+import Formulario from "components/Formulario";
+import { RegistrationCaptcha } from 'components/Captcha';
 
 const  { DOM: { input, select, textarea } } = React;
 

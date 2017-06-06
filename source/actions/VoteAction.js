@@ -1,10 +1,10 @@
 import fetch from 'isomorphic-fetch';
-import * as types from '../constants/RequestActionTypes';
-import * as voteTypes from '../constants/VoteActionTypes';
-import * as messages from '../constants/CommonMessages';
+import * as types from 'constants/RequestActionTypes';
+import * as voteTypes from 'constants/VoteActionTypes';
+import * as messages from 'constants/CommonMessages';
 
-let config = require('../config/config')
-import { AuthStore } from '../store/AuthStore';
+let config = require('config/config')
+import { AuthStore } from 'store/AuthStore';
 
 //DO VOTATION
 export const voteSuccess = (json) => { //accion que se dispara al terminar de recibir la consulta

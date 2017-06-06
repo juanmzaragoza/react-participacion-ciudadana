@@ -1,5 +1,5 @@
-import * as types from '../constants/RequestActionTypes'
-import * as actionTypes from '../constants/ActionTypes'
+import * as types from 'constants/RequestActionTypes'
+import * as actionTypes from 'constants/ActionTypes'
 
 const initialState = {
   isFetching: false,

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import {  browserHistory } from 'react-router'
 import DayPicker from "react-day-picker";
-import * as utils from '../lib/utils';
-import { getAllSubscriptions } from '../actions/SubscriptionAction';
+import * as utils from 'lib/utils';
+import { getAllSubscriptions } from 'actions/SubscriptionAction';
 
 const weekdaysLong = {
   // Make sure you start with the right day of the week!

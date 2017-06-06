@@ -1,16 +1,16 @@
 import React from "react";
 
-import Header from "../components/Layout/Header";
-import Footer from "../components/Layout/Footer";
-import Separator from "../components/Layout/Separator";
-import { AuthStore } from '../store/AuthStore';
+import Header from "components/Layout/Header";
+import Footer from "components/Layout/Footer";
+import Separator from "components/Layout/Separator";
+import { AuthStore } from 'store/AuthStore';
 
-import { ModalLoginFormContainer } from "../components/ModalLogin";
-import {ModalResetPasswordContainer} from "../components/ModalResetPassword"
-import { MainNavigationContainer as MainNavigation } from "../components/Layout/MainNavigation";
+import { ModalLoginFormContainer } from "components/ModalLogin";
+import {ModalResetPasswordContainer} from "components/ModalResetPassword"
+import { MainNavigationContainer as MainNavigation } from "components/Layout/MainNavigation";
 
 import { connect } from 'react-redux';
-import { refreshLogin } from '../actions/UserAction';
+import { refreshLogin } from 'actions/UserAction';
 
 class Application extends React.Component {
 

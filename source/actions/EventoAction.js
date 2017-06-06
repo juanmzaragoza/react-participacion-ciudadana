@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
-import * as types from '../constants/RequestActionTypes';
-let config = require('../config/config');
+import * as types from 'constants/RequestActionTypes';
+let config = require('config/config');
 
 //REQUEST EVENTS
 export const requestEvents = () => { //accion que dispara el pedido de datos devents

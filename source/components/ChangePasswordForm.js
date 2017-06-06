@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { Field, reduxForm , Form } from 'redux-form';
 import {  browserHistory } from 'react-router';
 
-import { showLoginForm, changePassword } from '../actions/UserAction';
+import { showLoginForm, changePassword } from 'actions/UserAction';
 
-import Formulario from "./Formulario";
+import Formulario from "components/Formulario";
 
 const  { DOM: { input, select, textarea } } = React;
 

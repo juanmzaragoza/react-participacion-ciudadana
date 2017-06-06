@@ -1,7 +1,7 @@
-import {LOGIN_API_REQUEST,LOGIN_API_SUCCESS,LOGIN_API_FAILURE, LOGIN_USER, LOGOUT_USER, SHOW_LOGIN_FORM} from '../constants/AuthConstants';
-import {CONFIRM_EMAIL_SUCCESS, CONFIRM_EMAIL_ERROR} from '../constants/UserConstants';
-import * as utils from '../lib/utils';
-import {AuthStore,setUser,removeUser} from '../store/AuthStore';
+import {LOGIN_API_REQUEST,LOGIN_API_SUCCESS,LOGIN_API_FAILURE, LOGIN_USER, LOGOUT_USER, SHOW_LOGIN_FORM} from 'constants/AuthConstants';
+import {CONFIRM_EMAIL_SUCCESS, CONFIRM_EMAIL_ERROR} from 'constants/UserConstants';
+import * as utils from 'lib/utils';
+import {AuthStore,setUser,removeUser} from 'store/AuthStore';
 
 const initialState = {
   isLoggingIn: false, //indica si se esta logueando el usuario

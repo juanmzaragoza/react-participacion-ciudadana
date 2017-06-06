@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-import {  incrementPage, decrementPage, incrementPageAndCallAPI } from '../actions/PaginationAction';
-import {  fetchItemsBySeccion } from '../actions/ItemAction';
+import {  incrementPage, decrementPage, incrementPageAndCallAPI } from 'actions/PaginationAction';
+import {  fetchItemsBySeccion } from 'actions/ItemAction';
 
 export const CarouselRow = ({id,children, title = '', itemsPerRow, 
 	isFirstPage = false, isLastPage = false, totalRows, page, 

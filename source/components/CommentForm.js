@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 
-import SendButton from "./SendButton";
-import TextArea from "./TextArea";
-import Formulario from "./Formulario";
+import SendButton from "components/SendButton";
+import TextArea from "components/TextArea";
+import Formulario from "components/Formulario";
 
-import { showLoginForm } from '../actions/UserAction';
-import { comment as c } from '../actions/CommentAction';
+import { showLoginForm } from 'actions/UserAction';
+import { comment as c } from 'actions/CommentAction';
 
-import { AuthStore } from '../store/AuthStore';
+import { AuthStore } from 'store/AuthStore';
 
 export class CommentForm extends React.Component {
 

@@ -1,11 +1,10 @@
-import { AuthStore } from '../store/AuthStore';
-import { getAllSubscriptions } from '../actions/SubscriptionAction';
+import { AuthStore } from 'store/AuthStore';
+import { getAllSubscriptions } from 'actions/SubscriptionAction';
 
 export default function UpdateCalendarSubscriptions(state, dispatch){
 
 	if(showCalendarEvents(state)){
 		//dispatch action que verifica si tiene que mostrar el grafico o no
-		console.log("show calendar")
 		dispatch(getAllSubscriptions());
 	}
 
