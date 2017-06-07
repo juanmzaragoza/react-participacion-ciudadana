@@ -15,8 +15,8 @@ const NotFoundPage = () => {
 			<Section renderInOneCol={true}>
 
 				<h2 className="h1 text-center">Página no encontrada</h2>
-				<p className="text-center">La información que buscas no fué encontrada o la misma se dio de baja. <br/>
-		           Te invitamos a que uses el buscador o explorar en las siguientes categorías.
+				<p className="text-center">La información que buscas no fue encontrada o la misma se dío de baja. <br/>
+		           Te invitamos a que uses el buscador o ingresá en las siguientes categorías.
 	           	</p>
 
 	           	<br/>
@@ -25,7 +25,7 @@ const NotFoundPage = () => {
 	        </Section>
 
 	        <ContentNavegacionCategoriasContainer />
-        	
+
       	</Main>
 	)
 }
