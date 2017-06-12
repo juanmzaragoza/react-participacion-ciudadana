@@ -5,8 +5,15 @@ El formato esta basado en [Keep a Changelog](http://keepachangelog.com/)
 y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-### Changed
-- Refactor de de rutas gracias al ruteo global de webpack.
+## Added
+- Pruebas unitarias de acciones
+- Refactor de llamadas a API
+
+## [0.4.2] - 2017-06-12
+## Changed
+- Refactor de de rutas gracias al ruteo global de webpack
+- Fix mensaje 'Failed to fetch' cuando la api esta caida
+- Typos en pagina 404
 
 ## [0.4.1] - 2017-06-01
 ### Added
@@ -22,5 +29,5 @@ y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 - Entorno de desarrollo.
 
 ### Fixed
-- Formacion del host en el componente de reset password 
+- Formacion del host en el componente de reset password
   (fallaba el host por un problema de expresiones regulares)
