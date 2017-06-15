@@ -11,7 +11,7 @@ import { AuthStore } from 'store/AuthStore';
 
 import { SubmissionError } from 'redux-form';
 
-export const requestLogin = () => { 
+export const requestLogin = () => {
     return{
         type: types.LOGIN_API_REQUEST
     }
@@ -60,7 +60,7 @@ export const login = (username, password, extraVerification) => {
                         throw new Error("Usuario o contraseña incorrectos");
                     }
                     throw new Error("Ocurrio un problema con la autenticacion");
-                    
+
                 })
                 .then(json => {
                     dispatch(loginSuccess(json));
@@ -144,14 +144,14 @@ export const createUser = (values, extraVerification) => {
                     if(response.status == 200 || response.status == 400){
                         return response.json();
                     }
-                    throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
+                    throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");
                 })
                 .then(json => {
                     if(json.code == 400){
-                        throw new Error(json.error);
+                        dispatch(createUserError(json.error));
                     } else{
-                        dispatch(createUserSuccess(json));    
-                    }                
+                        dispatch(createUserSuccess(json));
+                    }
                 })
                 .catch(err => {
                     console.log(err);
@@ -181,7 +181,7 @@ export const refreshJWT = () => {
                     throw new Error("Usuario o contraseña incorrectos");
                 }
                 throw new Error("Ocurrio un problema con la autenticacion");
-                
+
             })
             .then(json => {
                 dispatch(loginSuccess(json));
@@ -226,14 +226,14 @@ export const emailConfirmation = (values) => {
                 if(response.status == 200 || response.status == 400){
                     return response.json();
                 }
-                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
+                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");
             })
             .then(json => {
                 if(json.code == 400){
-                    throw new Error(json.error);
+                    dispatch(emailConfirmationError(json.error));
                 } else{
-                    dispatch(emailConfirmationSuccess(json));    
-                }                
+                    dispatch(emailConfirmationSuccess(json));
+                }
             })
             .catch(err => {
                 console.log(err);
@@ -291,14 +291,14 @@ export const emailResetPassword = (values, extraVerification) => {
                     if(response.status == 200 || response.status == 400){
                         return response.json();
                     }
-                    throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
+                    throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");
                 })
                 .then(json => {
                     if(json.code == 400){
-                        throw new Error(json.error);
+                        dispatch(emailResetPasswordError(json.error));
                     } else{
-                        dispatch(emailResetPasswordSuccess(json));    
-                    }                
+                        dispatch(emailResetPasswordSuccess(json));
+                    }
                 })
                 .catch(err => {
                     console.log(err);
@@ -343,14 +343,14 @@ export const changePassword = (values) => {
                 if(response.status == 200 || response.status == 400){
                     return response.json();
                 }
-                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");  
+                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");
             })
             .then(json => {
                 if(json.code == 400){
-                    throw new Error(json.error);
+                    dispatch(changePasswordError(json.error));
                 } else{
-                    dispatch(changePasswordSuccess(json));    
-                }                
+                    dispatch(changePasswordSuccess(json));
+                }
             })
             .catch(err => {
                 console.log(err);
@@ -388,7 +388,7 @@ export const verifyLoginCaptcha = (response) => {
             dispatch(verifyLoginCaptchaError("No se ha validado el captcha"));
 
         } else{
-            
+
             var proxyUrl = 'https://cors-anywhere.herokuapp.com/', //proxy que luego hay que cambiar
                 targetUrl = config.google.verify_url;
 
@@ -406,7 +406,7 @@ export const verifyLoginCaptcha = (response) => {
                         dispatch(verifyLoginCaptchaSuccess());
                     } else{
                         dispatch(verifyLoginCaptchaError());
-                    }                
+                    }
                 })
                 .catch(err => {
                     console.log(err);
@@ -416,5 +416,5 @@ export const verifyLoginCaptcha = (response) => {
         }
 
     }
-    
+
 }
