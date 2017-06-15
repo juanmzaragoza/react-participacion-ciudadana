@@ -9,6 +9,10 @@ y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 - Pruebas unitarias de acciones
 - Refactor de llamadas a API
 
+## [0.4.3] - 2017-06-15
+## Changed
+- Fix mensajes error en API de usuarios cuando el error devuelto es 400
+
 ## [0.4.2] - 2017-06-12
 ## Changed
 - Refactor de de rutas gracias al ruteo global de webpack
