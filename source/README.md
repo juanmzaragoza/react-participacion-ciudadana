@@ -24,6 +24,7 @@ Copiar el archivo `config/config.default.json` a `config/config.json` y configur
 	{
 		"port": puerto de exposicion del frontend,
 		"api_url": "url_donde_se_encuentra_instalada_la_api_node (por ej.: http://localhost:3001/api/)",
+		"mailto": Correo de contacto que aparece en el footer y en la pagina principal,
 		"share": {
 		"facebook": {
 			"url": La url para compartir en FB: "https://www.facebook.com/dialog/share",

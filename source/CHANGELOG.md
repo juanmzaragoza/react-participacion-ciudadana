@@ -9,6 +9,13 @@ y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 - Pruebas unitarias de acciones
 - Refactor de llamadas a API
 
+## [0.4.4] - 2017-07-03
+## Changed
+- Fix formulario de contacto externo en index y footer
+
+### Added
+- Campo mailto en config.json
+
 ## [0.4.3] - 2017-06-15
 ## Changed
 - Fix mensajes error en API de usuarios cuando el error devuelto es 400
