@@ -27,12 +27,15 @@ class Footer extends React.Component {
   }
 
   renderLinksContactInfo(){
+
+    const email = require('config/config').mailto? require('config/config').mailto:'baparticipacionciudadana@buenosaires.gob.ar';
+
     return(
       <div className="col-md-4 col-sm-4">
         <h4>Información de contacto</h4>
         <ul>
           <li><a className="pointer-element"><i className="fa fa-phone"></i> (011) 4909-2402</a></li>
-          <li><a className="pointer-element"><i className="fa fa-envelope"></i> baparticipacionciudadana@buenosaires.gob.ar</a></li>
+          <li><a href={`mailto:${email}?Subject=Comparti%20tu%20opinion`} className="pointer-element"><i className="fa fa-envelope"></i> {email}</a></li>
           <li>
             <a className="pointer-element">Seguinos en:</a>
             <ul className="follow-redes">

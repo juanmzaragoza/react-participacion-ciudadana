@@ -27,6 +27,8 @@ class Index extends React.Component {
 		const imgBioItemB = require("public/content/images/Bio-Sumate-a-obras-y-proyectos.png");
 		const imgBioItemC = require("public/content/images/Bio-compartinos-tu-opinion.png");
 
+		const email = require('config/config').mailto? require('config/config').mailto:'baparticipacionciudadana@buenosaires.gob.ar';
+
 	    return (
 			<div>
 
@@ -75,9 +77,9 @@ class Index extends React.Component {
 			    			description="proyectos" />
 			    		<BioItem 
 			    			className={"col-xs-4 col-sm-4 col-md-4"}
-			    			linkHref={"https://comunicacionhrl.secure.force.com/forms/FF_VFP_PCSumate"}
+			    			linkHref={`mailto:${email}?Subject=Comparti%20tu%20opinion`}
 			    			imageSrc={imgBioItemC}
-			    			target="_blank" />
+			    			target="_top" />
 			    	</div>
 		    	</Section>
 
