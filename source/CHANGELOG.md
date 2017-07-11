@@ -9,6 +9,10 @@ y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 - Pruebas unitarias de acciones
 - Refactor de llamadas a API
 
+## [0.4.5] - 2017-07-11
+## Changed
+- Fix mensajes de error en el login
+
 ## [0.4.4] - 2017-07-03
 ## Changed
 - Fix formulario de contacto externo en index y footer
