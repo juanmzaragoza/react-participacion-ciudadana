@@ -4,7 +4,7 @@ import * as types from 'constants/AuthConstants';
 import * as requestTypes from 'constants/RequestActionTypes';
 import * as userTypes from 'constants/UserConstants';
 import * as authTypes from 'constants/AuthConstants';
-import * as messages from 'constants/CommonMessages';
+import {dispatchError} from './Common';
 
 let config = require('config/config')
 import { AuthStore } from 'store/AuthStore';
@@ -67,9 +67,8 @@ export const login = (username, password, extraVerification) => {
                     dispatch(hideLoginForm());
                 })
                 .catch(err => {
-                    console.log(err);
-                    dispatch(loginError(messages.API_CALL_ERROR));
-                });
+                    dispatchError(dispatch,loginError,err);
+                })
         }
 
     }
@@ -154,8 +153,7 @@ export const createUser = (values, extraVerification) => {
                     }
                 })
                 .catch(err => {
-                    console.log(err);
-                    dispatch(createUserError(messages.API_CALL_ERROR));
+                    dispatchError(dispatch,createUserError,err);
                 });
         }
     }
@@ -236,8 +234,7 @@ export const emailConfirmation = (values) => {
                 }
             })
             .catch(err => {
-                console.log(err);
-                dispatch(emailConfirmationError(messages.API_CALL_ERROR));
+                dispatchError(dispatch,emailConfirmationError,err);
             });
     }
 }
@@ -301,8 +298,7 @@ export const emailResetPassword = (values, extraVerification) => {
                     }
                 })
                 .catch(err => {
-                    console.log(err);
-                    dispatch(emailResetPasswordError(messages.API_CALL_ERROR));
+                    dispatchError(dispatch,emailResetPasswordError,err);
                 });
 
         }
@@ -353,8 +349,7 @@ export const changePassword = (values) => {
                 }
             })
             .catch(err => {
-                console.log(err);
-                dispatch(changePasswordError(messages.API_CALL_ERROR));
+                dispatchError(dispatch,changePasswordError,err);
             });
     }
 }
@@ -409,8 +404,7 @@ export const verifyLoginCaptcha = (response) => {
                     }
                 })
                 .catch(err => {
-                    console.log(err);
-                    dispatch(verifyLoginCaptchaError("Error interno al validar el captcha"));
+                    dispatchError(dispatch,verifyLoginCaptchaError,err);
                 });
 
         }

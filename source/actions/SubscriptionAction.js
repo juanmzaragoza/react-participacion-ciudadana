@@ -1,5 +1,5 @@
 import * as actionTypes from 'constants/SubscriptionActionTypes';
-import * as messages from 'constants/CommonMessages';
+import {dispatchError} from './Common';
 
 let config = require('config/config');
 import { AuthStore } from 'store/AuthStore';
@@ -140,8 +140,7 @@ export const getAllSubscriptions = () => {
                     dispatch(receiveSubscriptions(json));
                 })
                 .catch(err => {
-                    console.log(err);
-                    dispatch(requestSubscriptionsError(messages.API_CALL_ERROR));
+                    dispatchError(dispatch,requestSubscriptionsError,err);
                 });
         }
     }

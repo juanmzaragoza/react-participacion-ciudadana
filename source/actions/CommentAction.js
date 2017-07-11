@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import * as types from 'constants/RequestActionTypes';
-import * as messages from 'constants/CommonMessages';
+import {dispatchError} from './Common';
 
 let config = require('config/config')
 import { AuthStore } from 'store/AuthStore';
@@ -50,8 +50,7 @@ export const comment = (id, type, comment, id_user) => {
                 dispatch(commentSuccess(json));
             })
             .catch(err => {
-                console.log(err);
-                dispatch(commentError(messages.API_CALL_ERROR));
+                dispatchError(dispatch,commentError,err);
             });
     }
 }
