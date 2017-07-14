@@ -209,32 +209,48 @@ const mapStateToProps = (state, ownProps) => {
       neighborhoods: state.registrationForm.neighborhoods,
       submitError: state.registrationForm.submitError.state? state.registrationForm.submitError.message:state.captcha.errorMessage,
       submitSucess: state.registrationForm.submitSucess.state,
-      submitEnabled: state.captcha.verified
+      submitEnabled: state.captcha.verified,
+      captchaResponse: state.captcha.response
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
   	componentWillMount: () => {
-  		console.log("willmount")
+  		//console.log("willmount")
   	},
     getNeighborhoods: () => {
       dispatch(fetchNeighborhoods(1, 50));
     },
-    onSubmit: (formValues, extraVerification) => {
-    	
-      var nameHost = location.protocol.concat("//").concat(window.location.hostname),
-          port = window.location.port;
-
-      var values = Object.assign({},formValues,{
-      	host: (window.location.port)? nameHost.concat(':').concat(port).concat('/'):nameHost.concat('/')
-      })
-      dispatch(createUser(values,extraVerification));
-    }
+    dispatch: dispatch
   }
 }
 
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+    const { dispatch } = dispatchProps;
+    return {
+      neighborhoods: stateProps.neighborhoods,
+      submitError: stateProps.submitError,
+      submitSucess: stateProps.submitSucess,
+      submitEnabled: stateProps.submitEnabled,
+      componentWillMount: dispatchProps.componentWillMount,
+      getNeighborhoods: dispatchProps.getNeighborhoods,
+      onSubmit: (formValues, extraVerification) => {
+	    	
+	    var nameHost = location.protocol.concat("//").concat(window.location.hostname),
+	      port = window.location.port;
+
+	      var values = Object.assign({},formValues,{
+	      	host: (window.location.port)? nameHost.concat(':').concat(port).concat('/'):nameHost.concat('/'),
+	      	captcha_response: stateProps.captchaResponse
+	      })
+	      dispatch(createUser(values,extraVerification));
+	  }
+    }
+};
+
 export const RegistrationFormContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  mergeProps
 )(RegistrationForm)

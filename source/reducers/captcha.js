@@ -4,7 +4,8 @@ import * as utils from 'lib/utils'
 const initialState = {
   verified: false,
   error: false,
-  errorMessage: ''
+  errorMessage: '',
+  response: ''
 }
 
 export default function captcha(state = initialState, action) {
@@ -18,7 +19,8 @@ export default function captcha(state = initialState, action) {
       return Object.assign({}, state, {
         error: false,
         errorMessage: '',
-        verified: true
+        verified: true,
+        response: action.response
       })
     case LOGIN_CAPTCHA_CHECK_ERROR:
       return Object.assign({}, state, {

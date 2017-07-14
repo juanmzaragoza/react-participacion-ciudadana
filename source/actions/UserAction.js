@@ -119,6 +119,7 @@ export const createUser = (values, extraVerification) => {
 
         if(!extraVerification){
             dispatch(createUserError("El Captcha no pudo ser verificado"));
+            dispatch(resetLoginCaptcha());
         } else{
 
             return fetch(config.api_url+'usuario/crear', {
@@ -137,7 +138,8 @@ export const createUser = (values, extraVerification) => {
                         genero: values.genero,
                         celular: values.celular,
                         barrio: values.barrio,
-                        host: values.host
+                        host: values.host,
+                        captcha_response: values.captcha_response
                     })
                 }).then(response => {
                     if(response.status == 200 || response.status == 400){
@@ -148,12 +150,14 @@ export const createUser = (values, extraVerification) => {
                 .then(json => {
                     if(json.code == 400){
                         dispatch(createUserError(json.error));
+                        dispatch(resetLoginCaptcha());
                     } else{
                         dispatch(createUserSuccess(json));
                     }
                 })
                 .catch(err => {
                     dispatchError(dispatch,createUserError,err);
+                    dispatch(resetLoginCaptcha());
                 });
         }
     }
@@ -361,9 +365,10 @@ export const resetLoginCaptcha = () => {
     }
 }
 
-export const verifyLoginCaptchaSuccess = () => {
+export const verifyLoginCaptchaSuccess = (response) => {
     return {
-        type: authTypes.LOGIN_CAPTCHA_CHECK_SUCCESS
+        type: authTypes.LOGIN_CAPTCHA_CHECK_SUCCESS,
+        response: response
     }
 }
 
@@ -384,7 +389,8 @@ export const verifyLoginCaptcha = (response) => {
 
         } else{
 
-            var proxyUrl = 'https://cors-anywhere.herokuapp.com/', //proxy que luego hay que cambiar
+            dispatch(verifyLoginCaptchaSuccess(response));
+            /*var proxyUrl = 'https://cors-anywhere.herokuapp.com/', //proxy que luego hay que cambiar
                 targetUrl = config.google.verify_url;
 
             return fetch(proxyUrl + targetUrl, {
@@ -405,7 +411,7 @@ export const verifyLoginCaptcha = (response) => {
                 })
                 .catch(err => {
                     dispatchError(dispatch,verifyLoginCaptchaError,err);
-                });
+                });*/
 
         }
 

@@ -34,7 +34,6 @@ Copiar el archivo `config/config.default.json` a `config/config.json` y configur
 			"url": La url para compartir en twitter: "https://twitter.com/intent/tweet"
 		},
 		"google": {
-			"captcha_secret_key": API secret Key de la aplicacion. Por ej.: "6LfPjxsUAAAAAK2hIoy2A_uauCMZZ9BpbgUBvfD7",
 			"captcha_site_key": API Key de la aplicacion. Por ej.: 6LfPjxsUAAAAAOSEIFZ8Gn5soshEhfvy7-omfXsp,
 			...
 		}
