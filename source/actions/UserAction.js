@@ -31,7 +31,7 @@ export const loginError = (error) => { //se dispara esta accion para informar de
     }
 }
 
-export const login = (username, password, extraVerification) => {
+export const login = (values, extraVerification) => {
 
     return (dispatch) => {
 
@@ -49,8 +49,9 @@ export const login = (username, password, extraVerification) => {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        username: username,
-                        password: password
+                        username: values.username,
+                        password: values.password,
+                        captcha_response: values.captcha_response
                     })
                 }).then(response => {
                     if(response.status == 200){
@@ -117,49 +118,43 @@ export const createUser = (values, extraVerification) => {
 
     return (dispatch) => {
 
-        if(!extraVerification){
-            dispatch(createUserError("El Captcha no pudo ser verificado"));
-            dispatch(resetLoginCaptcha());
-        } else{
-
-            return fetch(config.api_url+'usuario/crear', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        nombre: values.nombre,
-                        apellido: values.apellido,
-                        nombre_usuario: values.nombre_usuario,
-                        email: values.email,
-                        password: values.password,
-                        identificacion: values.identificacion,
-                        genero: values.genero,
-                        celular: values.celular,
-                        barrio: values.barrio,
-                        host: values.host,
-                        captcha_response: values.captcha_response
-                    })
-                }).then(response => {
-                    if(response.status == 200 || response.status == 400){
-                        return response.json();
-                    }
-                    throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");
+        return fetch(config.api_url+'usuario/crear', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nombre: values.nombre,
+                    apellido: values.apellido,
+                    nombre_usuario: values.nombre_usuario,
+                    email: values.email,
+                    password: values.password,
+                    identificacion: values.identificacion,
+                    genero: values.genero,
+                    celular: values.celular,
+                    barrio: values.barrio,
+                    host: values.host,
+                    captcha_response: values.captcha_response
                 })
-                .then(json => {
-                    if(json.code == 400){
-                        dispatch(createUserError(json.error));
-                        dispatch(resetLoginCaptcha());
-                    } else{
-                        dispatch(createUserSuccess(json));
-                    }
-                })
-                .catch(err => {
-                    dispatchError(dispatch,createUserError,err);
-                    dispatch(resetLoginCaptcha());
-                });
-        }
+            }).then(response => {
+                if(response.status == 200 || response.status == 400){
+                    return response.json();
+                }
+                throw new Error("Ocurrio un problema inesperado. Intente nuevamente en unos minutos");
+            })
+            .then(json => {
+                if(json.code == 400){
+                    dispatch(createUserError(json.error));
+                } else if(!extraVerification){
+                    dispatch(createUserError("El Captcha no pudo ser verificado"));
+                }else{
+                    dispatch(createUserSuccess(json));
+                }
+            })
+            .catch(err => {
+                dispatchError(dispatch,createUserError,err);
+            });
     }
 }
 

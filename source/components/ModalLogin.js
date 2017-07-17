@@ -155,7 +155,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
       show: !state.user.isAuthenticated && state.loginForm.visible,
       errorMessage: state.user.loginFailed || state.captcha.errorMessage,
-      submitEnabled: state.captcha.verified
+      submitEnabled: state.captcha.verified,
+      captchaResponse: state.captcha.response
     }
 }
 
@@ -164,16 +165,34 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     closeModal: () => {
       dispatch(hideLoginForm());
     },
-    onSubmit: (values, extraVerification) => {
-      dispatch(login(values.username,values.password,extraVerification));
-    },
     handleResetPassword: () => {
       dispatch(showResetPasswordForm());
-    }
+    },
+    dispatch: dispatch
   }
+}
+
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { dispatch } = dispatchProps;
+  return {
+    show: stateProps.show,
+    errorMessage: stateProps.errorMessage,
+    submitEnabled: stateProps.submitEnabled,
+    closeModal: dispatchProps.closeModal,
+    handleResetPassword: dispatchProps.handleResetPassword,
+    onSubmit: (values, extraVerification) => {
+      dispatch(login({
+        username: values.username,
+        password: values.password,
+        captcha_response: stateProps.captchaResponse
+      },extraVerification));
+    },
+  }
+
 }
 
 export const ModalLoginFormContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  mergeProps
 )(ModalLoginForm)

@@ -81,7 +81,7 @@ export const LoginCaptcha = connect(
 const mapRegStateToProps = (state, ownProps) => {
     return {
       errorCaptcha: state.captcha.error,
-      errorSubmit: state.registrationForm.submitError.state
+      errorSubmit: state.registrationForm.submitError.message
     }
 }
 
