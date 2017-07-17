@@ -9,7 +9,7 @@ y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 - Pruebas unitarias de acciones
 - Refactor de llamadas a API
 
-## [0.4.6] - 2017-07-14
+## [0.4.6] - 2017-07-17
 ## Changed
 - Validacion de captcha en API - Antes estaba en el frontend
 
