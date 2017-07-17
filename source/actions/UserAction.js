@@ -286,7 +286,8 @@ export const emailResetPassword = (values, extraVerification) => {
                     },
                     body: JSON.stringify({
                         email: values.email,
-                        host: values.host
+                        host: values.host,
+                        captcha_response: values.captcha_response
                     })
                 }).then(response => {
                     if(response.status == 200 || response.status == 400){

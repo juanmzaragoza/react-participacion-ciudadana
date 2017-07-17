@@ -158,7 +158,8 @@ const mapStateToProps = (state, ownProps) => {
       show: (state.loginForm.restartPassword && state.loginForm.restartPassword.visible),
       successMessage: state.loginForm.restartPassword.successMessage,
       errorMessage: state.loginForm.restartPassword.errorMessage,
-      submitEnabled: state.captcha.verified
+      submitEnabled: state.captcha.verified,
+      captchaResponse: state.captcha.response
     }
 }
 
@@ -167,22 +168,38 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     closeModal: () => {
       dispatch(hideResetPasswordForm());
     },
-    onSubmit: (formValues, extraVerification) => {
-
-      var nameHost = location.protocol.concat("//").concat(window.location.hostname),
-          port = window.location.port;
-
-      var values = Object.assign({},formValues,{
-        host: (window.location.port)? nameHost.concat(':').concat(port).concat('/'):nameHost.concat('/')
-      })
-
-      dispatch(emailResetPassword(values, extraVerification));
-
-    }
+    dispatch: dispatch
   }
+}
+
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+    const { dispatch } = dispatchProps;
+
+    return {
+      show: stateProps.show,
+      successMessage: stateProps.successMessage,
+      errorMessage: stateProps.errorMessage,
+      submitEnabled: stateProps.submitEnabled,
+      closeModal: dispatchProps.closeModal,
+      onSubmit: (formValues, extraVerification) => {
+
+        var nameHost = location.protocol.concat("//").concat(window.location.hostname),
+            port = window.location.port;
+
+        var values = Object.assign({},formValues,{
+          host: (window.location.port)? nameHost.concat(':').concat(port).concat('/'):nameHost.concat('/'),
+          captcha_response: stateProps.captchaResponse
+        })
+
+        dispatch(emailResetPassword(values, extraVerification));
+
+      }
+    }
+
 }
 
 export const ModalResetPasswordContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  mergeProps
 )(ModalResetPasswordForm)
