@@ -54,12 +54,12 @@ export class ModalLogin extends React.Component {
 
   render() {
 
-    const { handleSubmit } = this.props;
+    const { handleSubmit, reset } = this.props;
     var show = this.props.show? true:false;
 
     return (
       show? 
-        <Modal show={show} onHide={this.closeModal.bind(this)}>
+        <Modal show={show} onHide={this.closeModal.bind(this)} onShow={reset}>
 
           <Modal.Header>
             <button type="button" className="close" aria-label="Close" onClick={this.props.closeModal}>
