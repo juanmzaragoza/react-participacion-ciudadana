@@ -4,7 +4,7 @@
 
 * NodeJS v6.8.1
 * Apache 2.2 (o superior) con mod rewrite activado
-* API Participacion Ciudadana v0.4.1 (http://git-asi.buenosaires.gob.ar/usuarioQA/asi-127-api-participacion-ciudadana.git)
+* API Participacion Ciudadana v0.4.2 (http://git-asi.buenosaires.gob.ar/usuarioQA/asi-127-api-participacion-ciudadana.git)
 
 ## Instalación 
 
