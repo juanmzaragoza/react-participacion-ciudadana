@@ -1,5 +1,24 @@
 Este documento es una guia para actualizar el "`Frontend React Participación Ciudadana`". Asegurese que existe la actualización de la versión actual a la versión a que quiere actualizar como "Actualización de `x.x.x` a `y.y.y`".
 
+## Actualización de `0.4.7` a `0.4.6`
+
+Realice los siguientes pasos para actualizar el código:
+
+    git checkout .
+    git fetch
+    git fetch --tags
+    git checkout v00.04.07
+
+Luego reconstruya el código ejecutando:
+
+    npm run build:prod
+
+Configurar el archivo config/config.json con el campo `token_refresh` (ver archivo `config/config.default.json`). Recordar que es un archivo JSON, por lo tanto, NO OLVIDAR LA COMA ENTRE CAMPOS. Por ej.:
+
+    "token_refresh": 5
+
+Finalmente reinicie el servidor.
+
 ## Actualización de `0.4.6` a `0.4.5`
 
 Realice los siguientes pasos para actualizar el código:

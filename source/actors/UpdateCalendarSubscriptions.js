@@ -11,7 +11,8 @@ export default function UpdateCalendarSubscriptions(state, dispatch){
 }
 
 function showCalendarEvents(state){//usuario autenticado, susbcripcion no pedidas y pagina index
-	return (state.user.isAuthenticated && !state.subscription.successRequest && !state.subscription.isFetching
+	return (state.user.isAuthenticated && !state.subscription.testingOk 
+		&& !state.subscription.successRequest && !state.subscription.isFetching
 		&& state.routing.locationBeforeTransitions !== undefined
 		&& /^\/$/.test(state.routing.locationBeforeTransitions.pathname));
 }

@@ -37,7 +37,8 @@ Copiar el archivo `config/config.default.json` a `config/config.json` y configur
 		"google": {
 			"captcha_site_key": API Key de la aplicacion. Por ej.: 6LfPjxsUAAAAAOSEIFZ8Gn5soshEhfvy7-omfXsp,
 			...
-		}
+		},
+		"token_refresh": 5
 	}
 
 Para la configuracion de "Facebook" ver documentacion en https://developers.facebook.com/docs/apps/register para crear el "app_id".

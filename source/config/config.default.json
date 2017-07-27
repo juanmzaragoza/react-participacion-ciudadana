@@ -14,5 +14,6 @@
 	},
 	"google": {
 		"captcha_site_key": "6LfPjxsUAAAAAOSEIFZ8Gn5soshEhfvy7-omfXsp"
-	}
+	},
+	"token_refresh": 1
 }

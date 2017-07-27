@@ -114,6 +114,9 @@ export const subscribe = (id, request_type) => {
 export const getAllSubscriptions = () => {
     
     return (dispatch) => {
+
+        dispatch(suscriptionsTestingOk());
+
         if(!AuthStore.isAuthenticated()){
             dispatch(userIsNotAuthenticated());
         } else{
@@ -143,6 +146,12 @@ export const getAllSubscriptions = () => {
                     dispatchError(dispatch,requestSubscriptionsError,err);
                 });
         }
+    }
+}
+
+export const suscriptionsTestingOk = () => { 
+    return{
+        type: actionTypes.REQUEST_SUBSCRIPTIONS_TESTING_OK
     }
 }
 

@@ -1,7 +1,9 @@
-import {REQUEST_SUBSCRIPTIONS_SUCCESS,REQUEST_SUBSCRIPTIONS,REQUEST_SUBSCRIPTIONS_FAILURE,USER_ISNOT_AUTHENTICATED} from 'constants/SubscriptionActionTypes';
+import {REQUEST_SUBSCRIPTIONS_SUCCESS,REQUEST_SUBSCRIPTIONS,REQUEST_SUBSCRIPTIONS_FAILURE,USER_ISNOT_AUTHENTICATED,REQUEST_SUBSCRIPTIONS_TESTING_OK} from 'constants/SubscriptionActionTypes';
+import {LOGIN_API_SUCCESS} from 'constants/AuthConstants';
 import * as utils from 'lib/utils';
 
 const initialState = {
+  testingOk: false,
   successRequest: false,
   isFetching: false,
   errorRequest: false,
@@ -10,6 +12,17 @@ const initialState = {
 
 export default function result(state = initialState, action) { 
   switch (action.type) {
+
+    case REQUEST_SUBSCRIPTIONS_TESTING_OK:
+      return Object.assign({}, state, {
+        testingOk: true
+      })
+
+    case LOGIN_API_SUCCESS:
+      return Object.assign({}, state, {
+        testingOk: false
+      })
+
     case REQUEST_SUBSCRIPTIONS:
       return Object.assign({}, state, {
         successRequest: false,

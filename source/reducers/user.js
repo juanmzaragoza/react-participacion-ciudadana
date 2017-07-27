@@ -27,12 +27,13 @@ export default function result(state = initialState, action) {
         id: action.user.id,
         email: action.user.email,
         username: action.user.username,
-        salt: action.user.salta,
         token_exp: action.user.token_exp,
         token_iat: action.user.token_iat
       }
 
       setUser(profile, action.user.token);
+      AuthStore.emitChange();
+      
       return returnLoginUser(state);
 
     case LOGIN_API_FAILURE:

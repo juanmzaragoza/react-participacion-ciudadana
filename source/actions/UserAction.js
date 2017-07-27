@@ -82,6 +82,27 @@ export const refreshLogin = () => {
 }
 
 export const logout = () => {
+
+    return (dispatch) => {
+
+        return fetch(config.api_url+'auth/logout', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'bearer '+AuthStore.getJwt()
+                }
+            }).then(response => {
+                dispatch(logoutSuccess());
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(logoutSuccess());
+            });
+    }
+}
+
+export const logoutSuccess = () => { //accion que se dispara al terminar de recibir la consulta
     return{
         type: types.LOGOUT_USER
     }
@@ -175,7 +196,7 @@ export const refreshJWT = () => {
                     return response.json();
                 }
                 if(response.status == 401){
-                    throw new Error("Usuario o contraseña incorrectos");
+                    throw new Error("Problema al renovar token: token invalido");
                 }
                 throw new Error("Ocurrio un problema con la autenticacion");
 
