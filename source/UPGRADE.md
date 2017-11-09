@@ -7,7 +7,7 @@ Este documento es una guia para actualizar el "`Frontend React Participación Ci
     git checkout .
     git fetch
     git fetch --tags
-    git checkout v00.04.08
+    git checkout v0.4.8
 
 Luego reconstruya el código ejecutando:
 
@@ -19,7 +19,7 @@ Finalmente reinicie el servidor.
 
 Realice los siguientes pasos para actualizar el código:
 
-    git checkout .
+    git checkout . st
     git fetch
     git fetch --tags
     git checkout v00.04.07
