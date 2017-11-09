@@ -1,6 +1,6 @@
 {
   "name": "participacion-ciudadana",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Frontend Participacion Ciudadana",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server --port 9898 --host 0.0.0.0 --config webpack.config.dev.js --hot --progress --inline",

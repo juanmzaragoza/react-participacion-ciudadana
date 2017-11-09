@@ -9,7 +9,7 @@ y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 - Pruebas unitarias de acciones
 - Refactor de llamadas a API
 
-## [0.4.8] - 2017-11-09
+## [1.0.0] - 2017-11-09
 ## Changed
 - Se cambiaron estadisticas de suscripciones por participacion en reuniones
 
