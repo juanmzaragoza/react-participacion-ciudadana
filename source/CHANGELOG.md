@@ -9,6 +9,10 @@ y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 - Pruebas unitarias de acciones
 - Refactor de llamadas a API
 
+## [0.4.8] - 2017-11-09
+## Changed
+- Se cambiaron estadisticas de suscripciones por participacion en reuniones
+
 ## [0.4.7] - 2017-07-27
 ## Changed
 - Metodo logout para eliminar el token creado

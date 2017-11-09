@@ -65,7 +65,7 @@ export class MainStatics extends React.Component {
                                         {this.props.isLoading? 
                                             <h2 style={{paddingLeft: '66px'}}>{spin}</h2>
                                             :
-                                            <h2>{this.props.subscriptions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h2>
+                                            <h2>{this.props.reunions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h2>
                                         }
                                     </div>
                                     <div className="title-dat">
@@ -94,7 +94,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         isLoading: (state.requestStatics.isFetching || state.requestStatics.errorRequest),
         votes: state.requestStatics.votes,
-        subscriptions: state.requestStatics.subscriptions
+        reunions: state.requestStatics.reunions
     }
 }
 

@@ -12,7 +12,7 @@ export const receiveStatics = (json) => {
     return {
         type: types.REQUEST_STATICS_SUCCESS,
         votes: json.votos,
-        subscriptions: json.suscripciones
+        reunions: json.participaron_reuniones
     }
 }
 

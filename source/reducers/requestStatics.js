@@ -20,7 +20,7 @@ export default function requestStatics(state = initialState, action) {
         isFetching: false,
         errorRequest: false,
         votes: action.votes,
-        subscriptions: action.subscriptions
+        reunions: action.reunions
       })
 
     case REQUEST_STATICS_FAILURE:
