@@ -2,6 +2,9 @@
 	"port": 8080,
 	"api_url": "http://localhost:3001/api/",
 	"baelige_url": "https://baelige.buenosaires.gob.ar/",
+	"facebook_url": "https://www.facebook.com/baparticipacion/",
+	"twitter_url": "https://twitter.com/baparticipacion/",
+	"instagram_url": "https://www.instagram.com/baparticipacionciudadana/",
 	"mailto": "baparticipacionciudadana@buenosaires.gob.ar",
 	"share": {
 		"facebook": {

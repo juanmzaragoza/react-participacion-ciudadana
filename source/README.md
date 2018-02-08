@@ -25,6 +25,9 @@ Copiar el archivo `config/config.default.json` a `config/config.json` y configur
 	{
 		"port": puerto de exposicion del frontend,
 		"api_url": "url_donde_se_encuentra_instalada_la_api_node (por ej.: http://localhost:3001/api/)",
+		"facebook_url": "https://www.facebook.com/baparticipacion/",
+		"twitter_url": "https://twitter.com/baparticipacion/",
+		"instagram_url": "https://www.instagram.com/baparticipacionciudadana/",
 		"mailto": Correo de contacto que aparece en el footer y en la pagina principal,
 		"share": {
 		"facebook": {

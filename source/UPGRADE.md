@@ -1,8 +1,29 @@
 Este documento es una guia para actualizar el "`Frontend React Participación Ciudadana`". Asegurese que existe la actualización de la versión actual a la versión a que quiere actualizar como "Actualización de `x.x.x` a `y.y.y`".
 
-## Actualización de `1.0.0` a `1.0.0`
+## Actualización de `1.0.0` a `1.1.0`
 
-    Realice los siguientes pasos para actualizar el código:
+Realice los siguientes pasos para actualizar el código:
+
+    git pull origin master
+
+Agregar al final del archivo config/config.json los campos `facebook_url`, `twitter_url`, `instagram_url` (ver archivo `config/config.default.json`). Por ej.:
+
+    ...
+    ,
+    "facebook_url": "https://www.facebook.com/baparticipacion/",
+    "twitter_url": "https://twitter.com/baparticipacion/",
+    "instagram_url": "https://www.instagram.com/baparticipacionciudadana/",
+    ...
+
+Luego reconstruya el código ejecutando:
+
+    npm run build:prod
+
+Finalmente reinicie el servidor.
+
+## Actualización de `0.4.7` a `1.0.0`
+
+Realice los siguientes pasos para actualizar el código:
 
     git checkout .
     git fetch
@@ -15,7 +36,7 @@ Luego reconstruya el código ejecutando:
 
 Finalmente reinicie el servidor.
 
-## Actualización de `0.4.7` a `0.4.6`
+## Actualización de `0.4.6` a `0.4.7`
 
 Realice los siguientes pasos para actualizar el código:
 
@@ -34,7 +55,7 @@ Configurar el archivo config/config.json con el campo `token_refresh` (ver archi
 
 Finalmente reinicie el servidor.
 
-## Actualización de `0.4.6` a `0.4.5`
+## Actualización de `0.4.5` a `0.4.6`
 
 Realice los siguientes pasos para actualizar el código:
 
@@ -53,7 +74,7 @@ Configurar el archivo config/config.json con el campo `google` (ver archivo `con
 
 Finalmente reinicie el servidor.
 
-## Actualización de `0.4.5` a `0.4.4`
+## Actualización de `0.4.4` a `0.4.5`
 
 Realice los siguientes pasos para actualizar el código:
 
