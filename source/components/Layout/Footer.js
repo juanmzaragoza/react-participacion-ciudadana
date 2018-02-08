@@ -39,9 +39,9 @@ class Footer extends React.Component {
           <li>
             <a className="pointer-element">Seguinos en:</a>
             <ul className="follow-redes">
-              <li><a href="https://www.facebook.com/BaParticipacionCiudadana/"><i className="fa fa-facebook-square fa-lg"></i></a></li>
-              <li><a href="https://twitter.com/BAPartCiudadana"><i className="fa fa-twitter fa-lg"></i></a></li>
-              <li><a href="https://www.instagram.com/baparticipacionciudadana/"><i className="fa fa-instagram fa-lg"></i></a></li>
+              <li><a href="https://www.facebook.com/baparticipacion" target="_blank"><i className="fa fa-facebook-square fa-lg"></i></a></li>
+              <li><a href="https://twitter.com/baparticipacion" target="_blank"><i className="fa fa-twitter fa-lg"></i></a></li>
+              <li><a href="https://www.instagram.com/baparticipacionciudadana" target="_blank"><i className="fa fa-instagram fa-lg"></i></a></li>
               {/*<li><a href="#"><i className="fa fa-youtube-play fa-lg"></i></a></li>
               <li><a href="#"><i className="fa fa-rss fa-lg"></i></a></li>*/}
             </ul>
