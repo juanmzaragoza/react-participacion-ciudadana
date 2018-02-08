@@ -9,6 +9,10 @@ y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 - Pruebas unitarias de acciones
 - Refactor de llamadas a API
 
+## [1.1.0] - 2018-02-08
+## Changed
+- Configuracion de urls de las redes sociales del footer a través del archivo de configuracion
+
 ## [1.0.0] - 2017-11-09
 ## Changed
 - Se cambiaron estadisticas de suscripciones por participacion en reuniones
