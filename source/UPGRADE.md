@@ -6,7 +6,7 @@ Realice los siguientes pasos para actualizar el código:
 
     git pull origin master
 
-Agregar al final del archivo config/config.json los campos `facebook_url`, `twitter_url`, `instagram_url` (ver archivo `config/config.default.json`). Por ej.:
+Agregar al final del archivo config/config.json los campos `facebook_url`, `twitter_url`, `instagram_url` (ver archivo `config/config.default.json`). Por ej.: 
 
     ...
     ,
