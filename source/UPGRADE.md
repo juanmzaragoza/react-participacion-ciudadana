@@ -7,7 +7,7 @@ Realice los siguientes pasos para actualizar el código:
     git checkout .
     git fetch
     git fetch --tags
-    git checkout v1.1.RC-3
+    git checkout v1.1.RC-1
 
 Agregar al final del archivo config/config.json los campos `facebook_url`, `twitter_url`, `instagram_url` (ver archivo `config/config.default.json`). Por ej.: 
 
