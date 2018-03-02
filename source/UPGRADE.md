@@ -4,7 +4,10 @@ Este documento es una guia para actualizar el "`Frontend React Participación Ci
 
 Realice los siguientes pasos para actualizar el código:
 
-    git pull origin master
+    git checkout .
+    git fetch
+    git fetch --tags
+    git checkout v1.1.RC-3
 
 Agregar al final del archivo config/config.json los campos `facebook_url`, `twitter_url`, `instagram_url` (ver archivo `config/config.default.json`). Por ej.: 
 
@@ -19,7 +22,7 @@ Luego reconstruya el código ejecutando:
 
     npm run build:prod
 
-Finalmente reinicie el servidor.
+Finalmente reinicie el servidor Apache.
 
 ## Actualización de `0.4.7` a `1.0.0`
 
