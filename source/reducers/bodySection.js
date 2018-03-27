@@ -22,7 +22,9 @@ export default function bodySection(state = initialState, action) {
         items.push(image.image);
       })
       return Object.assign({}, state, {
-        items: items
+        items: items,
+        isFetching: false,
+        errorRequest: false
       })
 
     case types.REQUEST_ITEMS_GALLERY_FAILURE:

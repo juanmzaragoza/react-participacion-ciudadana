@@ -9,6 +9,10 @@ y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 - Pruebas unitarias de acciones
 - Refactor de llamadas a API
 
+## [1.2.0] - 2018-03-28
+## Changed
+- Se modificaron los acceso directos del index para que sean configurados a través de la galería 'HOME' teniendo en cuenta que el campo autor contendrá el destino del link rendereado donde, si contiene ${web_url}, se reemplazará por la la url del frontend
+
 ## [1.1.0] - 2018-02-08
 ## Changed
 - Configuracion de urls de las redes sociales del footer a través del archivo de configuracion

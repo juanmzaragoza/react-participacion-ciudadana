@@ -232,7 +232,7 @@ function getItemsTrabajandoJuntosFromAction(itemsArray){
   return items;
 }
 
-function getItemsObrasFromAction(itemsArray){
+export function getItemsObrasFromAction(itemsArray){
     let items = [];
     itemsArray.forEach(function(element,index){
         let item = {
