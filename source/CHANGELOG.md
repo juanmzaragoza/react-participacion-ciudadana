@@ -13,6 +13,7 @@ y este proyecto se adhiere a  [Semantic Versioning](http://semver.org/).
 ## Changed
 - Se modificaron los acceso directos del index para que sean configurados a través de la galería 'HOME' teniendo en cuenta que el campo autor contendrá el destino del link rendereado donde, si contiene ${web_url}, se reemplazará por la la url del frontend
 - Se modifico el layout en obras y eventos para que las votaciones se muestren con imagenes. A su vez, para votar hay que presionar el botón "Votar" de la opción requerida
+- Version de JQuery UI a 1.12.1
 
 ## [1.1.0] - 2018-02-08
 ## Changed
