@@ -44,6 +44,20 @@ class ThumbnailDescriptionItem extends React.Component {
 
 	renderCaption(){
 
+		const moreInfo = (
+				<Link to={this.props.linkHref} className={this.props.buttonClassName} role="button">
+					{this.props.linkText? this.props.linkText:'Leer más'}
+				</Link>
+			),
+			buttonAction = (
+				<button className={this.props.buttonClassName} onClick={this.props.onClickButton} >
+					{this.props.linkText? this.props.linkText:'Leer más'}
+				</button>
+			),
+			actionButton = this.props.renderButton? buttonAction:moreInfo;
+
+
+
 		return (
 			(this.props.isCategory === true)?
 				(<div className="caption">
@@ -51,9 +65,7 @@ class ThumbnailDescriptionItem extends React.Component {
 						{this.renderTitle.bind(this)()}
 						<p className={this.props.descriptionTextClass} ref="description"></p>
 						<p>
-							<Link to={this.props.linkHref} className="btn btn-primary" role="button">
-								{this.props.linkText? this.props.linkText:'Leer más'}
-							</Link>
+							{ actionButton }
 						</p>
 					</div>
 				</div>)
@@ -62,9 +74,7 @@ class ThumbnailDescriptionItem extends React.Component {
 					{this.renderTitle.bind(this)()}
 					<p className={this.props.descriptionTextClass} ref="description"></p>
 					<p>
-						<Link to={this.props.linkHref} className="btn btn-primary" role="button">
-							{this.props.linkText? this.props.linkText:'Leer más'}
-						</Link>
+						{ actionButton }
 					</p>
 				</div>)
 		)
@@ -90,15 +100,20 @@ class ThumbnailDescriptionItem extends React.Component {
 			<div className={classRoot}>
 				<div className="thumbnail">
 					<Link to={this.props.linkHref} >
-				  		<img src={this.props.thumbnail_src} 
-					  		className={(this.state.imgEffect && this.props.imgClassName != undefined)? `img-rounded ${this.props.imgClassName}`:`img-rounded`} 
-					  		alt={this.props.label} 
-					  		onMouseEnter={this.activeEffect.bind(this)} 
-					  		onMouseLeave={this.desactiveEffect.bind(this)} />
-				  	</Link>
-				  	{this.renderCaption.bind(this)()}
+						{
+							(this.props.thumbnailDisabled === false)?
+					  		<img src={this.props.thumbnail_src} 
+						  		className={(this.state.imgEffect && this.props.imgClassName != undefined)? `img-rounded ${this.props.imgClassName}`:`img-rounded`} 
+						  		alt={this.props.label} 
+						  		onMouseEnter={this.activeEffect.bind(this)} 
+						  		onMouseLeave={this.desactiveEffect.bind(this)} />
+						  	:
+						  	null
+						}
+			  	</Link>
+			  	{this.renderCaption.bind(this)()}
 				</div>
-		  	</div>
+	  	</div>
 		)
 	}
 
@@ -109,7 +124,10 @@ ThumbnailDescriptionItem.defaultProps = {
     descriptionTextClass: '',
     colSm: 6,
     colMd: 3,
-    isCategory: false
+    isCategory: false,
+    thumbnailDisabled: false,
+    buttonClassName: 'btn btn-primary',
+    renderButton: false
 }
 
 ThumbnailDescriptionItem.propTypes = {
@@ -118,7 +136,6 @@ ThumbnailDescriptionItem.propTypes = {
   description: PropTypes.string.isRequired,
   linkHref: PropTypes.string.isRequired,
   linkText: PropTypes.string,
-  linkParams: PropTypes.object,
   colSm: PropTypes.number,
   colMd: PropTypes.number,
   descriptionTextClass: PropTypes.string,
@@ -126,6 +143,10 @@ ThumbnailDescriptionItem.propTypes = {
   isCategory: PropTypes.bool,
   linesPerTitle: PropTypes.number,
   imgClassName: PropTypes.string,
+  buttonClassName: PropTypes.string, // per default has the 'btn btn-primary' value
+  thumbnailDisabled: PropTypes.bool, // on true: disables image
+  renderButton: PropTypes.bool, // on true: render the button on renderCaption()
+  onClickButton: PropTypes.func, // on renderButton=true, bind the click button
 }
 
 export default ThumbnailDescriptionItem

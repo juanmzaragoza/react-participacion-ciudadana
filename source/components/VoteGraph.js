@@ -86,10 +86,12 @@ const mapStateToProps = (state, ownProps) => {
   if(state.voteForm.votation.error != true && state.voteForm.votation.content != null){
     var votation = state.voteForm.votation.content;
 
-    state.voteForm.votation.content.opciones.map(function(opcion){
-      opciones.push(opcion.nombre);
-      votos.push(opcion.votos);
-    })
+    if(votation != undefined){
+    	votation.opciones.map(function(opcion){
+	      opciones.push(opcion.nombre);
+	      votos.push(opcion.votos);
+	    })
+    }    
 
     titulo = votation.nombre;
     descripcion = votation.descripcion;

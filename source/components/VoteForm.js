@@ -9,6 +9,8 @@ import { vote } from 'actions/VoteAction';
 import { AuthStore } from 'store/AuthStore';
 
 import SendButton from "components/SendButton";
+import ThumbnailDescriptionItem from "components/Item/ThumbnailDescriptionItem";
+
 
 class VoteFormComponent extends React.Component {
 
@@ -17,13 +19,14 @@ class VoteFormComponent extends React.Component {
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 	}
 
-	handleFormSubmit(e) {
+	handleFormSubmit(opcionId) {
 		if(this.props.canVote){
 			if(this.props.onSubmit !== undefined){
-				e = Object.assign({}, e, {
-					votacion: this.props.id
-				});
-				this.props.onSubmit(e);
+				const answer = {
+					votacion: this.props.id,
+					opcion: opcionId
+				};
+				this.props.onSubmit(answer);
 			}
 		} else{
 			if(this.props.onNoVote !== undefined){
@@ -50,46 +53,61 @@ class VoteFormComponent extends React.Component {
 
 	render(){
 
-		const { handleSubmit } = this.props;
+		//const { handleSubmit } = this.props;
 
 		return (
 			(this.props.opciones != null && this.props.opciones.length>0)?
 			  	<div className="row">
 			     	<div className="col-xs-12 col-sm-12 col-md-12" >
-				     	<Form className="bg-vot" onSubmit={ handleSubmit(this.handleFormSubmit) } > 
+				     	{/*<Form className="bg-vot" onSubmit={ handleSubmit(this.handleFormSubmit) } > */}
+				     	<div className="bg-vot">
 
 				     		<header>
 							  	<h3>{this.props.titulo}</h3>
-                         	</header>
+               	</header>
 
-						 	<div className="clear_ev"></div>
-						 	{this.props.opciones.map( (opcion, index) => {
-						 		return (
-						 			<Field 
-						 				key={index}
-							 			id={opcion.id} 
-							 			name={"opcion"}
-							 			description={opcion.descripcion} 
-							 			component={this.renderField} />
-						 		)
-						 	})}
-						 	
-						 	{this.props.messageError? 
-				              	<div className="alert alert-warning" role="alert">
-				                	<span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-					                <span className="sr-only">Error:</span>
-					                &nbsp;No se pudo realizar la votacion. {this.props.messageError}
-				              	</div>
-				              	:
-				              	null
-				          	}
+							 	<div className="clear"></div>
+							 	<div className="row">
+								 	{this.props.opciones.map( (opcion, index) => {
 
-						  	<button type="submit" className="btn btn-vt btn-lg">Votar</button>
-						  	<div className="clear"></div>
+								 		const imageUrl = opcion.image != null? opcion.image.url:"",
+								 					thumbnailDisabled = opcion.image == null;
 
-					 	</Form>
-				 	</div>
-			 	</div>
+								 		return (
+									 		<ThumbnailDescriptionItem 
+												key={index}
+												id={opcion.id} 
+												thumbnail_src={imageUrl} 
+												label={opcion.nombre}
+												description={opcion.descripcion} 
+												linkText={"Votar"} 
+												linkHref={"#"}
+												colSm={6}
+												colMd={6}
+												thumbnailDisabled={thumbnailDisabled}
+												buttonClassName={"btn btn-vt btn-lg"}
+												renderButton={true}
+												onClickButton={e => this.handleFormSubmit(opcion.id)}  />
+
+								 		)
+								 	})}
+								</div>
+							 	
+							 	{this.props.messageError? 
+		              	<div className="alert alert-warning" role="alert">
+		                	<span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			                <span className="sr-only">Error:</span>
+			                &nbsp;No se pudo realizar la votacion. {this.props.messageError}
+		              	</div>
+		              	:
+		              	null
+		          	}
+		          	<div className="clear"></div>
+
+							</div>
+					 		{/*</Form>*/}
+				 		</div>
+			 		</div>
 	        	:
 	        	null
 		)

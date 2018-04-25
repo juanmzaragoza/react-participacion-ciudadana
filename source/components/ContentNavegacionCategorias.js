@@ -46,7 +46,7 @@ export class ContentNavegacionCategorias extends React.Component {
 		    				animatedClass = "animated slideInRight";
 		    			}
 
-		    			let href = item.linkHref,
+		    			let href = item.linkHref? item.linkHref:'#',
 		    					target = "_blank";
 		    			if(href.indexOf('${web_url}') >= 0){ // if contains ${web_url}
 		    				href = href.replace('${web_url}','');
